@@ -1,0 +1,1440 @@
+fileFormatVersion: 2
+guid: 21dcc74065877461bad1020baa2d4de1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4288973843018595246
+    second: ley-battle_0
+  - first:
+      213: 3439387333078439716
+    second: ley-battle_1
+  - first:
+      213: 7002861100013261670
+    second: ley-battle_2
+  - first:
+      213: -2827089823925964131
+    second: ley-battle_3
+  - first:
+      213: -6551583909628855786
+    second: ley-battle_4
+  - first:
+      213: -637563871497902563
+    second: ley-battle_5
+  - first:
+      213: -8897734549398057719
+    second: ley-battle_6
+  - first:
+      213: -1410573035273379152
+    second: ley-battle_7
+  - first:
+      213: 2012321344150873563
+    second: ley-battle_8
+  - first:
+      213: -1552294830585904982
+    second: ley-battle_9
+  - first:
+      213: 2879167168701204106
+    second: ley-battle_10
+  - first:
+      213: 4727187363194531211
+    second: ley-battle_11
+  - first:
+      213: -7614392398383743415
+    second: ley-battle_12
+  - first:
+      213: 2254854711307989056
+    second: ley-battle_13
+  - first:
+      213: -4373842821459881569
+    second: ley-battle_14
+  - first:
+      213: -3092206365585360166
+    second: ley-battle_15
+  - first:
+      213: 7404512489873335571
+    second: ley-battle_16
+  - first:
+      213: 5764633085100263677
+    second: ley-battle_17
+  - first:
+      213: 6853353348009233648
+    second: ley-battle_18
+  - first:
+      213: -1202705327427825559
+    second: ley-battle_19
+  - first:
+      213: 7606021239319048039
+    second: ley-battle_20
+  - first:
+      213: -7994049573919097278
+    second: ley-battle_21
+  - first:
+      213: 9172454048689126003
+    second: ley-battle_22
+  - first:
+      213: 2631531216049395606
+    second: ley-battle_23
+  - first:
+      213: -2091992109918277214
+    second: ley-battle_24
+  - first:
+      213: 5784217712048264732
+    second: ley-battle_25
+  - first:
+      213: 2939965335259970209
+    second: ley-battle_26
+  - first:
+      213: 8099832270293298711
+    second: ley-battle_27
+  - first:
+      213: 2995988980877140978
+    second: ley-battle_28
+  - first:
+      213: 6748702327560505311
+    second: ley-battle_29
+  - first:
+      213: 747609077929009727
+    second: ley-battle_30
+  - first:
+      213: -715469688787978374
+    second: ley-battle_31
+  - first:
+      213: -3874723598538041020
+    second: ley-battle_32
+  - first:
+      213: 8875840163892005409
+    second: ley-battle_33
+  - first:
+      213: 1345727233603725184
+    second: ley-battle_34
+  - first:
+      213: -6534151285013407709
+    second: ley-battle_35
+  - first:
+      213: 744843282079375991
+    second: ley-battle_36
+  - first:
+      213: -5188013633650620840
+    second: ley-battle_37
+  - first:
+      213: -3796603827119481948
+    second: ley-battle_38
+  - first:
+      213: -8888924552660196168
+    second: ley-battle_39
+  - first:
+      213: 2336190335897206342
+    second: ley-battle_40
+  - first:
+      213: -204176132090985533
+    second: ley-battle_41
+  - first:
+      213: -4054625709084670489
+    second: ley-battle_42
+  - first:
+      213: 955234301657109026
+    second: ley-battle_43
+  - first:
+      213: 201197753194193501
+    second: ley-battle_44
+  - first:
+      213: -5386200196689388985
+    second: ley-battle_45
+  - first:
+      213: 7011004334585303646
+    second: ley-battle_46
+  - first:
+      213: 6943572165401118270
+    second: ley-battle_47
+  - first:
+      213: -7932764305304737855
+    second: ley-battle_48
+  - first:
+      213: -6809766695773122073
+    second: ley-battle_49
+  - first:
+      213: -3166873636329401549
+    second: ley-battle_50
+  - first:
+      213: -8836364610622484950
+    second: ley-battle_51
+  - first:
+      213: 8662740111913928369
+    second: ley-battle_52
+  - first:
+      213: 5801905359769739725
+    second: ley-battle_53
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ley-battle_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 480
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eabb01c7cfe758b30800000000000000
+      internalID: 4288973843018595246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_1
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 480
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4275e198e882bbf20800000000000000
+      internalID: 3439387333078439716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_2
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 480
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66311b551192f2160800000000000000
+      internalID: 7002861100013261670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_3
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 480
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9275c0a8c824c8d0800000000000000
+      internalID: -2827089823925964131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_4
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 480
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61a386e55291415a0800000000000000
+      internalID: -6551583909628855786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_5
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 480
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d16aebd690be627f0800000000000000
+      internalID: -637563871497902563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_6
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 480
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90d886dc195e48480800000000000000
+      internalID: -8897734549398057719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_7
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 480
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b229c64c43ac6ce0800000000000000
+      internalID: -1410573035273379152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_8
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 480
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd5ac0cc9933deb10800000000000000
+      internalID: 2012321344150873563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_9
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 384
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa080447314257ae0800000000000000
+      internalID: -1552294830585904982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_10
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 384
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a860763194bd4f720800000000000000
+      internalID: 2879167168701204106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_11
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 384
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8dece17cd75a9140800000000000000
+      internalID: 4727187363194531211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_12
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 384
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ef6e9d47e345690800000000000000
+      internalID: -7614392398383743415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_13
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 384
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 040f0a7c96ada4f10800000000000000
+      internalID: 2254854711307989056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_14
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 384
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f91dd73a02dfc43c0800000000000000
+      internalID: -4373842821459881569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_15
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 384
+        width: 51
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada351791b64615d0800000000000000
+      internalID: -3092206365585360166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_16
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 384
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 315e7d5f0ec12c660800000000000000
+      internalID: 7404512489873335571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_17
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 384
+        width: 51
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df88dd1af37100050800000000000000
+      internalID: 5764633085100263677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_18
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 288
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc03543f800c1f50800000000000000
+      internalID: 6853353348009233648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_19
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 288
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 960d13d70e12f4fe0800000000000000
+      internalID: -1202705327427825559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_20
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 288
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76f20bbc4040e8960800000000000000
+      internalID: 7606021239319048039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_21
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 288
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24e70bd444e6f0190800000000000000
+      internalID: -7994049573919097278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_22
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 288
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37a75ba0c5a1b4f70800000000000000
+      internalID: 9172454048689126003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_23
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 288
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 697d9f3d2b3158420800000000000000
+      internalID: 2631531216049395606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_24
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 288
+        width: 51
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a1b6678240c7f2e0800000000000000
+      internalID: -2091992109918277214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_25
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 288
+        width: 51
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c16d82eec5ba54050800000000000000
+      internalID: 5784217712048264732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_26
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 288
+        width: 51
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aaf12455eadcc820800000000000000
+      internalID: 2939965335259970209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_27
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 192
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71ee31bf882686070800000000000000
+      internalID: 8099832270293298711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_28
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 192
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f3aa2cca14e39920800000000000000
+      internalID: 2995988980877140978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_29
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 192
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd78811c20538ad50800000000000000
+      internalID: 6748702327560505311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_30
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 192
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f32e0d0de7a006a00800000000000000
+      internalID: 747609077929009727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_31
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 192
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a77bb38db142216f0800000000000000
+      internalID: -715469688787978374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_32
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 192
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44911529a673a3ac0800000000000000
+      internalID: -3874723598538041020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_33
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 192
+        width: 51
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a8de35a915d2b70800000000000000
+      internalID: 8875840163892005409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_34
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 192
+        width: 51
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 087e48bf9cbfca210800000000000000
+      internalID: 1345727233603725184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_35
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 192
+        width: 51
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3281d1496080255a0800000000000000
+      internalID: -6534151285013407709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_36
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 96
+        width: 57
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7726da9c407365a00800000000000000
+      internalID: 744843282079375991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_37
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 96
+        width: 57
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8560f5466197008b0800000000000000
+      internalID: -5188013633650620840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_38
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 96
+        width: 57
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ab97ab3fe0cf4bc0800000000000000
+      internalID: -3796603827119481948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_39
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 96
+        width: 51
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b4e073073234a480800000000000000
+      internalID: -8888924552660196168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_40
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 96
+        width: 51
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64e7ada9bb0db6020800000000000000
+      internalID: 2336190335897206342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_41
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 96
+        width: 51
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c38a1fb3ee9a2df0800000000000000
+      internalID: -204176132090985533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_42
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 96
+        width: 51
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e587d066631bb7c0800000000000000
+      internalID: -4054625709084670489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_43
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 96
+        width: 51
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2225a8b498ca14d00800000000000000
+      internalID: 955234301657109026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_44
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 96
+        width: 51
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d522fb06a4ccac200800000000000000
+      internalID: 201197753194193501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_45
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74a903b557f5045b0800000000000000
+      internalID: -5386200196689388985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_46
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e525ea1eb471c4160800000000000000
+      internalID: 7011004334585303646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_47
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 51
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e36060788168c5060800000000000000
+      internalID: 6943572165401118270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_48
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 0
+        width: 51
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c7a967d4e829e190800000000000000
+      internalID: -7932764305304737855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_49
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 0
+        width: 51
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e158271549de71a0800000000000000
+      internalID: -6809766695773122073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_50
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 0
+        width: 51
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3335902e4310d04d0800000000000000
+      internalID: -3166873636329401549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_51
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 0
+        width: 78
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e8306243dee5580800000000000000
+      internalID: -8836364610622484950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_52
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 0
+        width: 78
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b648201c3c383870800000000000000
+      internalID: 8662740111913928369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ley-battle_53
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 0
+        width: 78
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc1a2855f22848050800000000000000
+      internalID: 5801905359769739725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: bd0bae269021f4c868cff89377ca7cf0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

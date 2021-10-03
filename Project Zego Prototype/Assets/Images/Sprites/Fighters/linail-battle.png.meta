@@ -1,0 +1,1440 @@
+fileFormatVersion: 2
+guid: af32464f7b4324eac8026e2d6dca756f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1797203182045940087
+    second: linail-battle_0
+  - first:
+      213: -1713610982537513547
+    second: linail-battle_1
+  - first:
+      213: 4888434514413638438
+    second: linail-battle_2
+  - first:
+      213: 5979817528178569551
+    second: linail-battle_3
+  - first:
+      213: 3603320925464043028
+    second: linail-battle_4
+  - first:
+      213: -1613941607009882330
+    second: linail-battle_5
+  - first:
+      213: 2679227266844201584
+    second: linail-battle_6
+  - first:
+      213: 3572249148893817971
+    second: linail-battle_7
+  - first:
+      213: 3079765911680062779
+    second: linail-battle_8
+  - first:
+      213: -6466466758038920960
+    second: linail-battle_9
+  - first:
+      213: 9177510518524365828
+    second: linail-battle_10
+  - first:
+      213: 8419248239849007846
+    second: linail-battle_11
+  - first:
+      213: 5034958063913017868
+    second: linail-battle_12
+  - first:
+      213: -6903338188072639283
+    second: linail-battle_13
+  - first:
+      213: 6022003695400279535
+    second: linail-battle_14
+  - first:
+      213: 5076284280141662789
+    second: linail-battle_15
+  - first:
+      213: 7749014001262064330
+    second: linail-battle_16
+  - first:
+      213: 6543912667051612603
+    second: linail-battle_17
+  - first:
+      213: 5487118862876387604
+    second: linail-battle_18
+  - first:
+      213: -6445034916694847117
+    second: linail-battle_19
+  - first:
+      213: -8947862316889097356
+    second: linail-battle_20
+  - first:
+      213: 6183430709466420245
+    second: linail-battle_21
+  - first:
+      213: -6186803432399907244
+    second: linail-battle_22
+  - first:
+      213: 4595331216637108808
+    second: linail-battle_23
+  - first:
+      213: -242826011653679040
+    second: linail-battle_24
+  - first:
+      213: 7214830344380622883
+    second: linail-battle_25
+  - first:
+      213: -1113763707966260327
+    second: linail-battle_26
+  - first:
+      213: 8953703203204991371
+    second: linail-battle_27
+  - first:
+      213: 5593806613750601299
+    second: linail-battle_28
+  - first:
+      213: 7247479794139527433
+    second: linail-battle_29
+  - first:
+      213: 2149111289919578429
+    second: linail-battle_30
+  - first:
+      213: 195856759821399231
+    second: linail-battle_31
+  - first:
+      213: 8422776540189980839
+    second: linail-battle_32
+  - first:
+      213: -205905160129313604
+    second: linail-battle_33
+  - first:
+      213: -1423280120728412523
+    second: linail-battle_34
+  - first:
+      213: 4356656442144050209
+    second: linail-battle_35
+  - first:
+      213: 3503537571098956866
+    second: linail-battle_36
+  - first:
+      213: 6660342755650374731
+    second: linail-battle_37
+  - first:
+      213: -3427873820652267539
+    second: linail-battle_38
+  - first:
+      213: -3396676987340881113
+    second: linail-battle_39
+  - first:
+      213: -1040081329069410712
+    second: linail-battle_40
+  - first:
+      213: -6113205416925943277
+    second: linail-battle_41
+  - first:
+      213: 9182551046070950018
+    second: linail-battle_42
+  - first:
+      213: -1130802441286439174
+    second: linail-battle_43
+  - first:
+      213: 3923114022038975043
+    second: linail-battle_44
+  - first:
+      213: -642336033072121212
+    second: linail-battle_45
+  - first:
+      213: 3284844999192494603
+    second: linail-battle_46
+  - first:
+      213: -4915840108611658193
+    second: linail-battle_47
+  - first:
+      213: -6907627260076066976
+    second: linail-battle_48
+  - first:
+      213: 6459158586861922333
+    second: linail-battle_49
+  - first:
+      213: 6757185876344513697
+    second: linail-battle_50
+  - first:
+      213: 4933097367666114020
+    second: linail-battle_51
+  - first:
+      213: -1862629708196624443
+    second: linail-battle_52
+  - first:
+      213: -843372177661857305
+    second: linail-battle_53
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: linail-battle_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 480
+        width: 48
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 779cc07a5c2f0f810800000000000000
+      internalID: 1797203182045940087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_1
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 480
+        width: 48
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b5b4a6f3e70838e0800000000000000
+      internalID: -1713610982537513547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_2
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 480
+        width: 48
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62352637a4537d340800000000000000
+      internalID: 4888434514413638438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_3
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 480
+        width: 54
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f41fcb40c549cf250800000000000000
+      internalID: 5979817528178569551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_4
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 480
+        width: 60
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41e140e5a41910230800000000000000
+      internalID: 3603320925464043028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_5
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 480
+        width: 48
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62fe3f1d8a02a99e0800000000000000
+      internalID: -1613941607009882330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_6
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 480
+        width: 54
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0721ac801078e2520800000000000000
+      internalID: 2679227266844201584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_7
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 480
+        width: 48
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37ce101acad239130800000000000000
+      internalID: 3572249148893817971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_8
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 480
+        width: 54
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b351c0587c68dba20800000000000000
+      internalID: 3079765911680062779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_9
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 384
+        width: 51
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001e73f8ebe7246a0800000000000000
+      internalID: -6466466758038920960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_10
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 384
+        width: 51
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40c4e0b21311d5f70800000000000000
+      internalID: 9177510518524365828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_11
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 384
+        width: 51
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea6804caad27d470800000000000000
+      internalID: 8419248239849007846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_12
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 384
+        width: 54
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c02268acea3cfd540800000000000000
+      internalID: 5034958063913017868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_13
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 384
+        width: 54
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc4aa8f4e7a6230a0800000000000000
+      internalID: -6903338188072639283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_14
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 384
+        width: 54
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fed5c6c7474729350800000000000000
+      internalID: 6022003695400279535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_15
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 384
+        width: 60
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54a4eb058a5927640800000000000000
+      internalID: 5076284280141662789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_16
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 384
+        width: 48
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac2f0c89d270a8b60800000000000000
+      internalID: 7749014001262064330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_17
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 384
+        width: 60
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb95ac846e5a0da50800000000000000
+      internalID: 6543912667051612603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_18
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 288
+        width: 51
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 419a716a889262c40800000000000000
+      internalID: 5487118862876387604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_19
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 288
+        width: 51
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3711a69f3e2ae86a0800000000000000
+      internalID: -6445034916694847117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_20
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 288
+        width: 51
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47bb8be61aec2d380800000000000000
+      internalID: -8947862316889097356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_21
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 288
+        width: 54
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 514dcf21875ffc550800000000000000
+      internalID: 6183430709466420245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_22
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 288
+        width: 51
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 456d2acae0f042aa0800000000000000
+      internalID: -6186803432399907244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_23
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 288
+        width: 48
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8422be8f465e5cf30800000000000000
+      internalID: 4595331216637108808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_24
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 288
+        width: 57
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0485829670f41acf0800000000000000
+      internalID: -242826011653679040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_25
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 288
+        width: 57
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 328248fe8f9302460800000000000000
+      internalID: 7214830344380622883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_26
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 288
+        width: 57
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99bf2fefecd1b80f0800000000000000
+      internalID: -1113763707966260327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_27
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 192
+        width: 51
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b898f43ef91f14c70800000000000000
+      internalID: 8953703203204991371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_28
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 192
+        width: 51
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 356d5da5a7131ad40800000000000000
+      internalID: 5593806613750601299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_29
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 192
+        width: 51
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 909f1865978349460800000000000000
+      internalID: 7247479794139527433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_30
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 198
+        width: 75
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d31207ae45d23dd10800000000000000
+      internalID: 2149111289919578429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_31
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 198
+        width: 75
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb473047fa2d7b200800000000000000
+      internalID: 195856759821399231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_32
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 198
+        width: 75
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a8748433a6b3e470800000000000000
+      internalID: 8422776540189980839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_33
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 192
+        width: 57
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb48219095a742df0800000000000000
+      internalID: -205905160129313604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_34
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 192
+        width: 57
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59e9b14654e7f3ce0800000000000000
+      internalID: -1423280120728412523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_35
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 192
+        width: 57
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12cc96a93f3f57c30800000000000000
+      internalID: 4356656442144050209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_36
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 96
+        width: 54
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 244969ebbd01f9030800000000000000
+      internalID: 3503537571098956866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_37
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 96
+        width: 54
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4c03e0c27a4e6c50800000000000000
+      internalID: 6660342755650374731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_38
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 96
+        width: 54
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de71929fbeebd60d0800000000000000
+      internalID: -3427873820652267539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_39
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 96
+        width: 60
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7238dc0c6449cd0d0800000000000000
+      internalID: -3396676987340881113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_40
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 96
+        width: 60
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8663d43ba83e091f0800000000000000
+      internalID: -1040081329069410712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_41
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 96
+        width: 60
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31aa22dff08892ba0800000000000000
+      internalID: -6113205416925943277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_42
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 96
+        width: 57
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28853f07689fe6f70800000000000000
+      internalID: 9182551046070950018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_43
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 96
+        width: 57
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afe2affbb259e40f0800000000000000
+      internalID: -1130802441286439174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_44
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 96
+        width: 57
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 342bcf0ea63b17630800000000000000
+      internalID: 3923114022038975043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_45
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 51
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48a7d4af7c6f517f0800000000000000
+      internalID: -642336033072121212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_46
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 51
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0246177f1d169d20800000000000000
+      internalID: 3284844999192494603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_47
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 51
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e9599677d67cbb0800000000000000
+      internalID: -4915840108611658193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_48
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 0
+        width: 60
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0677c5aea9d2320a0800000000000000
+      internalID: -6907627260076066976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_49
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 0
+        width: 60
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d18a1dd338a83a950800000000000000
+      internalID: 6459158586861922333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_50
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 0
+        width: 60
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a42dc0e0c856cd50800000000000000
+      internalID: 6757185876344513697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_51
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 0
+        width: 78
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ed37225be1e57440800000000000000
+      internalID: 4933097367666114020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_52
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 0
+        width: 78
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c7c9d6262c9626e0800000000000000
+      internalID: -1862629708196624443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: linail-battle_53
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 0
+        width: 78
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e17409097dbb44f0800000000000000
+      internalID: -843372177661857305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: fcae213d8f99e42d5b96487b00b47c34
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
