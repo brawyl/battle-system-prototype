@@ -10,8 +10,6 @@ public class CharController : MonoBehaviour
     private TMP_Text charNameText;
     [SerializeField]
     private Slider hpSlider;
-    [SerializeField]
-    private GameObject characterObject;
 
     public string charName;
     public int charHPMax;
@@ -25,6 +23,9 @@ public class CharController : MonoBehaviour
     void Start()
     {
         charAlive = true;
+        charHPCurrent = charHPMax;
+        hpSlider.value = 1.0f;
+        charNameText.text = charName;
     }
 
     // Update is called once per frame

@@ -1818,6 +1818,18 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charName
+      value: KNIGHT
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: hpSlider
+      value: 
+      objectReference: {fileID: 1851962520}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charNameText
+      value: 
+      objectReference: {fileID: 1211130282}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
 --- !u!4 &578495966 stripped
@@ -2588,6 +2600,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 64436545}
     m_Modifications:
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charName
+      value: REPTILE
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: hpSlider
+      value: 
+      objectReference: {fileID: 1501537384}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charNameText
+      value: 
+      objectReference: {fileID: 1799388413}
     - target: {fileID: 7048460026234556248, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.72
@@ -2668,7 +2692,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7048460027249405648, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
 --- !u!4 &913091985 stripped
 Transform:
@@ -2793,7 +2818,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 924735461}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1530755388}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: showMenuMain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &924735461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3234,7 +3271,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1060408458}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1530755388}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: showMenuMain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1060408458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3823,6 +3872,52 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1530755387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1530755389}
+  - component: {fileID: 1530755388}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1530755388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530755387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0526bb8d48d4643be45f60d5cf44a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuMain: {fileID: 885929226}
+  menuAttack: {fileID: 187620963}
+  menuTarget: {fileID: 966421537}
+--- !u!4 &1530755389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530755387}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.5, y: 0.5, z: -1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1553448655
 GameObject:
   m_ObjectHideFlags: 0
@@ -4363,7 +4458,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1624010688}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1530755388}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: showMenuMain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1624010688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4679,6 +4786,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 64436545}
     m_Modifications:
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charName
+      value: SNAKE
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: hpSlider
+      value: 
+      objectReference: {fileID: 1815325332}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charNameText
+      value: 
+      objectReference: {fileID: 1210583436}
     - target: {fileID: 7048460026234556248, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.46
@@ -4759,7 +4878,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7048460027249405648, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
 --- !u!4 &1687977912 stripped
 Transform:
@@ -5206,6 +5326,18 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charName
+      value: PALADIN
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: hpSlider
+      value: 
+      objectReference: {fileID: 1613497223}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charNameText
+      value: 
+      objectReference: {fileID: 558950948}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
 --- !u!4 &1771002477 stripped
@@ -5927,7 +6059,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1917530304}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1530755388}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: showMenuAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1917530304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6048,7 +6192,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1938071040}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1530755388}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: showMenuTarget
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1938071040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6842,6 +6998,18 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charName
+      value: RANGER
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: hpSlider
+      value: 
+      objectReference: {fileID: 342007820}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charNameText
+      value: 
+      objectReference: {fileID: 1854410241}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
 --- !u!1001 &7048460027333605549
@@ -6851,6 +7019,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 64436545}
     m_Modifications:
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charName
+      value: DRAGON
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: hpSlider
+      value: 
+      objectReference: {fileID: 1984869979}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charNameText
+      value: 
+      objectReference: {fileID: 54753238}
     - target: {fileID: 7048460026234556248, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.98
@@ -6931,5 +7111,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7048460027249405648, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
