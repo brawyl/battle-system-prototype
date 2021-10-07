@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 90
+  controlID: 43
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 442}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 91
+  controlID: 44
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 136
+  controlID: 89
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -418,11 +418,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.047811247, y: -0.14037573, z: 0.0067915665, w: 0.98893565}
     speed: 2
-    m_Value: {x: 0.04782064, y: -0.13889003, z: 0.006719738, w: 0.9891298}
+    m_Value: {x: -0.047811247, y: 0.14037573, z: -0.0067915665, w: -0.98893565}
   m_Size:
     m_Target: 5.3028717
     speed: 2
-    m_Value: 5.602872
+    m_Value: 5.3028717
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -826,9 +826,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 18fbffff
-      m_LastClickedID: -1256
-      m_ExpandedIDs: 18fbffff22fbffff2cfbffff38fbffff44fbffff4efbffff50fbffff704700008a470000
+      m_SelectedIDs: b2f7ffff
+      m_LastClickedID: -2126
+      m_ExpandedIDs: 50d9ffff54d9ffff58d9ffffc2e2ffff3af9ffff22fbffff50fbffff7047000078470000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -890,13 +890,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Images/Sprites/Heroes
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 60
   m_LastFolders:
-  - Assets/Images/Sprites/Heroes
+  - Assets/Scripts
   m_LastFoldersGridSize: 60
   m_LastProjectPath: /Users/brandonwylie/workspace/unity/project-zego-prototype/Project
     Zego Prototype
@@ -904,9 +904,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ba4e0000
-    m_LastClickedID: 20154
-    m_ExpandedIDs: 00000000f64a0000fa4a0000184b000000ca9a3b
+    m_SelectedIDs: 244b0000
+    m_LastClickedID: 19236
+    m_ExpandedIDs: 000000000c4b00000e4b0000104b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -934,7 +934,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f64a0000
+    m_ExpandedIDs: 000000000c4b00000e4b0000104b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
