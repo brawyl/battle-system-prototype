@@ -1827,9 +1827,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1851962520}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charAlive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charHPMax
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charDefense
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charNameText
       value: 
       objectReference: {fileID: 1211130282}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charStrength
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
 --- !u!4 &578495966 stripped
@@ -2609,9 +2629,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1501537384}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charAlive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charHPMax
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charDefense
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charNameText
       value: 
       objectReference: {fileID: 1799388413}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charStrength
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7048460026234556248, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.72
@@ -2647,6 +2687,10 @@ PrefabInstance:
     - target: {fileID: 7048460027249405649, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_Name
       value: Enemy 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7048460027249405649, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: m_TagString
+      value: Enemy2
       objectReference: {fileID: 0}
     - target: {fileID: 7048460027249405651, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_RootOrder
@@ -2749,7 +2793,7 @@ GameObject:
   - component: {fileID: 924735461}
   - component: {fileID: 924735460}
   m_Layer: 5
-  m_Name: Button Target 3
+  m_Name: Enemy3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2821,11 +2865,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1530755388}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: showMenuMain
-        m_Mode: 1
+        m_MethodName: attackTarget
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 924735460}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3202,7 +3246,7 @@ GameObject:
   - component: {fileID: 1060408458}
   - component: {fileID: 1060408457}
   m_Layer: 5
-  m_Name: Button Target 2
+  m_Name: Enemy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3274,11 +3318,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1530755388}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: showMenuMain
-        m_Mode: 1
+        m_MethodName: attackTarget
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1060408457}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4389,7 +4433,7 @@ GameObject:
   - component: {fileID: 1624010688}
   - component: {fileID: 1624010687}
   m_Layer: 5
-  m_Name: Button Target 1
+  m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4461,11 +4505,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1530755388}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: showMenuMain
-        m_Mode: 1
+        m_MethodName: attackTarget
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1624010687}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4795,9 +4839,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1815325332}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charAlive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charHPMax
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charDefense
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charNameText
       value: 
       objectReference: {fileID: 1210583436}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charStrength
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7048460026234556248, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.46
@@ -4833,6 +4897,10 @@ PrefabInstance:
     - target: {fileID: 7048460027249405649, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_Name
       value: Enemy 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7048460027249405649, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: m_TagString
+      value: Enemy3
       objectReference: {fileID: 0}
     - target: {fileID: 7048460027249405651, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_RootOrder
@@ -5335,9 +5403,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1613497223}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charAlive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charHPMax
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charDefense
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charNameText
       value: 
       objectReference: {fileID: 558950948}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charStrength
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
 --- !u!4 &1771002477 stripped
@@ -7007,9 +7095,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 342007820}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charAlive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charHPMax
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charDefense
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charNameText
       value: 
       objectReference: {fileID: 1854410241}
+    - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
+      propertyPath: charStrength
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
 --- !u!1001 &7048460027333605549
@@ -7028,9 +7136,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1984869979}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charAlive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charHPMax
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charDefense
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charNameText
       value: 
       objectReference: {fileID: 54753238}
+    - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: charStrength
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7048460026234556248, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.98
@@ -7066,6 +7194,10 @@ PrefabInstance:
     - target: {fileID: 7048460027249405649, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_Name
       value: Enemy 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7048460027249405649, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
+      propertyPath: m_TagString
+      value: Enemy1
       objectReference: {fileID: 0}
     - target: {fileID: 7048460027249405651, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_RootOrder

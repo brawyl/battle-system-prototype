@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -45,5 +46,12 @@ public class GameManager : MonoBehaviour
     {
         hideAllMenus();
         menuTarget.gameObject.SetActive(true);
+    }
+
+    public void attackTarget(Button button)
+    {
+        CharController target = GameObject.FindGameObjectWithTag(button.name).GetComponent<CharController>();
+        target.TakeDamage(10);
+        showMenuMain();
     }
 }
