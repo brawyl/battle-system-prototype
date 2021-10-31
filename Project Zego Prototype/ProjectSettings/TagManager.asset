@@ -4,9 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy1
-  - Enemy2
-  - Enemy3
+  - Enemy
+  - Hero
   layers:
   - Default
   - TransparentFX

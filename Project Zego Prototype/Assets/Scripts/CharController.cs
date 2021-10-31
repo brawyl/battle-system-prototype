@@ -11,6 +11,8 @@ public class CharController : MonoBehaviour
     [SerializeField]
     private Slider hpSlider;
 
+    private Vector3 startPosition;
+
     public string charName;
     public int charHPMax;
     public int charHPCurrent;
@@ -18,6 +20,7 @@ public class CharController : MonoBehaviour
     public int charDefense;
     public int charSpeed;
     public bool charAlive;
+    public bool activeTurn;
 
     // Start is called before the first frame update
     void Start()
@@ -26,12 +29,37 @@ public class CharController : MonoBehaviour
         charHPCurrent = charHPMax;
         hpSlider.value = 1.0f;
         charNameText.text = charName;
+
+        //get starting position
+        startPosition = gameObject.GetComponent<Transform>().position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void CheckTurn()
+    {
+        if (activeTurn)
+        {
+            gameObject.transform.position = Vector3.zero;
+            if (gameObject.tag.Equals("Hero"))
+            {
+                GameManager.instance.ShowMenuMain();
+            }
+            else
+            {
+                //reduce time for enemy turns
+                GameManager.instance.timerValue = 2f;
+            }
+        }
+        else
+        {
+            gameObject.transform.position = startPosition;
+            GameManager.instance.HideAllMenus();
+        }
     }
 
     public void TakeDamage(int damage)
@@ -46,7 +74,7 @@ public class CharController : MonoBehaviour
         }
     }
 
-    void damageTarget(int damage, GameObject target)
+    void DamageTarget(int damage, GameObject target)
     {
         target.GetComponent<CharController>().TakeDamage(damage);
     }
