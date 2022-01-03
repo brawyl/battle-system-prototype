@@ -16,7 +16,13 @@ public class GameManager : MonoBehaviour
     public float timerValue;
     public float timerPreset;
 
+    public TMP_Text menuText;
+
     private ArrayList turnOrder;
+    private GameObject activeObject;
+
+    private float enemyTurnTime = 1f;
+    private float inbetweenTurnTime = 0.5f;
 
     void Awake()
     {
@@ -72,16 +78,58 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timerValue > 0)
+        if (timerValue > 0)
         {
             timerValue -= Time.deltaTime;
             timerText.text = ((int)timerValue).ToString();
+
+            //if (activeObject != null && activeObject.Tag.Equals("Enemy"))
+            //{
+
+            //}
         }
         else
         {
-            EndTurn();
-            timerValue = timerPreset;
-            NextTurn();
+            timerValue = 0;
+            timerText.text = ((int)timerValue).ToString();
+        }
+    }
+
+    public void SetMenuDesc(string menuCode)
+    {
+        Debug.Log(menuCode);
+
+        if (menuCode[0] == '0')
+        {
+            menuText.text = "MAIN MENU";
+        }
+        else if (menuCode[0] == '1')
+        {
+            menuText.text = "ATTACK";
+            if (menuCode.Length > 1 && menuCode[1] == '0')
+            {
+                menuText.text = "ATTACK LIGHT";
+            }
+            else if (menuCode.Length > 1 && menuCode[1] == '1')
+            {
+                menuText.text = "ATTACK HEAVY";
+            }
+        }
+        else if (menuCode[0] == '2')
+        {
+            menuText.text = "SKILL";
+        }
+        else if (menuCode[0] == '3')
+        {
+            menuText.text = "ITEM";
+        }
+        else if (menuCode[0] == '4')
+        {
+            menuText.text = "DEFEND";
+        }
+        else if (menuCode[0] == '5')
+        {
+            menuText.text = "RUN";
         }
     }
 
@@ -95,12 +143,14 @@ public class GameManager : MonoBehaviour
     public void ShowMenuMain()
     {
         HideAllMenus();
+        SetMenuDesc("0");
         menuMain.gameObject.SetActive(true);
     }
 
     public void ShowMenuAttack()
     {
         HideAllMenus();
+        SetMenuDesc("1");
         menuAttack.gameObject.SetActive(true);
     }
 
@@ -115,7 +165,7 @@ public class GameManager : MonoBehaviour
         CharController target = GameObject.Find(button.name).GetComponent<CharController>();
         //TODO: factor stats into damage calc
         target.TakeDamage(10);
-        ShowMenuMain();
+        EndTurn();
     }
 
     public void EndTurn()
@@ -124,19 +174,20 @@ public class GameManager : MonoBehaviour
 
         //end active char turn
         string charName = activeChar.Split('_')[1];
-        GameObject activeObject = GameObject.Find(charName);
+        activeObject = GameObject.Find(charName);
         activeObject.GetComponent<CharController>().activeTurn = false;
         activeObject.GetComponent<CharController>().CheckTurn();
 
         //move active char to back of turn order list
         turnOrder.RemoveAt(0);
         turnOrder.Add(activeChar);
+        NextTurn();
     }
 
     public void NextTurn()
     {
         string charName = turnOrder[0].ToString().Split('_')[1];
-        GameObject activeObject = GameObject.Find(charName);
+        activeObject = GameObject.Find(charName);
         activeObject.GetComponent<CharController>().activeTurn = true;
         activeObject.GetComponent<CharController>().CheckTurn();
     }
