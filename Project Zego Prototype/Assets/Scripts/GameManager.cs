@@ -17,13 +17,14 @@ public class GameManager : MonoBehaviour
     public float timerPreset;
 
     public TMP_Text menuText;
+
+    public GameObject gameOverScreen;
+    public TMP_Text gameOverText;
+
     private string menuCode;
 
     private ArrayList turnOrder;
     private GameObject activeObject;
-
-    private float enemyTurnTime = 1f;
-    private float inbetweenTurnTime = 0.5f;
 
     //menu description strings
     [SerializeField]
@@ -62,6 +63,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameOverScreen.SetActive(false);
+
         timerValue = timerPreset;
         GameObject[] heroes = GameObject.FindGameObjectsWithTag("Hero");
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
