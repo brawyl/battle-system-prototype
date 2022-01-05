@@ -17,12 +17,29 @@ public class GameManager : MonoBehaviour
     public float timerPreset;
 
     public TMP_Text menuText;
+    private string menuCode;
 
     private ArrayList turnOrder;
     private GameObject activeObject;
 
     private float enemyTurnTime = 1f;
     private float inbetweenTurnTime = 0.5f;
+
+    //menu description strings
+    [SerializeField]
+    private string menuAttackLight = "ATTACK LIGHT";
+    [SerializeField]
+    private string menuAttackHeavy = "ATTACK HEAVY";
+
+    //attack ranges
+    [SerializeField]
+    private float attackLightMin = 0.5f;
+    [SerializeField]
+    private float attackLightMax = 0.75f;
+    [SerializeField]
+    private float attackHeavyMin = 0.9f;
+    [SerializeField]
+    private float attackHeavyMax = 1.25f;
 
     void Awake()
     {
@@ -83,6 +100,7 @@ public class GameManager : MonoBehaviour
             timerValue -= Time.deltaTime;
             timerText.text = ((int)timerValue).ToString();
 
+            //TODO: enemy turn actions
             //if (activeObject != null && activeObject.Tag.Equals("Enemy"))
             //{
 
@@ -95,9 +113,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetMenuDesc(string menuCode)
+    public void SetMenuDesc(string newCode)
     {
-        Debug.Log(menuCode);
+        menuCode = newCode;
 
         if (menuCode[0] == '0')
         {
@@ -108,11 +126,11 @@ public class GameManager : MonoBehaviour
             menuText.text = "ATTACK";
             if (menuCode.Length > 1 && menuCode[1] == '0')
             {
-                menuText.text = "ATTACK LIGHT";
+                menuText.text = menuAttackLight;
             }
             else if (menuCode.Length > 1 && menuCode[1] == '1')
             {
-                menuText.text = "ATTACK HEAVY";
+                menuText.text = menuAttackHeavy;
             }
         }
         else if (menuCode[0] == '2')
@@ -130,6 +148,10 @@ public class GameManager : MonoBehaviour
         else if (menuCode[0] == '5')
         {
             menuText.text = "RUN";
+        }
+        else
+        {
+            Debug.Log("unrecognized menu code");
         }
     }
 
@@ -162,17 +184,21 @@ public class GameManager : MonoBehaviour
 
     public void AttackTarget(Button button)
     {
+        //deal damage
+        int damageToTake = damageCalc();
         CharController target = GameObject.Find(button.name).GetComponent<CharController>();
-        //TODO: factor stats into damage calc
-        target.TakeDamage(10);
+        target.TakeDamage(damageToTake);
+
         EndTurn();
     }
 
     public void EndTurn()
     {
-        string activeChar = turnOrder[0].ToString();
+        //clear menu description text
+        menuText.text = "";
 
         //end active char turn
+        string activeChar = turnOrder[0].ToString();
         string charName = activeChar.Split('_')[1];
         activeObject = GameObject.Find(charName);
         activeObject.GetComponent<CharController>().activeTurn = false;
@@ -190,5 +216,27 @@ public class GameManager : MonoBehaviour
         activeObject = GameObject.Find(charName);
         activeObject.GetComponent<CharController>().activeTurn = true;
         activeObject.GetComponent<CharController>().CheckTurn();
+    }
+
+    private int damageCalc()
+    {
+        //get active char stats
+        string activeChar = turnOrder[0].ToString();
+        string charName = activeChar.Split('_')[1];
+        CharController attacker = GameObject.Find(charName).GetComponent<CharController>();
+        int attackStrength = attacker.charStrength;
+        float damage = 0f;
+
+        //check menu desc for damage calc
+        if (menuText.text == menuAttackLight)
+        {
+            damage = attackStrength * Random.Range(attackLightMin, attackLightMax);
+        }
+        else if (menuText.text == menuAttackHeavy)
+        {
+            damage = attackStrength * Random.Range(attackHeavyMin, attackHeavyMax);
+        }
+
+        return (int)damage;
     }
 }
