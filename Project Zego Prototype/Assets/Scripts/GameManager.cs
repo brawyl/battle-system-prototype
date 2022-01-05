@@ -194,8 +194,13 @@ public class GameManager : MonoBehaviour
 
     public void EnemyTurn()
     {
+        StartCoroutine(EnemyActions());
+    }
+
+    private IEnumerator EnemyActions()
+    {
         //even random number (1-10) for light attack, odd for heavy
-        if (Random.Range(1,11) % 2 == 0)
+        if (Random.Range(1, 11) % 2 == 0)
         {
             menuText.text = menuAttackLight;
         }
@@ -204,14 +209,15 @@ public class GameManager : MonoBehaviour
             menuText.text = menuAttackHeavy;
         }
 
+        //2 sec delay so player can see what happened
+        yield return new WaitForSeconds(2);
+
         //random player target
-        string targetName = "Hero " + Random.Range(1,4);
+        string targetName = "Hero " + Random.Range(1, 4);
         CharController target = GameObject.Find(targetName).GetComponent<CharController>();
 
         int damageToTake = damageCalc();
         target.TakeDamage(damageToTake);
-
-        //TODO:add a 2 second delay
 
         EndTurn();
     }
