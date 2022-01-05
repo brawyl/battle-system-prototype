@@ -51,8 +51,8 @@ public class CharController : MonoBehaviour
             }
             else
             {
-                //reduce time for enemy turns
-                GameManager.instance.timerValue = 2f;
+                //enemy targets random player with random attack (heavy or light)
+                GameManager.instance.EnemyTurn();
             }
         }
         else

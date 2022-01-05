@@ -35,11 +35,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float attackLightMin = 0.5f;
     [SerializeField]
-    private float attackLightMax = 0.75f;
+    private float attackLightMax = 0.6f;
     [SerializeField]
     private float attackHeavyMin = 0.9f;
     [SerializeField]
-    private float attackHeavyMax = 1.25f;
+    private float attackHeavyMax = 1.0f;
 
     void Awake()
     {
@@ -188,6 +188,30 @@ public class GameManager : MonoBehaviour
         int damageToTake = damageCalc();
         CharController target = GameObject.Find(button.name).GetComponent<CharController>();
         target.TakeDamage(damageToTake);
+
+        EndTurn();
+    }
+
+    public void EnemyTurn()
+    {
+        //even random number (1-10) for light attack, odd for heavy
+        if (Random.Range(1,11) % 2 == 0)
+        {
+            menuText.text = menuAttackLight;
+        }
+        else
+        {
+            menuText.text = menuAttackHeavy;
+        }
+
+        //random player target
+        string targetName = "Hero " + Random.Range(1,4);
+        CharController target = GameObject.Find(targetName).GetComponent<CharController>();
+
+        int damageToTake = damageCalc();
+        target.TakeDamage(damageToTake);
+
+        //TODO:add a 2 second delay
 
         EndTurn();
     }
