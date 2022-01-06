@@ -4368,8 +4368,6 @@ MonoBehaviour:
   menuAttack: {fileID: 187620963}
   menuTarget: {fileID: 966421537}
   timerText: {fileID: 1667713953}
-  timerValue: 0
-  timerPreset: 5
   menuText: {fileID: 1565754670}
   gameOverScreen: {fileID: 1638486782}
   gameOverText: {fileID: 164634667}
@@ -5348,7 +5346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1667713952
 RectTransform:
   m_ObjectHideFlags: 0

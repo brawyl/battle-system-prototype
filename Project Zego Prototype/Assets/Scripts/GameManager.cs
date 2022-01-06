@@ -13,9 +13,6 @@ public class GameManager : MonoBehaviour
     public GameObject menuTarget;
 
     public TMP_Text timerText;
-    public float timerValue;
-    public float timerPreset;
-
     public TMP_Text menuText;
 
     public GameObject gameOverScreen;
@@ -65,7 +62,6 @@ public class GameManager : MonoBehaviour
     {
         gameOverScreen.SetActive(false);
 
-        timerValue = timerPreset;
         GameObject[] heroes = GameObject.FindGameObjectsWithTag("Hero");
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         turnOrder = new ArrayList();
@@ -98,22 +94,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timerValue > 0)
-        {
-            timerValue -= Time.deltaTime;
-            timerText.text = ((int)timerValue).ToString();
-
-            //TODO: enemy turn actions
-            //if (activeObject != null && activeObject.Tag.Equals("Enemy"))
-            //{
-
-            //}
-        }
-        else
-        {
-            timerValue = 0;
-            timerText.text = ((int)timerValue).ToString();
-        }
+        
     }
 
     public void SetMenuDesc(string newCode)
@@ -170,6 +151,7 @@ public class GameManager : MonoBehaviour
         HideAllMenus();
         SetMenuDesc("0");
         menuMain.gameObject.SetActive(true);
+        UpdateTimer();
     }
 
     public void ShowMenuAttack()
@@ -195,8 +177,20 @@ public class GameManager : MonoBehaviour
         EndTurn();
     }
 
+    private void UpdateTimer()
+    {
+        //show char speed on timer text
+        string activeChar = turnOrder[0].ToString();
+        string charName = activeChar.Split('_')[1];
+        activeObject = GameObject.Find(charName);
+        int speed = activeObject.GetComponent<CharController>().charSpeed;
+
+        timerText.text = speed.ToString();
+    }
+
     public void EnemyTurn()
     {
+        UpdateTimer();
         StartCoroutine(EnemyActions());
     }
 
@@ -229,6 +223,7 @@ public class GameManager : MonoBehaviour
     {
         //clear menu description text
         menuText.text = "";
+        timerText.text = "";
 
         //end active char turn
         string activeChar = turnOrder[0].ToString();
