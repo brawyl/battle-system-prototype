@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameOver = false;
-        UIManager.instance.ShowGameOverScreen(gameOver);
+        gameObject.GetComponent<UIManager>().ShowGameOverScreen(gameOver);
 
         GameObject[] heroes = GameObject.FindGameObjectsWithTag("Hero");
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
     {
         //deal damage
         int enemyStrength = ((GameObject)turnOrder[0]).GetComponent<CharController>().charStrength;
-        int damageToTake = Attack.instance.damageCalc(enemyStrength);
+        int damageToTake = gameObject.GetComponent<Attack>().damageCalc(enemyStrength);
         GameObject targetObject = GameObject.Find(button.name);
         CharController target = targetObject.GetComponent<CharController>();
         target.TakeDamage(damageToTake);
@@ -93,11 +93,11 @@ public class GameManager : MonoBehaviour
         //even random number (1-10) for light attack, odd for heavy
         if (Random.Range(1, 11) % 2 == 0)
         {
-            UIManager.instance.menuText.text = UIManager.instance.menuAttackLight;
+            gameObject.GetComponent<UIManager>().menuText.text = gameObject.GetComponent<UIManager>().menuAttackLight;
         }
         else
         {
-            UIManager.instance.menuText.text = UIManager.instance.menuAttackHeavy;
+            gameObject.GetComponent<UIManager>().menuText.text = gameObject.GetComponent<UIManager>().menuAttackHeavy;
         }
 
         //2 sec delay so player can see what happened
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         CharController target = targetObject.GetComponent<CharController>();
 
         int enemyStrength = ((GameObject)turnOrder[0]).GetComponent<CharController>().charStrength;
-        int damageToTake = Attack.instance.damageCalc(enemyStrength);
+        int damageToTake = gameObject.GetComponent<Attack>().damageCalc(enemyStrength);
         target.TakeDamage(damageToTake);
 
         if (!target.charAlive)
@@ -129,8 +129,8 @@ public class GameManager : MonoBehaviour
         if (gameOver) { return; }
 
         //clear menu description text
-        UIManager.instance.menuText.text = "";
-        UIManager.instance.timerText.text = "";
+        gameObject.GetComponent<UIManager>().menuText.text = "";
+        gameObject.GetComponent<UIManager>().timerText.text = "";
 
         //end active char turn
         activeChar = (GameObject)turnOrder[0];
@@ -169,14 +169,14 @@ public class GameManager : MonoBehaviour
         if (heroes.Length == 0)
         {
             gameOver = true;
-            UIManager.instance.gameOverText.text = "YOU LOSE";
+            gameObject.GetComponent<UIManager>().gameOverText.text = "YOU LOSE";
         }
         else if (enemies.Length == 0)
         {
             gameOver = true;
-            UIManager.instance.gameOverText.text = "YOU WIN";
+            gameObject.GetComponent<UIManager>().gameOverText.text = "YOU WIN";
         }
-        UIManager.instance.ShowGameOverScreen(gameOver);
+        gameObject.GetComponent<UIManager>().ShowGameOverScreen(gameOver);
     }
 
     public void RestartGame()

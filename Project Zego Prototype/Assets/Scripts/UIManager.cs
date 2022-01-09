@@ -5,8 +5,6 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager instance;
-
     public GameObject menuMain;
     public GameObject menuAttack;
     public GameObject menuTarget;
@@ -22,24 +20,6 @@ public class UIManager : MonoBehaviour
     //menu description strings
     public string menuAttackLight = "ATTACK LIGHT";
     public string menuAttackHeavy = "ATTACK HEAVY";
-
-    void Awake()
-    {
-        //check if instance exists
-        if (instance == null)
-        {
-            //set instance to this
-            instance = this;
-        }
-        //exists but is another instance
-        else if (instance != this)
-        {
-            //destroy it
-            Destroy(gameObject);
-        }
-        //set this to not be destroyable
-        DontDestroyOnLoad(gameObject);
-    }
 
     public void HideAllMenus()
     {

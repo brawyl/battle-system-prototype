@@ -47,19 +47,19 @@ public class CharController : MonoBehaviour
             gameObject.transform.position = Vector3.zero;
             if (gameObject.tag.Equals("Hero"))
             {
-                UIManager.instance.ShowMenuMain();
+                GameManager.instance.GetComponent<UIManager>().ShowMenuMain();
             }
             else
             {
                 //enemy targets random player with random action
                 GameManager.instance.EnemyTurn();
             }
-            UIManager.instance.UpdateTimerText(charSpeed.ToString());
+            GameManager.instance.GetComponent<UIManager>().UpdateTimerText(charSpeed.ToString());
         }
         else
         {
             gameObject.transform.position = startPosition;
-            UIManager.instance.HideAllMenus();
+            GameManager.instance.GetComponent<UIManager>().HideAllMenus();
         }
     }
 
