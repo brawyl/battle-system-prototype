@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,13 +16,16 @@ public class GameManager : MonoBehaviour
     public TMP_Text timerText;
     public TMP_Text menuText;
 
+    [SerializeField]
+    private bool gameOver;
+
     public GameObject gameOverScreen;
     public TMP_Text gameOverText;
 
     private string menuCode;
 
     private ArrayList turnOrder;
-    private GameObject activeObject;
+    private GameObject activeChar;
 
     //menu description strings
     [SerializeField]
@@ -60,6 +64,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameOver = false;
         gameOverScreen.SetActive(false);
 
         GameObject[] heroes = GameObject.FindGameObjectsWithTag("Hero");
@@ -69,24 +74,12 @@ public class GameManager : MonoBehaviour
         //build turn order list
         foreach(GameObject hero in heroes)
         {
-            string charSpeed = hero.GetComponent<CharController>().charSpeed.ToString();
-            //prepend 0 in front of speed stat for sorting
-            charSpeed = charSpeed.Length < 2 ? "0" + charSpeed : charSpeed;
-            string charName = hero.name;
-            turnOrder.Add(charSpeed + "_" + charName);
+            turnOrder.Add(hero);
         }
         foreach (GameObject enemy in enemies)
         {
-            string charSpeed = enemy.GetComponent<CharController>().charSpeed.ToString();
-            //prepend 0 in front of speed stat for sorting
-            charSpeed = charSpeed.Length < 2 ? "0" + charSpeed : charSpeed;
-            string charName = enemy.name;
-            turnOrder.Add(charSpeed + "_" + charName);
+            turnOrder.Add(enemy);
         }
-
-        //sort turn order list according to speed stats
-        turnOrder.Sort();
-        turnOrder.Reverse();
 
         NextTurn();
     }
@@ -171,8 +164,18 @@ public class GameManager : MonoBehaviour
     {
         //deal damage
         int damageToTake = damageCalc();
-        CharController target = GameObject.Find(button.name).GetComponent<CharController>();
+        GameObject targetObject = GameObject.Find(button.name);
+        CharController target = targetObject.GetComponent<CharController>();
         target.TakeDamage(damageToTake);
+
+        if (!target.charAlive)
+        {
+            target.gameObject.SetActive(false);
+            turnOrder.Remove(targetObject);
+
+            //check remaining characters for win/lose state
+            CheckGameOver();
+        }
 
         EndTurn();
     }
@@ -180,10 +183,8 @@ public class GameManager : MonoBehaviour
     private void UpdateTimer()
     {
         //show char speed on timer text
-        string activeChar = turnOrder[0].ToString();
-        string charName = activeChar.Split('_')[1];
-        activeObject = GameObject.Find(charName);
-        int speed = activeObject.GetComponent<CharController>().charSpeed;
+        activeChar = (GameObject)turnOrder[0];
+        int speed = activeChar.GetComponent<CharController>().charSpeed;
 
         timerText.text = speed.ToString();
     }
@@ -211,26 +212,39 @@ public class GameManager : MonoBehaviour
 
         //random player target
         string targetName = "Hero " + Random.Range(1, 4);
-        CharController target = GameObject.Find(targetName).GetComponent<CharController>();
+        GameObject targetObject = GameObject.Find(targetName);
+        CharController target = targetObject.GetComponent<CharController>();
 
         int damageToTake = damageCalc();
         target.TakeDamage(damageToTake);
+
+        if (!target.charAlive)
+        {
+            target.gameObject.SetActive(false);
+            turnOrder.Remove(targetObject);
+
+            //check remaining characters for win/lose state
+            CheckGameOver();
+        }
 
         EndTurn();
     }
 
     public void EndTurn()
     {
+        if (gameOver) { return; }
+
         //clear menu description text
         menuText.text = "";
         timerText.text = "";
 
         //end active char turn
-        string activeChar = turnOrder[0].ToString();
-        string charName = activeChar.Split('_')[1];
-        activeObject = GameObject.Find(charName);
-        activeObject.GetComponent<CharController>().activeTurn = false;
-        activeObject.GetComponent<CharController>().CheckTurn();
+        activeChar = (GameObject)turnOrder[0];
+        if (activeChar != null && activeChar.GetComponent<CharController>().charAlive)
+        {
+            activeChar.GetComponent<CharController>().activeTurn = false;
+            activeChar.GetComponent<CharController>().CheckTurn();
+        }
 
         //move active char to back of turn order list
         turnOrder.RemoveAt(0);
@@ -240,18 +254,24 @@ public class GameManager : MonoBehaviour
 
     public void NextTurn()
     {
-        string charName = turnOrder[0].ToString().Split('_')[1];
-        activeObject = GameObject.Find(charName);
-        activeObject.GetComponent<CharController>().activeTurn = true;
-        activeObject.GetComponent<CharController>().CheckTurn();
+        activeChar = (GameObject)turnOrder[0];
+        if (activeChar != null && activeChar.GetComponent<CharController>().charAlive)
+        {
+            activeChar.GetComponent<CharController>().activeTurn = true;
+            activeChar.GetComponent<CharController>().CheckTurn();
+        }
+        else
+        {
+            turnOrder.RemoveAt(0);
+            EndTurn();
+        }
     }
 
     private int damageCalc()
     {
         //get active char stats
-        string activeChar = turnOrder[0].ToString();
-        string charName = activeChar.Split('_')[1];
-        CharController attacker = GameObject.Find(charName).GetComponent<CharController>();
+        activeChar = (GameObject)turnOrder[0];
+        CharController attacker = activeChar.GetComponent<CharController>();
         int attackStrength = attacker.charStrength;
         float damage = 0f;
 
@@ -266,5 +286,29 @@ public class GameManager : MonoBehaviour
         }
 
         return (int)damage;
+    }
+
+    private void CheckGameOver()
+    {
+        GameObject[] heroes = GameObject.FindGameObjectsWithTag("Hero");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        if (heroes.Length == 0)
+        {
+            gameOver = true;
+            gameOverScreen.SetActive(true);
+            gameOverText.text = "YOU LOSE";
+        }
+        else if (enemies.Length == 0)
+        {
+            gameOver = true;
+            gameOverScreen.SetActive(true);
+            gameOverText.text = "YOU WIN";
+        }
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

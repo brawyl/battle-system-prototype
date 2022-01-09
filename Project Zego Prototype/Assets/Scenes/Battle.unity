@@ -1881,7 +1881,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 390380584}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1530755388}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &390380584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2242,7 +2254,7 @@ PrefabInstance:
       objectReference: {fileID: 1211130282}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charStrength
-      value: 10
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
@@ -3044,7 +3056,7 @@ PrefabInstance:
       objectReference: {fileID: 1799388413}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charStrength
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7048460026234556248, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4369,6 +4381,7 @@ MonoBehaviour:
   menuTarget: {fileID: 966421537}
   timerText: {fileID: 1667713953}
   menuText: {fileID: 1565754670}
+  gameOver: 0
   gameOverScreen: {fileID: 1638486782}
   gameOverText: {fileID: 164634667}
   menuAttackLight: ATTACK LIGHT
@@ -5500,7 +5513,7 @@ PrefabInstance:
       objectReference: {fileID: 1210583436}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charStrength
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7048460026234556248, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6068,7 +6081,7 @@ PrefabInstance:
       objectReference: {fileID: 558950948}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charStrength
-      value: 10
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
@@ -7776,7 +7789,7 @@ PrefabInstance:
       objectReference: {fileID: 1854410241}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charStrength
-      value: 10
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
@@ -7817,7 +7830,7 @@ PrefabInstance:
       objectReference: {fileID: 54753238}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charStrength
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7048460026234556248, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_LocalPosition.y

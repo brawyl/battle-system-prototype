@@ -51,7 +51,7 @@ public class CharController : MonoBehaviour
             }
             else
             {
-                //enemy targets random player with random attack (heavy or light)
+                //enemy targets random player with random action
                 GameManager.instance.EnemyTurn();
             }
         }
