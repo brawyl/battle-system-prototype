@@ -20,10 +20,8 @@ public class UIManager : MonoBehaviour
     private string menuCode;
 
     //menu description strings
-    [SerializeField]
-    private string menuAttackLight = "ATTACK LIGHT";
-    [SerializeField]
-    private string menuAttackHeavy = "ATTACK HEAVY";
+    public string menuAttackLight = "ATTACK LIGHT";
+    public string menuAttackHeavy = "ATTACK HEAVY";
 
     void Awake()
     {
@@ -41,18 +39,6 @@ public class UIManager : MonoBehaviour
         }
         //set this to not be destroyable
         DontDestroyOnLoad(gameObject);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void HideAllMenus()

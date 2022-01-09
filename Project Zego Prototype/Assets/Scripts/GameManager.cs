@@ -15,22 +15,6 @@ public class GameManager : MonoBehaviour
     private ArrayList turnOrder;
     private GameObject activeChar;
 
-    //menu description strings
-    [SerializeField]
-    private string menuAttackLight = "ATTACK LIGHT";
-    [SerializeField]
-    private string menuAttackHeavy = "ATTACK HEAVY";
-
-    //attack ranges
-    [SerializeField]
-    private float attackLightMin = 0.5f;
-    [SerializeField]
-    private float attackLightMax = 0.6f;
-    [SerializeField]
-    private float attackHeavyMin = 0.9f;
-    [SerializeField]
-    private float attackHeavyMax = 1.0f;
-
     void Awake()
     {
         //check if instance exists
@@ -81,7 +65,8 @@ public class GameManager : MonoBehaviour
     public void AttackTarget(Button button)
     {
         //deal damage
-        int damageToTake = damageCalc();
+        int enemyStrength = ((GameObject)turnOrder[0]).GetComponent<CharController>().charStrength;
+        int damageToTake = Attack.instance.damageCalc(enemyStrength);
         GameObject targetObject = GameObject.Find(button.name);
         CharController target = targetObject.GetComponent<CharController>();
         target.TakeDamage(damageToTake);
@@ -108,11 +93,11 @@ public class GameManager : MonoBehaviour
         //even random number (1-10) for light attack, odd for heavy
         if (Random.Range(1, 11) % 2 == 0)
         {
-            UIManager.instance.menuText.text = menuAttackLight;
+            UIManager.instance.menuText.text = UIManager.instance.menuAttackLight;
         }
         else
         {
-            UIManager.instance.menuText.text = menuAttackHeavy;
+            UIManager.instance.menuText.text = UIManager.instance.menuAttackHeavy;
         }
 
         //2 sec delay so player can see what happened
@@ -123,7 +108,8 @@ public class GameManager : MonoBehaviour
         GameObject targetObject = heroes[Random.Range(0, heroes.Length)];
         CharController target = targetObject.GetComponent<CharController>();
 
-        int damageToTake = damageCalc();
+        int enemyStrength = ((GameObject)turnOrder[0]).GetComponent<CharController>().charStrength;
+        int damageToTake = Attack.instance.damageCalc(enemyStrength);
         target.TakeDamage(damageToTake);
 
         if (!target.charAlive)
@@ -173,27 +159,6 @@ public class GameManager : MonoBehaviour
             turnOrder.RemoveAt(0);
             EndTurn();
         }
-    }
-
-    private int damageCalc()
-    {
-        //get active char stats
-        activeChar = (GameObject)turnOrder[0];
-        CharController attacker = activeChar.GetComponent<CharController>();
-        int attackStrength = attacker.charStrength;
-        float damage = 0f;
-
-        //check menu desc for damage calc
-        if (UIManager.instance.menuText.text == menuAttackLight)
-        {
-            damage = attackStrength * Random.Range(attackLightMin, attackLightMax);
-        }
-        else if (UIManager.instance.menuText.text == menuAttackHeavy)
-        {
-            damage = attackStrength * Random.Range(attackHeavyMin, attackHeavyMax);
-        }
-
-        return (int)damage;
     }
 
     private void CheckGameOver()
