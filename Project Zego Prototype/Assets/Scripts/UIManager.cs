@@ -124,7 +124,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void UpdateTimer(string speed)
+    public void UpdateTimerText(string speed)
     {
         timerText.text = speed.ToString();
     }

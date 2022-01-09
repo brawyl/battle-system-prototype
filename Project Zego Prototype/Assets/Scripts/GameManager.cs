@@ -98,18 +98,8 @@ public class GameManager : MonoBehaviour
         EndTurn();
     }
 
-    private void UpdateTimer()
-    {
-        //show char speed on timer text
-        activeChar = (GameObject)turnOrder[0];
-        int speed = activeChar.GetComponent<CharController>().charSpeed;
-
-        speed.ToString();
-    }
-
     public void EnemyTurn()
     {
-        UpdateTimer();
         StartCoroutine(EnemyActions());
     }
 

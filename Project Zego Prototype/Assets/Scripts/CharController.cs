@@ -54,6 +54,7 @@ public class CharController : MonoBehaviour
                 //enemy targets random player with random action
                 GameManager.instance.EnemyTurn();
             }
+            UIManager.instance.UpdateTimerText(charSpeed.ToString());
         }
         else
         {
