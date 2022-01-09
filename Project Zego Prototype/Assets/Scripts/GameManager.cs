@@ -9,20 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public GameObject menuMain;
-    public GameObject menuAttack;
-    public GameObject menuTarget;
-
-    public TMP_Text timerText;
-    public TMP_Text menuText;
-
     [SerializeField]
     private bool gameOver;
-
-    public GameObject gameOverScreen;
-    public TMP_Text gameOverText;
-
-    private string menuCode;
 
     private ArrayList turnOrder;
     private GameObject activeChar;
@@ -65,7 +53,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameOver = false;
-        gameOverScreen.SetActive(false);
+        UIManager.instance.ShowGameOverScreen(gameOver);
 
         GameObject[] heroes = GameObject.FindGameObjectsWithTag("Hero");
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -88,76 +76,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void SetMenuDesc(string newCode)
-    {
-        menuCode = newCode;
-
-        if (menuCode[0] == '0')
-        {
-            menuText.text = "MAIN MENU";
-        }
-        else if (menuCode[0] == '1')
-        {
-            menuText.text = "ATTACK";
-            if (menuCode.Length > 1 && menuCode[1] == '0')
-            {
-                menuText.text = menuAttackLight;
-            }
-            else if (menuCode.Length > 1 && menuCode[1] == '1')
-            {
-                menuText.text = menuAttackHeavy;
-            }
-        }
-        else if (menuCode[0] == '2')
-        {
-            menuText.text = "SKILL";
-        }
-        else if (menuCode[0] == '3')
-        {
-            menuText.text = "ITEM";
-        }
-        else if (menuCode[0] == '4')
-        {
-            menuText.text = "DEFEND";
-        }
-        else if (menuCode[0] == '5')
-        {
-            menuText.text = "RUN";
-        }
-        else
-        {
-            Debug.Log("unrecognized menu code");
-        }
-    }
-
-    public void HideAllMenus()
-    {
-        menuMain.gameObject.SetActive(false);
-        menuAttack.gameObject.SetActive(false);
-        menuTarget.gameObject.SetActive(false);
-    }
-
-    public void ShowMenuMain()
-    {
-        HideAllMenus();
-        SetMenuDesc("0");
-        menuMain.gameObject.SetActive(true);
-        UpdateTimer();
-    }
-
-    public void ShowMenuAttack()
-    {
-        HideAllMenus();
-        SetMenuDesc("1");
-        menuAttack.gameObject.SetActive(true);
-    }
-
-    public void ShowMenuTarget()
-    {
-        HideAllMenus();
-        menuTarget.gameObject.SetActive(true);
     }
 
     public void AttackTarget(Button button)
@@ -186,7 +104,7 @@ public class GameManager : MonoBehaviour
         activeChar = (GameObject)turnOrder[0];
         int speed = activeChar.GetComponent<CharController>().charSpeed;
 
-        timerText.text = speed.ToString();
+        speed.ToString();
     }
 
     public void EnemyTurn()
@@ -200,19 +118,19 @@ public class GameManager : MonoBehaviour
         //even random number (1-10) for light attack, odd for heavy
         if (Random.Range(1, 11) % 2 == 0)
         {
-            menuText.text = menuAttackLight;
+            UIManager.instance.menuText.text = menuAttackLight;
         }
         else
         {
-            menuText.text = menuAttackHeavy;
+            UIManager.instance.menuText.text = menuAttackHeavy;
         }
 
         //2 sec delay so player can see what happened
         yield return new WaitForSeconds(2);
 
         //random player target
-        string targetName = "Hero " + Random.Range(1, 4);
-        GameObject targetObject = GameObject.Find(targetName);
+        GameObject[] heroes = GameObject.FindGameObjectsWithTag("Hero");
+        GameObject targetObject = heroes[Random.Range(0, heroes.Length)];
         CharController target = targetObject.GetComponent<CharController>();
 
         int damageToTake = damageCalc();
@@ -235,8 +153,8 @@ public class GameManager : MonoBehaviour
         if (gameOver) { return; }
 
         //clear menu description text
-        menuText.text = "";
-        timerText.text = "";
+        UIManager.instance.menuText.text = "";
+        UIManager.instance.timerText.text = "";
 
         //end active char turn
         activeChar = (GameObject)turnOrder[0];
@@ -276,11 +194,11 @@ public class GameManager : MonoBehaviour
         float damage = 0f;
 
         //check menu desc for damage calc
-        if (menuText.text == menuAttackLight)
+        if (UIManager.instance.menuText.text == menuAttackLight)
         {
             damage = attackStrength * Random.Range(attackLightMin, attackLightMax);
         }
-        else if (menuText.text == menuAttackHeavy)
+        else if (UIManager.instance.menuText.text == menuAttackHeavy)
         {
             damage = attackStrength * Random.Range(attackHeavyMin, attackHeavyMax);
         }
@@ -296,15 +214,14 @@ public class GameManager : MonoBehaviour
         if (heroes.Length == 0)
         {
             gameOver = true;
-            gameOverScreen.SetActive(true);
-            gameOverText.text = "YOU LOSE";
+            UIManager.instance.gameOverText.text = "YOU LOSE";
         }
         else if (enemies.Length == 0)
         {
             gameOver = true;
-            gameOverScreen.SetActive(true);
-            gameOverText.text = "YOU WIN";
+            UIManager.instance.gameOverText.text = "YOU WIN";
         }
+        UIManager.instance.ShowGameOverScreen(gameOver);
     }
 
     public void RestartGame()

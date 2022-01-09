@@ -3056,7 +3056,7 @@ PrefabInstance:
       objectReference: {fileID: 1799388413}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charStrength
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7048460026234556248, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3601,8 +3601,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1530755388}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 2020320450}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ShowMenuTarget
         m_Mode: 1
         m_Arguments:
@@ -3613,8 +3613,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1530755388}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 2020320450}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: SetMenuDesc
         m_Mode: 5
         m_Arguments:
@@ -4376,14 +4376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db0526bb8d48d4643be45f60d5cf44a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuMain: {fileID: 885929226}
-  menuAttack: {fileID: 187620963}
-  menuTarget: {fileID: 966421537}
-  timerText: {fileID: 1667713953}
-  menuText: {fileID: 1565754670}
   gameOver: 0
-  gameOverScreen: {fileID: 1638486782}
-  gameOverText: {fileID: 164634667}
   menuAttackLight: ATTACK LIGHT
   menuAttackHeavy: ATTACK HEAVY
   attackLightMin: 0.5
@@ -5513,7 +5506,7 @@ PrefabInstance:
       objectReference: {fileID: 1210583436}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charStrength
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7048460026234556248, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6805,8 +6798,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1530755388}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 2020320450}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ShowMenuAttack
         m_Mode: 1
         m_Arguments:
@@ -6938,8 +6931,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1530755388}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 2020320450}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ShowMenuTarget
         m_Mode: 1
         m_Arguments:
@@ -6950,8 +6943,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1530755388}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 2020320450}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: SetMenuDesc
         m_Mode: 5
         m_Arguments:
@@ -7398,6 +7391,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2020320449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2020320451}
+  - component: {fileID: 2020320450}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2020320450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020320449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e1ba64613544c919eb9eeee60189f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuMain: {fileID: 885929226}
+  menuAttack: {fileID: 187620963}
+  menuTarget: {fileID: 966421537}
+  timerText: {fileID: 1667713953}
+  menuText: {fileID: 1565754670}
+  gameOverScreen: {fileID: 1638486782}
+  gameOverText: {fileID: 164634667}
+  menuAttackLight: ATTACK LIGHT
+  menuAttackHeavy: ATTACK HEAVY
+--- !u!4 &2020320451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020320449}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.5, y: 0.5, z: -1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2042160665
 GameObject:
   m_ObjectHideFlags: 0
@@ -7830,7 +7875,7 @@ PrefabInstance:
       objectReference: {fileID: 54753238}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charStrength
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7048460026234556248, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: m_LocalPosition.y

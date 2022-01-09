@@ -47,7 +47,7 @@ public class CharController : MonoBehaviour
             gameObject.transform.position = Vector3.zero;
             if (gameObject.tag.Equals("Hero"))
             {
-                GameManager.instance.ShowMenuMain();
+                UIManager.instance.ShowMenuMain();
             }
             else
             {
@@ -58,7 +58,7 @@ public class CharController : MonoBehaviour
         else
         {
             gameObject.transform.position = startPosition;
-            GameManager.instance.HideAllMenus();
+            UIManager.instance.HideAllMenus();
         }
     }
 
