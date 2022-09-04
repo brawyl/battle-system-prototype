@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Hero
+  - Button_target
+  - Button_attack
+  - Button_main
   layers:
   - Default
   - TransparentFX

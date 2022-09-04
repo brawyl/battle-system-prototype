@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
         GameObject[] heroes = GameObject.FindGameObjectsWithTag("Hero");
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] targetButtons = GameObject.FindGameObjectsWithTag("Button_target");
         turnOrder = new ArrayList();
 
         //build turn order list
@@ -30,9 +31,17 @@ public class GameManager : MonoBehaviour
         {
             turnOrder.Add(hero);
         }
-        foreach (GameObject enemy in enemies)
+        //foreach (GameObject enemy in enemies)
+        //{
+        //    turnOrder.Add(enemy);
+        //}
+        for (int i=0; i<enemies.Length; i++)
         {
+            GameObject enemy = enemies[i];
             turnOrder.Add(enemy);
+            //assign target button names
+            GameObject targetButton = targetButtons[i];
+            targetButton.GetComponentInChildren<TMP_Text>().text = enemy.GetComponent<CharController>().charName;
         }
 
         menuSelection = "";
@@ -40,11 +49,12 @@ public class GameManager : MonoBehaviour
 
     public void AttackTarget(Button button)
     {
-        string targetName = button.name;
+        string buttonName = button.name;
+        string enemyObjectName = buttonName.Replace("target_", "ENEMY ");
         //deal damage
         int strength = ((GameObject)turnOrder[0]).GetComponent<CharController>().charStrength;
         int damageToTake = gameObject.GetComponent<Attack>().damageCalc(strength, menuSelection);
-        GameObject targetObject = GameObject.Find(button.GetComponentInChildren<TMP_Text>().text);
+        GameObject targetObject = GameObject.Find(enemyObjectName);
         CharController target = targetObject.GetComponent<CharController>();
         target.TakeDamage(damageToTake);
 
