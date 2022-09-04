@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     {
         string buttonName = button.name;
         string enemyObjectName = buttonName.Replace("target_", "ENEMY ");
+        string enemyObjectIndex = buttonName.Replace("target_", "");
         //deal damage
         int strength = ((GameObject)turnOrder[0]).GetComponent<CharController>().charStrength;
         int damageToTake = gameObject.GetComponent<Attack>().damageCalc(strength, menuSelection);
@@ -54,12 +55,18 @@ public class GameManager : MonoBehaviour
         CharController target = targetObject.GetComponent<CharController>();
         target.TakeDamage(damageToTake);
 
+        //subract 1 from enemy index since the named index starts at 1
+        int enemyIndex = int.Parse(enemyObjectIndex) - 1;
+        GameObject damageText = gameObject.GetComponent<UIManager>().enemyDamageText[enemyIndex];
+        damageText.GetComponent<TMP_Text>().text = damageToTake.ToString();
+        damageText.GetComponent<Animation>().Play();
+
         if (!target.charAlive)
         {
             target.gameObject.SetActive(false);
             turnOrder.Remove(targetObject);
 
-            //remove enemy target button if KO'd
+            //deactivate enemy target button if KO'd
             button.gameObject.SetActive(false);
 
             //check remaining characters for win/lose state
@@ -92,12 +99,17 @@ public class GameManager : MonoBehaviour
 
         //random player target
         GameObject[] heroes = GameObject.FindGameObjectsWithTag("Hero");
-        GameObject targetObject = heroes[Random.Range(0, heroes.Length)];
+        int heroIndex = Random.Range(0, heroes.Length);
+        GameObject targetObject = heroes[heroIndex];
         CharController target = targetObject.GetComponent<CharController>();
 
         int enemyStrength = ((GameObject)turnOrder[0]).GetComponent<CharController>().charStrength;
         int damageToTake = gameObject.GetComponent<Attack>().damageCalc(enemyStrength, menuSelection);
         target.TakeDamage(damageToTake);
+
+        GameObject damageText = gameObject.GetComponent<UIManager>().heroDamageText[heroIndex];
+        damageText.GetComponent<TMP_Text>().text = damageToTake.ToString();
+        damageText.GetComponent<Animation>().Play();
 
         if (!target.charAlive)
         {

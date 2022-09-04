@@ -30,6 +30,8 @@ public class UIManager : MonoBehaviour
     public GameObject[] targetButtons;
     public GameObject restartButton;
 
+    public List<GameObject> heroDamageText, enemyDamageText;
+
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
