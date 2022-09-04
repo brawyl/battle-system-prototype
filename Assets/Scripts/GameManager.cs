@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
     private bool gameOver;
     [SerializeField]
     private ArrayList turnOrder;
-    [SerializeField]
-    private GameObject activeChar;
+
+    public GameObject activeChar;
 
     public string menuSelection;
 
@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
         string enemyObjectName = buttonName.Replace("target_", "ENEMY ");
         string enemyObjectIndex = buttonName.Replace("target_", "");
         //deal damage
-        GameObject activeChar = (GameObject)turnOrder[0];
         int strength = activeChar.GetComponent<CharController>().charStrengthCurrent;
         int attackStrength = gameObject.GetComponent<Attack>().damageCalc(strength, menuSelection);
         GameObject targetObject = GameObject.Find(enemyObjectName);
@@ -67,7 +66,8 @@ public class GameManager : MonoBehaviour
         int baseDefense = activeChar.GetComponent<CharController>().charDefenseBase;
         activeChar.GetComponent<CharController>().charDefenseCurrent = baseDefense;
 
-        //todo: remove defend icon if there
+        //change sprite to idle pose
+        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().idlePose;
 
         if (!target.charAlive)
         {
@@ -86,11 +86,12 @@ public class GameManager : MonoBehaviour
 
     public void Defend()
     {
-        GameObject activeChar = (GameObject)turnOrder[0];
+        //modify def stat
         int baseDefense = activeChar.GetComponent<CharController>().charDefenseBase;
         activeChar.GetComponent<CharController>().charDefenseCurrent = baseDefense * 2;
 
-        //todo: show defend icon
+        //change sprite to def pose
+        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().defendPose;
 
         EndTurn();
     }
@@ -130,6 +131,9 @@ public class GameManager : MonoBehaviour
         GameObject damageText = gameObject.GetComponent<UIManager>().heroDamageText[heroIndex];
         damageText.GetComponent<TMP_Text>().text = damageToTake.ToString();
         damageText.GetComponent<Animation>().Play();
+
+        //change sprite to idle pose
+        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().idlePose;
 
         if (!target.charAlive)
         {

@@ -97,7 +97,12 @@ public class UIManager : MonoBehaviour
                 break;
             }
         }
-        
+
+        //change to atk pose
+        GameObject activeChar = gameManager.activeChar;
+        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().attackPose;
+
+
     }
 
     public void SetMenuDesc(string newDesc)

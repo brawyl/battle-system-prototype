@@ -27,6 +27,8 @@ public class CharController : MonoBehaviour
     public bool charAlive;
     public bool activeTurn;
 
+    public Sprite idlePose, attackPose, defendPose;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,9 +51,15 @@ public class CharController : MonoBehaviour
             if (gameObject.tag.Equals("Hero"))
             {
                 gameManager.GetComponent<UIManager>().ShowMenuMain();
+
+                //reset to idle pose on turn start
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = idlePose;
             }
             else
             {
+                //set to atk pose on turn start for enemy
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = attackPose;
+
                 //enemy targets random player with random action
                 gameManager.EnemyTurn();
             }
