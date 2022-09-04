@@ -49,10 +49,12 @@ public class GameManager : MonoBehaviour
         string enemyObjectName = buttonName.Replace("target_", "ENEMY ");
         string enemyObjectIndex = buttonName.Replace("target_", "");
         //deal damage
-        int strength = ((GameObject)turnOrder[0]).GetComponent<CharController>().charStrength;
-        int damageToTake = gameObject.GetComponent<Attack>().damageCalc(strength, menuSelection);
+        GameObject activeChar = (GameObject)turnOrder[0];
+        int strength = activeChar.GetComponent<CharController>().charStrengthCurrent;
+        int attackStrength = gameObject.GetComponent<Attack>().damageCalc(strength, menuSelection);
         GameObject targetObject = GameObject.Find(enemyObjectName);
         CharController target = targetObject.GetComponent<CharController>();
+        int damageToTake = attackStrength - target.charDefenseCurrent;
         target.TakeDamage(damageToTake);
 
         //subract 1 from enemy index since the named index starts at 1
@@ -60,6 +62,12 @@ public class GameManager : MonoBehaviour
         GameObject damageText = gameObject.GetComponent<UIManager>().enemyDamageText[enemyIndex];
         damageText.GetComponent<TMP_Text>().text = damageToTake.ToString();
         damageText.GetComponent<Animation>().Play();
+
+        //reset current defense to base defense after attacking
+        int baseDefense = activeChar.GetComponent<CharController>().charDefenseBase;
+        activeChar.GetComponent<CharController>().charDefenseCurrent = baseDefense;
+
+        //todo: remove defend icon if there
 
         if (!target.charAlive)
         {
@@ -72,6 +80,17 @@ public class GameManager : MonoBehaviour
             //check remaining characters for win/lose state
             CheckGameOver();
         }
+
+        EndTurn();
+    }
+
+    public void Defend()
+    {
+        GameObject activeChar = (GameObject)turnOrder[0];
+        int baseDefense = activeChar.GetComponent<CharController>().charDefenseBase;
+        activeChar.GetComponent<CharController>().charDefenseCurrent = baseDefense * 2;
+
+        //todo: show defend icon
 
         EndTurn();
     }
@@ -103,8 +122,9 @@ public class GameManager : MonoBehaviour
         GameObject targetObject = heroes[heroIndex];
         CharController target = targetObject.GetComponent<CharController>();
 
-        int enemyStrength = ((GameObject)turnOrder[0]).GetComponent<CharController>().charStrength;
-        int damageToTake = gameObject.GetComponent<Attack>().damageCalc(enemyStrength, menuSelection);
+        int enemyStrength = ((GameObject)turnOrder[0]).GetComponent<CharController>().charStrengthCurrent;
+        int attackStrength = gameObject.GetComponent<Attack>().damageCalc(enemyStrength, menuSelection);
+        int damageToTake = attackStrength - target.charDefenseCurrent;
         target.TakeDamage(damageToTake);
 
         GameObject damageText = gameObject.GetComponent<UIManager>().heroDamageText[heroIndex];

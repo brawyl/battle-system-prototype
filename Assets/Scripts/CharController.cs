@@ -18,9 +18,12 @@ public class CharController : MonoBehaviour
     public string charName;
     public int charHPMax;
     public int charHPCurrent;
-    public int charStrength;
-    public int charDefense;
-    public int charSpeed;
+    public int charStrengthBase;
+    public int charStrengthCurrent;
+    public int charDefenseBase;
+    public int charDefenseCurrent;
+    public int charSpeedBase;
+    public int charSpeedCurrent;
     public bool charAlive;
     public bool activeTurn;
 
@@ -52,7 +55,7 @@ public class CharController : MonoBehaviour
                 //enemy targets random player with random action
                 gameManager.EnemyTurn();
             }
-            gameManager.GetComponent<UIManager>().UpdateTimerText(charSpeed.ToString());
+            gameManager.GetComponent<UIManager>().UpdateTimerText(charSpeedCurrent.ToString());
         }
         else
         {
