@@ -32,6 +32,8 @@ public class UIManager : MonoBehaviour
 
     public List<GameObject> heroDamageText, enemyDamageText;
 
+    public GameObject currentMenu;
+
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -44,11 +46,36 @@ public class UIManager : MonoBehaviour
         gameManager.NextTurn();
     }
 
+    private void Update()
+    {
+        //manu navigation with arrow keys
+        if (currentMenu != null)
+        {
+            if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.Escape))
+            {
+                if (currentMenu == menuAttack)
+                {
+                    ShowMenuMain();
+                }
+                else if (currentMenu == menuTarget)
+                {
+                    ShowMenuAttack();
+                }
+            }
+            else if (Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                //click the selected button right right arrow to go to next menu
+                EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
+            }
+        }
+    }
+
     public void HideAllMenus()
     {
         menuMain.gameObject.SetActive(false);
         menuAttack.gameObject.SetActive(false);
         menuTarget.gameObject.SetActive(false);
+        currentMenu = null;
     }
 
     public void ShowMenuMain()
@@ -62,6 +89,12 @@ public class UIManager : MonoBehaviour
 
         //set a new selected object
         EventSystem.current.SetSelectedGameObject(mainFirstButton);
+
+        //change to atk pose
+        GameObject activeChar = gameManager.activeChar;
+        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().idlePose;
+
+        currentMenu = menuMain;
     }
 
     public void ShowMenuAttack()
@@ -75,6 +108,12 @@ public class UIManager : MonoBehaviour
 
         //set a new selected object
         EventSystem.current.SetSelectedGameObject(attackFirstButton);
+
+        //change to atk pose
+        GameObject activeChar = gameManager.activeChar;
+        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().attackPose;
+
+        currentMenu = menuAttack;
     }
 
     public void ShowMenuTarget(Button button)
@@ -98,11 +137,7 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        //change to atk pose
-        GameObject activeChar = gameManager.activeChar;
-        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().attackPose;
-
-
+        currentMenu = menuTarget;
     }
 
     public void SetMenuDesc(string newDesc)
@@ -131,6 +166,8 @@ public class UIManager : MonoBehaviour
 
         //set a new selected object
         EventSystem.current.SetSelectedGameObject(restartButton);
+
+        currentMenu = null;
     }
 
     private void BuildMenuItems()
