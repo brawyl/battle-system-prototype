@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
@@ -24,6 +25,10 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverObject;
     public GameObject gameOverScreen;
     public TMP_Text gameOverText;
+
+    public GameObject mainFirstButton, attackFirstButton;
+    public GameObject[] targetButtons;
+    public GameObject restartButton;
 
     private void Start()
     {
@@ -49,6 +54,12 @@ public class UIManager : MonoBehaviour
         HideAllMenus();
         SetMenuDesc("ACTION");
         menuMain.gameObject.SetActive(true);
+
+        //clear selected object
+        EventSystem.current.SetSelectedGameObject(null);
+
+        //set a new selected object
+        EventSystem.current.SetSelectedGameObject(mainFirstButton);
     }
 
     public void ShowMenuAttack()
@@ -56,6 +67,12 @@ public class UIManager : MonoBehaviour
         HideAllMenus();
         SetMenuDesc("ATTACK");
         menuAttack.gameObject.SetActive(true);
+
+        //clear selected object
+        EventSystem.current.SetSelectedGameObject(null);
+
+        //set a new selected object
+        EventSystem.current.SetSelectedGameObject(attackFirstButton);
     }
 
     public void ShowMenuTarget(Button button)
@@ -64,6 +81,21 @@ public class UIManager : MonoBehaviour
         HideAllMenus();
         SetMenuDesc("TARGET");
         menuTarget.gameObject.SetActive(true);
+
+        //clear selected object
+        EventSystem.current.SetSelectedGameObject(null);
+
+        //loop thru targets and get first active button
+        foreach(GameObject targetButton in targetButtons)
+        {
+            if (targetButton.activeSelf)
+            {
+                //set a new selected object
+                EventSystem.current.SetSelectedGameObject(targetButton);
+                break;
+            }
+        }
+        
     }
 
     public void SetMenuDesc(string newDesc)
@@ -86,6 +118,12 @@ public class UIManager : MonoBehaviour
     public void ShowGameOverScreen(bool gameOver)
     {
         gameOverObject.SetActive(gameOver);
+
+        //clear selected object
+        EventSystem.current.SetSelectedGameObject(null);
+
+        //set a new selected object
+        EventSystem.current.SetSelectedGameObject(restartButton);
     }
 
     private void BuildMenuItems()

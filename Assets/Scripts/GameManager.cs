@@ -31,10 +31,6 @@ public class GameManager : MonoBehaviour
         {
             turnOrder.Add(hero);
         }
-        //foreach (GameObject enemy in enemies)
-        //{
-        //    turnOrder.Add(enemy);
-        //}
         for (int i=0; i<enemies.Length; i++)
         {
             GameObject enemy = enemies[i];
