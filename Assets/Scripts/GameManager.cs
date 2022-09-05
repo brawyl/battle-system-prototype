@@ -90,6 +90,9 @@ public class GameManager : MonoBehaviour
         //change sprite to idle pose
         activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().idlePose;
 
+        //update char status display
+        activeChar.GetComponent<CharController>().UpdateStatus();
+
         if (!target.charAlive)
         {
             target.gameObject.SetActive(false);
@@ -183,6 +186,9 @@ public class GameManager : MonoBehaviour
     public void EndTurn()
     {
         menuSelection = "";
+
+        //update char status display
+        activeChar.GetComponent<CharController>().UpdateStatus();
 
         if (gameOver) { return; }
 

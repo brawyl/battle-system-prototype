@@ -11,6 +11,8 @@ public class CharController : MonoBehaviour
     [SerializeField]
     private TMP_Text charNameText;
     [SerializeField]
+    private TMP_Text charStatusText;
+    [SerializeField]
     private Slider hpSlider;
 
     private Vector3 startPosition;
@@ -29,6 +31,8 @@ public class CharController : MonoBehaviour
 
     public Sprite idlePose, attackPose, defendPose;
 
+    public string charStatus;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +42,8 @@ public class CharController : MonoBehaviour
         charHPCurrent = charHPMax;
         hpSlider.value = 1.0f;
         charNameText.text = charName;
+
+        UpdateStatus();
 
         //get starting position
         startPosition = gameObject.GetComponent<Transform>().position;
@@ -70,6 +76,8 @@ public class CharController : MonoBehaviour
             gameObject.transform.position = startPosition;
             gameManager.GetComponent<UIManager>().HideAllMenus();
         }
+
+        UpdateStatus();
     }
 
     public void TakeDamage(int damage)
@@ -82,5 +90,35 @@ public class CharController : MonoBehaviour
         {
             charAlive = false;
         }
+
+        UpdateStatus();
+    }
+
+    public void UpdateStatus()
+    {
+        charStatus = "";
+
+        if (charAlive)
+        {
+            if (charStrengthCurrent != charStrengthBase)
+            {
+                charStatus += "ATK ";
+                charStatus += charStrengthCurrent > charStrengthBase ? "+" : "-";
+                charStatus += Mathf.Abs(charStrengthCurrent - charStrengthBase).ToString();
+            }
+
+            if (charDefenseCurrent != charDefenseBase)
+            {
+                charStatus += " DEF ";
+                charStatus += charDefenseCurrent > charDefenseBase ? "+" : "-";
+                charStatus += Mathf.Abs(charDefenseCurrent - charDefenseBase).ToString();
+            }
+        }
+        else
+        {
+            charStatus = "KO";
+        }
+
+        charStatusText.text = charStatus;
     }
 }
