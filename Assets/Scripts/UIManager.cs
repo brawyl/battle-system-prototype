@@ -163,13 +163,18 @@ public class UIManager : MonoBehaviour
     {
         gameOverObject.SetActive(gameOver);
 
-        //clear selected object
-        EventSystem.current.SetSelectedGameObject(null);
+        if (gameOver)
+        {
+            //clear selected object
+            EventSystem.current.SetSelectedGameObject(null);
 
-        //set a new selected object
-        EventSystem.current.SetSelectedGameObject(restartButton);
+            //set a new selected object
+            EventSystem.current.SetSelectedGameObject(restartButton);
 
-        currentMenu = null;
+            currentMenu = null;
+
+            nextTurnText.text = "";
+        }
     }
 
     private void BuildMenuItems()
