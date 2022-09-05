@@ -34,6 +34,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject currentMenu;
 
+    public TMP_Text nextTurnText;
+
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();

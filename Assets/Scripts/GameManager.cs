@@ -178,6 +178,28 @@ public class GameManager : MonoBehaviour
         {
             activeChar.GetComponent<CharController>().activeTurn = true;
             activeChar.GetComponent<CharController>().CheckTurn();
+
+            if (turnOrder.Count > 1)
+            {
+                GameObject nextCharObject = (GameObject)turnOrder[1];
+
+                string nextChar = nextCharObject.GetComponent<CharController>().charName;
+                gameObject.GetComponent<UIManager>().nextTurnText.text = nextChar;
+
+                //turn next char text red for enemies as an extra visual indicator
+                if (nextCharObject.tag == "Enemy")
+                {
+                    gameObject.GetComponent<UIManager>().nextTurnText.color = Color.red;
+                }
+                else
+                {
+                    gameObject.GetComponent<UIManager>().nextTurnText.color = Color.black;
+                }
+            }
+            else
+            {
+                gameObject.GetComponent<UIManager>().nextTurnText.text = "";
+            }
         }
         else
         {
