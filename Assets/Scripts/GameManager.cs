@@ -49,10 +49,14 @@ public class GameManager : MonoBehaviour
         string enemyObjectName = buttonName.Replace("target_", "ENEMY ");
         string enemyObjectIndex = buttonName.Replace("target_", "");
 
+        //reset current defense to base defense before attacking
+        int baseDefense = activeChar.GetComponent<CharController>().charDefenseBase;
+        activeChar.GetComponent<CharController>().charDefenseCurrent = baseDefense;
+
         //check attack strength and speed values
         int strength = activeChar.GetComponent<CharController>().charStrengthCurrent;
         int attackStrength = gameObject.GetComponent<Attack>().damageCalc(strength, menuSelection);
-        int attackCost = gameObject.GetComponent<Attack>().attackCost;
+        int attackCost = gameObject.GetComponent<Attack>().selectedAttackCost;
 
         //reduce timer value
         activeChar.GetComponent<CharController>().charSpeedCurrent -= attackCost;
@@ -62,7 +66,12 @@ public class GameManager : MonoBehaviour
         //reduce defense if more time was used than available
         if (newCurrentSpeed < 0)
         {
-            activeChar.GetComponent<CharController>().charDefenseCurrent = activeChar.GetComponent<CharController>().charDefenseCurrent / (0 - newCurrentSpeed);
+            activeChar.GetComponent<CharController>().charDefenseCurrent = activeChar.GetComponent<CharController>().charDefenseCurrent  + newCurrentSpeed;
+
+            if (activeChar.GetComponent<CharController>().charDefenseCurrent < 0)
+            {
+                activeChar.GetComponent<CharController>().charDefenseCurrent = 0;
+            }
         }
 
 
@@ -77,10 +86,6 @@ public class GameManager : MonoBehaviour
         GameObject damageText = gameObject.GetComponent<UIManager>().enemyDamageText[enemyIndex];
         damageText.GetComponent<TMP_Text>().text = damageToTake.ToString();
         damageText.GetComponent<Animation>().Play();
-
-        //reset current defense to base defense after attacking
-        int baseDefense = activeChar.GetComponent<CharController>().charDefenseBase;
-        activeChar.GetComponent<CharController>().charDefenseCurrent = baseDefense;
 
         //change sprite to idle pose
         activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().idlePose;

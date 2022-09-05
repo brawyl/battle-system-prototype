@@ -1155,7 +1155,7 @@ GameObject:
   - component: {fileID: 236222382}
   - component: {fileID: 236222381}
   m_Layer: 5
-  m_Name: atk1_cost
+  m_Name: atk_cost_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1201,7 +1201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 7
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2340,7 +2340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3248132683986865334, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
       propertyPath: m_Name
-      value: atk2_name
+      value: atk_name_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
@@ -2864,7 +2864,7 @@ GameObject:
   - component: {fileID: 668984464}
   - component: {fileID: 668984463}
   m_Layer: 5
-  m_Name: atk2_cost
+  m_Name: atk_cost_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2910,7 +2910,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 15
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4396,7 +4396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3248132683986865334, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
       propertyPath: m_Name
-      value: atk2_name
+      value: atk_name_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
@@ -5699,7 +5699,7 @@ MonoBehaviour:
   attackHeavyMax: 1
   attackLightCost: 7
   attackHeavyCost: 15
-  attackCost: 0
+  selectedAttackCost: 0
 --- !u!1 &1553448655
 GameObject:
   m_ObjectHideFlags: 0

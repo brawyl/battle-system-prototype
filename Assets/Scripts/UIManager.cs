@@ -184,5 +184,21 @@ public class UIManager : MonoBehaviour
         menuMainItems = new string[] { "ATTACK", "DEFEND" };
         menuAttackItems = new string[] { "LIGHT", "HEAVY" };
         menuTargetItems = new string[] { "ENEMY 1", "ENEMY 2", "ENEMY 3" };
+
+        //set attack costs
+        TMP_Text[] attackItems = menuAttack.GetComponentsInChildren<TMP_Text>();
+        foreach (TMP_Text attackItemText in attackItems)
+        {
+            if (attackItemText.gameObject.name.Contains("cost"))
+            {
+                //assume gameObject name is formatted like atk_cost_1 so index 2 of a split string will return the atk number
+                string attackNumber = attackItemText.gameObject.name.Split("_")[2];
+                //subtract 1 from attack number since the object names are numbered starting at 1
+                int attackIndex = int.Parse(attackNumber) - 1;
+                string attackName = menuAttackItems[attackIndex];
+                int attackCost = gameManager.gameObject.GetComponent<Attack>().getAttackCost(attackName);
+                attackItemText.text = attackCost.ToString();
+            }
+        }
     }
 }
