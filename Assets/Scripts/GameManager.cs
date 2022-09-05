@@ -48,9 +48,25 @@ public class GameManager : MonoBehaviour
         string buttonName = button.name;
         string enemyObjectName = buttonName.Replace("target_", "ENEMY ");
         string enemyObjectIndex = buttonName.Replace("target_", "");
-        //deal damage
+
+        //check attack strength and speed values
         int strength = activeChar.GetComponent<CharController>().charStrengthCurrent;
         int attackStrength = gameObject.GetComponent<Attack>().damageCalc(strength, menuSelection);
+        int attackCost = gameObject.GetComponent<Attack>().attackCost;
+
+        //reduce timer value
+        activeChar.GetComponent<CharController>().charSpeedCurrent -= attackCost;
+        int newCurrentSpeed = activeChar.GetComponent<CharController>().charSpeedCurrent;
+        gameObject.GetComponent<UIManager>().timerText.text = newCurrentSpeed.ToString();
+
+        //reduce defense if more time was used than available
+        if (newCurrentSpeed < 0)
+        {
+            activeChar.GetComponent<CharController>().charDefenseCurrent = activeChar.GetComponent<CharController>().charDefenseCurrent / (0 - newCurrentSpeed);
+        }
+
+
+        //deal damage
         GameObject targetObject = GameObject.Find(enemyObjectName);
         CharController target = targetObject.GetComponent<CharController>();
         int damageToTake = attackStrength - target.charDefenseCurrent;
@@ -81,14 +97,26 @@ public class GameManager : MonoBehaviour
             CheckGameOver();
         }
 
-        EndTurn();
+        if (newCurrentSpeed <= 0)
+        {
+            //reset speed stat
+            activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
+            EndTurn();
+        }
+        else
+        {
+            gameObject.GetComponent<UIManager>().ShowMenuMain();
+        }
     }
 
     public void Defend()
     {
         //modify def stat
         int baseDefense = activeChar.GetComponent<CharController>().charDefenseBase;
-        activeChar.GetComponent<CharController>().charDefenseCurrent = baseDefense * 2;
+        activeChar.GetComponent<CharController>().charDefenseCurrent = baseDefense * 3;
+
+        //reset speed stat
+        activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
 
         //change sprite to def pose
         activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().defendPose;

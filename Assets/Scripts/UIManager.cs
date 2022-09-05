@@ -36,6 +36,8 @@ public class UIManager : MonoBehaviour
 
     public TMP_Text nextTurnText;
 
+    public List<GameObject> attackButtons;
+
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -182,11 +184,5 @@ public class UIManager : MonoBehaviour
         menuMainItems = new string[] { "ATTACK", "DEFEND" };
         menuAttackItems = new string[] { "LIGHT", "HEAVY" };
         menuTargetItems = new string[] { "ENEMY 1", "ENEMY 2", "ENEMY 3" };
-
-        //todo: add buttons to target menu
-
-
-        //todo: add attack buttons based on each characters' attacks
-
     }
 }
