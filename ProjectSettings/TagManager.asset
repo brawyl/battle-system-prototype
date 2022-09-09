@@ -9,6 +9,7 @@ TagManager:
   - Button_target
   - Button_attack
   - Button_main
+  - Button_defend
   layers:
   - Default
   - TransparentFX

@@ -12,12 +12,14 @@ public class UIManager : MonoBehaviour
     public GameObject menuObject;
     public GameObject menuMain;
     public GameObject menuAttack;
+    public GameObject menuDefend;
     public GameObject menuTarget;
     public TMP_Text menuText;
 
     //menu description strings
     public string[] menuMainItems;
     public string[] menuAttackItems;
+    public string[] menuDefendItems;
     public string[] menuTargetItems;
 
     public TMP_Text timerText;
@@ -26,7 +28,7 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverScreen;
     public TMP_Text gameOverText;
 
-    public GameObject mainFirstButton, attackFirstButton;
+    public GameObject mainFirstButton, attackFirstButton, defendFirstButton;
     public GameObject[] targetButtons;
     public GameObject restartButton;
 
@@ -78,6 +80,7 @@ public class UIManager : MonoBehaviour
     {
         menuMain.gameObject.SetActive(false);
         menuAttack.gameObject.SetActive(false);
+        menuDefend.gameObject.SetActive(false);
         menuTarget.gameObject.SetActive(false);
         currentMenu = null;
     }
@@ -116,6 +119,25 @@ public class UIManager : MonoBehaviour
         //change to atk pose
         GameObject activeChar = gameManager.activeChar;
         activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().attackPose;
+
+        currentMenu = menuAttack;
+    }
+
+    public void ShowMenuDefend()
+    {
+        HideAllMenus();
+        SetMenuDesc("DEFEND");
+        menuDefend.gameObject.SetActive(true);
+
+        //clear selected object
+        EventSystem.current.SetSelectedGameObject(null);
+
+        //set a new selected object
+        EventSystem.current.SetSelectedGameObject(defendFirstButton);
+
+        //change to def pose
+        GameObject activeChar = gameManager.activeChar;
+        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().defendPose;
 
         currentMenu = menuAttack;
     }
@@ -183,6 +205,7 @@ public class UIManager : MonoBehaviour
     {
         menuMainItems = new string[] { "ATTACK", "DEFEND" };
         menuAttackItems = new string[] { "LIGHT", "HEAVY" };
+        menuDefendItems = new string[] { "BLOCK", "EVADE" };
         menuTargetItems = new string[] { "ENEMY 1", "ENEMY 2", "ENEMY 3" };
 
         //set attack costs

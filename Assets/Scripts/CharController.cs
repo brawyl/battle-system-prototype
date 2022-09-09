@@ -28,6 +28,7 @@ public class CharController : MonoBehaviour
     public int charSpeedCurrent;
     public bool charAlive;
     public bool activeTurn;
+    public bool isEvading;
 
     public Sprite idlePose, attackPose, defendPose;
 
@@ -53,6 +54,7 @@ public class CharController : MonoBehaviour
     {
         if (activeTurn)
         {
+            isEvading = false;
             gameObject.transform.position = Vector3.zero;
             if (gameObject.tag.Equals("Hero"))
             {
@@ -112,6 +114,11 @@ public class CharController : MonoBehaviour
                 charStatus += " DEF ";
                 charStatus += charDefenseCurrent > charDefenseBase ? "+" : "-";
                 charStatus += Mathf.Abs(charDefenseCurrent - charDefenseBase).ToString();
+            }
+
+            if (isEvading)
+            {
+                charStatus += " EVADE";
             }
         }
         else

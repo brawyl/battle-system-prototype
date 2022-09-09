@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
         GameObject[] heroes = GameObject.FindGameObjectsWithTag("Hero");
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject[] targetButtons = GameObject.FindGameObjectsWithTag("Button_target");
+        GameObject[] targetButtons = gameObject.GetComponent<UIManager>().targetButtons;
         turnOrder = new ArrayList();
 
         //build turn order list
@@ -73,7 +73,6 @@ public class GameManager : MonoBehaviour
                 activeChar.GetComponent<CharController>().charDefenseCurrent = 0;
             }
         }
-
 
         //deal damage
         GameObject targetObject = GameObject.Find(enemyObjectName);
@@ -126,8 +125,20 @@ public class GameManager : MonoBehaviour
         //reset speed stat
         activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
 
-        //change sprite to def pose
-        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().defendPose;
+        EndTurn();
+    }
+
+    public void Evade()
+    {
+        //modify def stat
+        int baseDefense = activeChar.GetComponent<CharController>().charDefenseBase;
+        activeChar.GetComponent<CharController>().charDefenseCurrent = baseDefense / 2;
+
+        //reset speed stat
+        activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
+
+        //set evade flag
+        activeChar.GetComponent<CharController>().isEvading = true;
 
         EndTurn();
     }
@@ -139,8 +150,9 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator EnemyActions()
     {
+        int randomNumber = Random.Range(1, 11);
         //even random number (1-10) for light attack, odd for heavy
-        if (Random.Range(1, 11) % 2 == 0)
+        if (randomNumber % 2 == 0)
         {
             menuSelection = gameObject.GetComponent<UIManager>().menuText.text = gameObject.GetComponent<UIManager>().menuAttackItems[0];
              
@@ -162,6 +174,13 @@ public class GameManager : MonoBehaviour
         int enemyStrength = ((GameObject)turnOrder[0]).GetComponent<CharController>().charStrengthCurrent;
         int attackStrength = gameObject.GetComponent<Attack>().damageCalc(enemyStrength, menuSelection);
         int damageToTake = attackStrength - target.charDefenseCurrent;
+
+        //check if evading target can negate attack with a 50% chance of the random number (1-10) being 5 or less
+        if (target.isEvading && randomNumber < 6)
+        {
+            damageToTake = 0;
+        }
+
         target.TakeDamage(damageToTake);
 
         GameObject damageText = gameObject.GetComponent<UIManager>().heroDamageText[heroIndex];
