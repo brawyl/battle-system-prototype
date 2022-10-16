@@ -43,6 +43,38 @@ public class GameManager : MonoBehaviour
         menuSelection = "";
     }
 
+    public void SelectTarget(Button button)
+    {
+        string actionString = gameObject.GetComponent<UIManager>().actionString;
+
+        if (actionString.Contains("ATTACK"))
+        {
+            AttackTarget(button);
+        }
+        else if (actionString.Contains("SKILL"))
+        {
+            List<Button> buttons = new();
+
+            //skill button is passed in as the multi target skill instead of a target button
+            if (button.name.Contains("skill"))
+            {
+                //built the array of targets for multi target skill
+                GameObject[] buttonObjects = gameObject.GetComponent<UIManager>().targetButtons;
+                for (int i=0; i< buttonObjects.Length; i++)
+                {
+                    buttons.Add(buttonObjects[i].GetComponent<Button>());
+                }
+            }
+            else
+            {
+                //single target skill is a single element array
+                buttons.Add(button);
+            }
+
+            SkillTarget(buttons);
+        }
+    }
+
     public void AttackTarget(Button button)
     {
         string buttonName = button.name;
@@ -86,11 +118,7 @@ public class GameManager : MonoBehaviour
         damageText.GetComponent<TMP_Text>().text = damageToTake.ToString();
         damageText.GetComponent<Animation>().Play();
 
-        //change sprite to idle pose
-        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().idlePose;
-
-        //update char status display
-        activeChar.GetComponent<CharController>().UpdateStatus();
+        PrepNextTurn();
 
         if (!target.charAlive)
         {
@@ -104,16 +132,71 @@ public class GameManager : MonoBehaviour
             CheckGameOver();
         }
 
-        if (newCurrentSpeed <= 0)
+        CheckRemainingSpeed(newCurrentSpeed);
+    }
+
+    public void SkillTarget(List<Button> buttons)
+    {
+        //reset current defense to base defense before attacking
+        int baseDefense = activeChar.GetComponent<CharController>().charDefenseBase;
+        activeChar.GetComponent<CharController>().charDefenseCurrent = baseDefense;
+
+        //check attack strength and speed values
+        int strength = activeChar.GetComponent<CharController>().charStrengthCurrent;
+        int skillStrength = gameObject.GetComponent<Skill>().damageCalc(strength, menuSelection);
+        int skillCost = gameObject.GetComponent<Skill>().selectedSkillCost;
+
+        //reduce timer value
+        activeChar.GetComponent<CharController>().charSpeedCurrent -= skillCost;
+        int newCurrentSpeed = activeChar.GetComponent<CharController>().charSpeedCurrent;
+        gameObject.GetComponent<UIManager>().timerText.text = newCurrentSpeed.ToString();
+
+        //reduce defense if more time was used than available
+        if (newCurrentSpeed < 0)
         {
-            //reset speed stat
-            activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
-            EndTurn();
+            activeChar.GetComponent<CharController>().charDefenseCurrent = activeChar.GetComponent<CharController>().charDefenseCurrent + newCurrentSpeed;
+
+            if (activeChar.GetComponent<CharController>().charDefenseCurrent < 0)
+            {
+                activeChar.GetComponent<CharController>().charDefenseCurrent = 0;
+            }
         }
-        else
+
+        //loop to deal with multi target skills if needed
+        foreach (Button button in buttons)
         {
-            gameObject.GetComponent<UIManager>().ShowMenuMain();
+            string buttonName = button.name;
+            string enemyObjectName = buttonName.Replace("target_", "ENEMY ");
+            string enemyObjectIndex = buttonName.Replace("target_", "");
+
+            //deal damage
+            GameObject targetObject = GameObject.Find(enemyObjectName);
+            CharController target = targetObject.GetComponent<CharController>();
+            int damageToTake = skillStrength - target.charDefenseCurrent;
+            target.TakeDamage(damageToTake);
+
+            //subract 1 from enemy index since the named index starts at 1
+            int enemyIndex = int.Parse(enemyObjectIndex) - 1;
+            GameObject damageText = gameObject.GetComponent<UIManager>().enemyDamageText[enemyIndex];
+            damageText.GetComponent<TMP_Text>().text = damageToTake.ToString();
+            damageText.GetComponent<Animation>().Play();
+
+            if (!target.charAlive)
+            {
+                target.gameObject.SetActive(false);
+                turnOrder.Remove(targetObject);
+
+                //deactivate enemy target button if KO'd
+                button.gameObject.SetActive(false);
+
+                //check remaining characters for win/lose state
+                CheckGameOver();
+            }
         }
+
+        PrepNextTurn();
+
+        CheckRemainingSpeed(newCurrentSpeed);
     }
 
     public void Defend()
@@ -141,6 +224,29 @@ public class GameManager : MonoBehaviour
         activeChar.GetComponent<CharController>().isEvading = true;
 
         EndTurn();
+    }
+
+    private void PrepNextTurn()
+    {
+        //change sprite to idle pose
+        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().idlePose;
+
+        //update char status display
+        activeChar.GetComponent<CharController>().UpdateStatus();
+    }
+
+    private void CheckRemainingSpeed(int newCurrentSpeed)
+    {
+        if (newCurrentSpeed <= 0)
+        {
+            //reset speed stat
+            activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
+            EndTurn();
+        }
+        else
+        {
+            gameObject.GetComponent<UIManager>().ShowMenuMain();
+        }
     }
 
     public void EnemyTurn()

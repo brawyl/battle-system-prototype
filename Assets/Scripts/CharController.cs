@@ -30,7 +30,7 @@ public class CharController : MonoBehaviour
     public bool activeTurn;
     public bool isEvading;
 
-    public Sprite idlePose, attackPose, defendPose;
+    public Sprite idlePose, attackPose, skillPose, defendPose;
 
     public string charStatus;
 
