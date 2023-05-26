@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
 
     public List<GameObject> heroDamageText, enemyDamageText;
 
-    public GameObject currentMenu;
+    public List<string> currentMenu;
 
     public TMP_Text nextTurnText;
 
@@ -56,18 +56,26 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        //manu navigation with arrow keys
-        if (currentMenu != null)
+        //menu navigation with arrow keys
+        if (currentMenu != null && currentMenu.Count > 0)
         {
             if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.Escape))
             {
-                if (currentMenu == menuAttack)
+                int lastIndex = currentMenu.Count - 1;
+                if (currentMenu[lastIndex] == "main")
                 {
+                    currentMenu.RemoveAt(lastIndex);
                     ShowMenuMain();
                 }
-                else if (currentMenu == menuTarget)
+                else if (currentMenu[lastIndex] == "attack")
                 {
+                    currentMenu.RemoveAt(lastIndex);
                     ShowMenuAttack();
+                }
+                else if (currentMenu[lastIndex] == "skill")
+                {
+                    currentMenu.RemoveAt(lastIndex);
+                    ShowMenuSkill();
                 }
             }
             else if (Input.GetKeyUp(KeyCode.RightArrow))
@@ -85,7 +93,7 @@ public class UIManager : MonoBehaviour
         menuSkill.gameObject.SetActive(false);
         menuDefend.gameObject.SetActive(false);
         menuTarget.gameObject.SetActive(false);
-        currentMenu = null;
+        currentMenu.Clear();
     }
 
     public void ShowMenuMain()
@@ -104,7 +112,7 @@ public class UIManager : MonoBehaviour
         GameObject activeChar = gameManager.activeChar;
         activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().idlePose;
 
-        currentMenu = menuMain;
+        currentMenu.Insert(0, "main");
     }
 
     public void ShowMenuAttack()
@@ -123,7 +131,7 @@ public class UIManager : MonoBehaviour
         GameObject activeChar = gameManager.activeChar;
         activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().attackPose;
 
-        currentMenu = menuAttack;
+        currentMenu.Insert(0, "attack");
 
         actionString = "ATTACK";
     }
@@ -144,7 +152,7 @@ public class UIManager : MonoBehaviour
         GameObject activeChar = gameManager.activeChar;
         activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().skillPose;
 
-        currentMenu = menuSkill;
+        currentMenu.Insert(0, "skill");
 
         actionString = "SKILL";
     }
@@ -165,7 +173,7 @@ public class UIManager : MonoBehaviour
         GameObject activeChar = gameManager.activeChar;
         activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().defendPose;
 
-        currentMenu = menuAttack;
+        currentMenu.Insert(0, "defend");
 
         actionString = "DEFEND";
     }
@@ -193,7 +201,7 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        currentMenu = menuTarget;
+        currentMenu.Insert(0, "target");
     }
 
     public void SetMenuDesc(string newDesc)
