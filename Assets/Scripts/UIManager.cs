@@ -61,20 +61,17 @@ public class UIManager : MonoBehaviour
         {
             if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.Escape))
             {
-                int lastIndex = currentMenu.Count - 1;
-                if (currentMenu[lastIndex] == "main")
+                currentMenu.RemoveAt(0);
+                if (currentMenu[0] == "main")
                 {
-                    currentMenu.RemoveAt(lastIndex);
                     ShowMenuMain();
                 }
-                else if (currentMenu[lastIndex] == "attack")
+                else if (currentMenu[0] == "attack")
                 {
-                    currentMenu.RemoveAt(lastIndex);
                     ShowMenuAttack();
                 }
-                else if (currentMenu[lastIndex] == "skill")
+                else if (currentMenu[0] == "skill")
                 {
-                    currentMenu.RemoveAt(lastIndex);
                     ShowMenuSkill();
                 }
             }
@@ -93,7 +90,6 @@ public class UIManager : MonoBehaviour
         menuSkill.gameObject.SetActive(false);
         menuDefend.gameObject.SetActive(false);
         menuTarget.gameObject.SetActive(false);
-        currentMenu.Clear();
     }
 
     public void ShowMenuMain()
@@ -112,6 +108,7 @@ public class UIManager : MonoBehaviour
         GameObject activeChar = gameManager.activeChar;
         activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().idlePose;
 
+        currentMenu.Clear();
         currentMenu.Insert(0, "main");
     }
 
@@ -131,7 +128,10 @@ public class UIManager : MonoBehaviour
         GameObject activeChar = gameManager.activeChar;
         activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().attackPose;
 
-        currentMenu.Insert(0, "attack");
+        if (currentMenu[0] != "attack")
+        {
+            currentMenu.Insert(0, "attack");
+        }
 
         actionString = "ATTACK";
     }
@@ -152,7 +152,10 @@ public class UIManager : MonoBehaviour
         GameObject activeChar = gameManager.activeChar;
         activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().skillPose;
 
-        currentMenu.Insert(0, "skill");
+        if (currentMenu[0] != "skill")
+        {
+            currentMenu.Insert(0, "skill");
+        }
 
         actionString = "SKILL";
     }
@@ -173,7 +176,10 @@ public class UIManager : MonoBehaviour
         GameObject activeChar = gameManager.activeChar;
         activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().defendPose;
 
-        currentMenu.Insert(0, "defend");
+        if (currentMenu[0] != "defend")
+        {
+            currentMenu.Insert(0, "defend");
+        }
 
         actionString = "DEFEND";
     }
@@ -201,7 +207,10 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        currentMenu.Insert(0, "target");
+        if (currentMenu[0] != "target")
+        {
+            currentMenu.Insert(0, "target");
+        }
     }
 
     public void SetMenuDesc(string newDesc)
