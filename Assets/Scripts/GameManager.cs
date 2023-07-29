@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private bool gameOver;
     [SerializeField]
     private ArrayList turnOrder;
+    private int comboCount = 0;
 
     public GameObject activeChar;
 
@@ -94,6 +95,14 @@ public class GameManager : MonoBehaviour
         activeChar.GetComponent<CharController>().charSpeedCurrent -= attackCost;
         int newCurrentSpeed = activeChar.GetComponent<CharController>().charSpeedCurrent;
         gameObject.GetComponent<UIManager>().timerText.text = newCurrentSpeed.ToString();
+
+        //update combo text
+        comboCount++;
+        gameObject.GetComponent<UIManager>().heroComboText.text = comboCount + " HITS";
+        if (comboCount > 1)
+        {
+            gameObject.GetComponent<UIManager>().heroComboText.gameObject.SetActive(true);
+        }
 
         //reduce defense if more time was used than available
         if (newCurrentSpeed < 0)
@@ -268,7 +277,7 @@ public class GameManager : MonoBehaviour
             menuSelection = gameObject.GetComponent<UIManager>().menuText.text = gameObject.GetComponent<UIManager>().menuAttackItems[1];
         }
 
-        //2 sec delay so player can see what happened
+        //delay so player can see what happened
         yield return new WaitForSeconds(2);
 
         //random player target
@@ -311,6 +320,7 @@ public class GameManager : MonoBehaviour
     public void EndTurn()
     {
         menuSelection = "";
+        comboCount = 0;
 
         //update char status display
         activeChar.GetComponent<CharController>().UpdateStatus();
@@ -338,6 +348,8 @@ public class GameManager : MonoBehaviour
     public void NextTurn()
     {
         activeChar = (GameObject)turnOrder[0];
+        gameObject.GetComponent<UIManager>().heroComboText.text = "";
+        gameObject.GetComponent<UIManager>().heroComboText.gameObject.SetActive(false);
         if (activeChar != null && activeChar.GetComponent<CharController>().charAlive)
         {
             activeChar.GetComponent<CharController>().activeTurn = true;

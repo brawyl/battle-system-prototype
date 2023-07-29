@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     public GameObject menuDefend;
     public GameObject menuTarget;
     public TMP_Text menuText;
+    public TMP_Text heroComboText;
+    public TMP_Text enemyComboText;
 
     //menu description strings
     public string[] menuMainItems;
