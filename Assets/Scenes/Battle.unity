@@ -7959,7 +7959,7 @@ MonoBehaviour:
   skillSingleMax: 2
   skillMultiMin: 0.8
   skillMultiMax: 1
-  skillSingleCost: 10
+  skillSingleCost: 15
   skillMultiCost: 15
   selectedSkillCost: 0
   skillName: 

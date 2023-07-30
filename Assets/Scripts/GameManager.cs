@@ -63,7 +63,10 @@ public class GameManager : MonoBehaviour
                 GameObject[] buttonObjects = gameObject.GetComponent<UIManager>().targetButtons;
                 for (int i=0; i< buttonObjects.Length; i++)
                 {
-                    buttons.Add(buttonObjects[i].GetComponent<Button>());
+                    if(buttonObjects[i].activeSelf) //inactive targets throw a NullReferenceException
+                    {
+                        buttons.Add(buttonObjects[i].GetComponent<Button>());
+                    }
                 }
             }
             else
