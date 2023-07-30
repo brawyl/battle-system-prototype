@@ -268,6 +268,7 @@ public class GameManager : MonoBehaviour
 
     public void EnemyTurn()
     {
+        gameObject.GetComponent<UIManager>().currentMenu.Clear();
         StartCoroutine(EnemyActions());
     }
 
