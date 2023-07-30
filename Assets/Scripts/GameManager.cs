@@ -101,7 +101,12 @@ public class GameManager : MonoBehaviour
         gameObject.GetComponent<UIManager>().heroComboText.text = comboCount + " HITS";
         if (comboCount > 1)
         {
-            gameObject.GetComponent<UIManager>().heroComboText.gameObject.SetActive(true);
+            gameObject.GetComponent<UIManager>().heroComboText.GetComponent<Animation>().Stop();
+            gameObject.GetComponent<UIManager>().heroComboText.GetComponent<Animation>().Play();
+        }
+        else
+        {
+            gameObject.GetComponent<UIManager>().heroComboText.text = "";
         }
 
         //reduce defense if more time was used than available
@@ -348,8 +353,6 @@ public class GameManager : MonoBehaviour
     public void NextTurn()
     {
         activeChar = (GameObject)turnOrder[0];
-        gameObject.GetComponent<UIManager>().heroComboText.text = "";
-        gameObject.GetComponent<UIManager>().heroComboText.gameObject.SetActive(false);
         if (activeChar != null && activeChar.GetComponent<CharController>().charAlive)
         {
             activeChar.GetComponent<CharController>().activeTurn = true;
