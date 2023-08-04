@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,7 +42,9 @@ public class GameManager : MonoBehaviour
         gameOver = false;
 
         GameObject[] heroes = GameObject.FindGameObjectsWithTag("Hero");
+        heroes = heroes.OrderBy(p => p.name).ToArray();
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        enemies = enemies.OrderBy(p => p.name).ToArray();
         GameObject[] targetButtons = gameObject.GetComponent<UIManager>().targetButtons;
         turnOrder = new ArrayList();
 
