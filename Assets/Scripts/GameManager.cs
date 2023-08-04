@@ -148,6 +148,7 @@ public class GameManager : MonoBehaviour
         GameObject targetObject = GameObject.Find(enemyObjectName);
         CharController target = targetObject.GetComponent<CharController>();
         int damageToTake = attackStrength - target.charDefenseCurrent;
+        if (damageToTake < 1) { damageToTake = 1; }
         target.TakeDamage(damageToTake);
 
         //subract 1 from enemy index since the named index starts at 1
@@ -211,6 +212,7 @@ public class GameManager : MonoBehaviour
             GameObject targetObject = GameObject.Find(enemyObjectName);
             CharController target = targetObject.GetComponent<CharController>();
             int damageToTake = skillStrength - target.charDefenseCurrent;
+            if (damageToTake < 1) { damageToTake = 1; }
             target.TakeDamage(damageToTake);
 
             //subract 1 from enemy index since the named index starts at 1
@@ -241,7 +243,7 @@ public class GameManager : MonoBehaviour
     {
         //modify def stat
         int baseDefense = activeChar.GetComponent<CharController>().charDefenseBase;
-        activeChar.GetComponent<CharController>().charDefenseCurrent = baseDefense * 3;
+        activeChar.GetComponent<CharController>().charDefenseCurrent = baseDefense * 2;
 
         //reset speed stat
         activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
@@ -319,6 +321,7 @@ public class GameManager : MonoBehaviour
         int enemyStrength = ((GameObject)turnOrder[0]).GetComponent<CharController>().charStrengthCurrent;
         int attackStrength = gameObject.GetComponent<Attack>().damageCalc(enemyStrength, menuSelection);
         int damageToTake = attackStrength - target.charDefenseCurrent;
+        if (damageToTake < 1) { damageToTake = 1; }
 
         //check if evading target can negate attack with a 50% chance of the random number (1-10) being 5 or less
         if (target.isEvading && randomNumber < 6)
