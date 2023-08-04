@@ -6,15 +6,13 @@ using UnityEngine.UI;
 
 public class CharController : MonoBehaviour
 {
-    private GameManager gameManager;
-
     [SerializeField]
     private TMP_Text charNameText;
     [SerializeField]
     private TMP_Text charStatusText;
     [SerializeField]
     private Slider hpSlider;
-
+    [SerializeField]
     private Vector3 startPosition;
 
     public string charName;
@@ -37,17 +35,12 @@ public class CharController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
         charAlive = true;
         charHPCurrent = charHPMax;
         hpSlider.value = 1.0f;
         charNameText.text = charName;
 
         UpdateStatus();
-
-        //get starting position
-        startPosition = gameObject.GetComponent<Transform>().position;
     }
 
     public void CheckTurn()
@@ -58,7 +51,7 @@ public class CharController : MonoBehaviour
             gameObject.transform.position = Vector3.zero;
             if (gameObject.tag.Equals("Hero"))
             {
-                gameManager.GetComponent<UIManager>().ShowMenuMain();
+                GameManager.instance.GetComponent<UIManager>().ShowMenuMain();
 
                 //reset to idle pose on turn start
                 gameObject.GetComponentInChildren<SpriteRenderer>().sprite = idlePose;
@@ -69,14 +62,14 @@ public class CharController : MonoBehaviour
                 gameObject.GetComponentInChildren<SpriteRenderer>().sprite = attackPose;
 
                 //enemy targets random player with random action
-                gameManager.EnemyTurn();
+                GameManager.instance.EnemyTurn();
             }
-            gameManager.GetComponent<UIManager>().UpdateTimerText(charSpeedCurrent.ToString());
+            GameManager.instance.GetComponent<UIManager>().UpdateTimerText(charSpeedCurrent.ToString());
         }
         else
         {
             gameObject.transform.position = startPosition;
-            gameManager.GetComponent<UIManager>().HideAllMenus();
+            GameManager.instance.GetComponent<UIManager>().HideAllMenus();
         }
 
         UpdateStatus();

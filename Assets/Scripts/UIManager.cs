@@ -7,8 +7,6 @@ using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
-    private GameManager gameManager;
-
     public GameObject menuObject;
     public GameObject menuMain;
     public GameObject menuAttack;
@@ -44,26 +42,28 @@ public class UIManager : MonoBehaviour
 
     public string actionString = "";
 
+    public TMP_Text debugText;
+
     private void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
         menuObject.SetActive(true);
         gameOverObject.SetActive(false);
 
         BuildMenuItems();
 
-        gameManager.NextTurn();
+        GameManager.instance.NextTurn();
     }
 
     private void Update()
     {
         //menu navigation with arrow keys
-        if (currentMenu != null && currentMenu.Count > 0)
+        
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.Escape))
+            if (currentMenu != null && currentMenu.Count > 0)
             {
-                currentMenu.RemoveAt(0);
+                if (currentMenu.Count > 1) currentMenu.RemoveAt(0);
+
                 if (currentMenu[0] == "main")
                 {
                     ShowMenuMain();
@@ -77,11 +77,11 @@ public class UIManager : MonoBehaviour
                     ShowMenuSkill();
                 }
             }
-            else if (Input.GetKeyUp(KeyCode.RightArrow))
-            {
-                //click the selected button right right arrow to go to next menu
-                EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
-            }
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            //click the selected button right right arrow to go to next menu
+            EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }
     }
 
@@ -101,17 +101,20 @@ public class UIManager : MonoBehaviour
         menuMain.gameObject.SetActive(true);
 
         //clear selected object
-        EventSystem.current.SetSelectedGameObject(null);
+        //EventSystem.current.SetSelectedGameObject(null);
 
         //set a new selected object
         EventSystem.current.SetSelectedGameObject(mainFirstButton);
 
         //change to atk pose
-        GameObject activeChar = gameManager.activeChar;
+        GameObject activeChar = GameManager.instance.activeChar;
         activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().idlePose;
 
-        currentMenu.Clear();
-        currentMenu.Insert(0, "main");
+        if (currentMenu != null)
+        {
+            currentMenu.Clear();
+            currentMenu.Insert(0, "main");
+        }
     }
 
     public void ShowMenuAttack()
@@ -127,10 +130,10 @@ public class UIManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(attackFirstButton);
 
         //change to atk pose
-        GameObject activeChar = gameManager.activeChar;
+        GameObject activeChar = GameManager.instance.activeChar;
         activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().attackPose;
 
-        if (currentMenu[0] != "attack")
+        if (currentMenu.Count > 0 && currentMenu[0] != "attack")
         {
             currentMenu.Insert(0, "attack");
         }
@@ -151,10 +154,10 @@ public class UIManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(skillFirstButton);
 
         //change to skill pose
-        GameObject activeChar = gameManager.activeChar;
+        GameObject activeChar = GameManager.instance.activeChar;
         activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().skillPose;
 
-        if (currentMenu[0] != "skill")
+        if (currentMenu.Count > 0 && currentMenu[0] != "skill")
         {
             currentMenu.Insert(0, "skill");
         }
@@ -175,10 +178,10 @@ public class UIManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(defendFirstButton);
 
         //change to def pose
-        GameObject activeChar = gameManager.activeChar;
+        GameObject activeChar = GameManager.instance.activeChar;
         activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().defendPose;
 
-        if (currentMenu[0] != "defend")
+        if (currentMenu.Count > 0 && currentMenu[0] != "defend")
         {
             currentMenu.Insert(0, "defend");
         }
@@ -188,7 +191,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowMenuTarget(Button button)
     {
-        gameManager.menuSelection = button.GetComponentInChildren<TMP_Text>().text;
+        GameManager.instance.menuSelection = button.GetComponentInChildren<TMP_Text>().text;
         HideAllMenus();
         SetMenuDesc("TARGET");
         //add the action name from the button to the action string which is assumed to be at index 0
@@ -209,7 +212,7 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        if (currentMenu[0] != "target")
+        if (currentMenu.Count > 0 && currentMenu[0] != "target")
         {
             currentMenu.Insert(0, "target");
         }
@@ -269,7 +272,7 @@ public class UIManager : MonoBehaviour
                 //subtract 1 from attack number since the object names are numbered starting at 1
                 int attackIndex = int.Parse(attackNumber) - 1;
                 string attackName = menuAttackItems[attackIndex];
-                int attackCost = gameManager.gameObject.GetComponent<Attack>().getAttackCost(attackName);
+                int attackCost = GameManager.instance.GetComponent<Attack>().getAttackCost(attackName);
                 attackItemText.text = attackCost.ToString();
             }
         }
@@ -285,7 +288,7 @@ public class UIManager : MonoBehaviour
                 //subtract 1 from skill number since the object names are numbered starting at 1
                 int skillIndex = int.Parse(skillNumber) - 1;
                 string skillName = menuSkillItems[skillIndex];
-                int skillCost = gameManager.gameObject.GetComponent<Skill>().getSkillCost(skillName);
+                int skillCost = GameManager.instance.GetComponent<Skill>().getSkillCost(skillName);
                 skillItemText.text = skillCost.ToString();
             }
         }

@@ -13,9 +13,27 @@ public class GameManager : MonoBehaviour
     private ArrayList turnOrder;
     private int comboCount = 0;
 
+    public static GameManager instance;
+
     public GameObject activeChar;
 
     public string menuSelection;
+
+    void Awake()
+    {
+        //check if instance exists
+        if (instance == null)
+        {
+            //set instance to this
+            instance = this;
+        }
+        //exists but is another instance
+        else if (instance != this)
+        {
+            //destroy it
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
