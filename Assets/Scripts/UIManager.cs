@@ -108,7 +108,7 @@ public class UIManager : MonoBehaviour
 
         //change to atk pose
         GameObject activeChar = GameManager.instance.activeChar;
-        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().idlePose;
+        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().poseNeutral;
 
         if (currentMenu != null)
         {
@@ -131,7 +131,7 @@ public class UIManager : MonoBehaviour
 
         //change to atk pose
         GameObject activeChar = GameManager.instance.activeChar;
-        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().attackPose;
+        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().poseNeutralLight;
 
         if (currentMenu.Count > 0 && currentMenu[0] != "attack")
         {
@@ -155,7 +155,7 @@ public class UIManager : MonoBehaviour
 
         //change to skill pose
         GameObject activeChar = GameManager.instance.activeChar;
-        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().skillPose;
+        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().poseNeutralHeavy;
 
         if (currentMenu.Count > 0 && currentMenu[0] != "skill")
         {
@@ -179,7 +179,7 @@ public class UIManager : MonoBehaviour
 
         //change to def pose
         GameObject activeChar = GameManager.instance.activeChar;
-        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().defendPose;
+        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().poseBlock;
 
         if (currentMenu.Count > 0 && currentMenu[0] != "defend")
         {

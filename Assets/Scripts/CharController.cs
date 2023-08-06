@@ -28,7 +28,12 @@ public class CharController : MonoBehaviour
     public bool activeTurn;
     public bool isEvading;
 
-    public Sprite idlePose, attackPose, skillPose, defendPose;
+    public Sprite poseNeutral, poseNeutralLight, poseNeutralHeavy;
+    public Sprite poseJump, poseJumpLight, poseJumpHeavy;
+    public Sprite poseCrouch, poseCrouchLight, poseCrouchHeavy;
+    public Sprite poseDash, poseDashLight, poseDashHeavy;
+    public Sprite poseBlock, poseSpecial, poseKO;
+
 
     public string charStatus;
 
@@ -54,12 +59,12 @@ public class CharController : MonoBehaviour
                 GameManager.instance.GetComponent<UIManager>().ShowMenuMain();
 
                 //reset to idle pose on turn start
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = idlePose;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseNeutral;
             }
             else
             {
                 //set to atk pose on turn start for enemy
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = attackPose;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseNeutralLight;
 
                 //enemy targets random player with random action
                 GameManager.instance.EnemyTurn();

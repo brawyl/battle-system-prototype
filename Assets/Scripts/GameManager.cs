@@ -269,7 +269,7 @@ public class GameManager : MonoBehaviour
     private void PrepNextTurn()
     {
         //change sprite to idle pose
-        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().idlePose;
+        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().poseNeutral;
 
         //update char status display
         activeChar.GetComponent<CharController>().UpdateStatus();
@@ -336,7 +336,7 @@ public class GameManager : MonoBehaviour
         damageText.GetComponent<Animation>().Play();
 
         //change sprite to idle pose
-        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().idlePose;
+        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().poseNeutral;
 
         if (!target.charAlive)
         {
