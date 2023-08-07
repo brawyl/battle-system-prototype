@@ -107,11 +107,11 @@ public class UIManager : MonoBehaviour
         {
             GameManager.instance.PoseCharacter("wait");
         }
-        else if (Input.GetKeyDown(KeyCode.K)) //light
+        else if (Input.GetKeyDown(KeyCode.K))
         {
             GameManager.instance.PoseCharacter("light");
         }
-        else if (Input.GetKeyDown(KeyCode.L)) //heavy
+        else if (Input.GetKeyDown(KeyCode.L))
         {
             GameManager.instance.PoseCharacter("heavy");
         }
