@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         //menu navigation with arrow keys
-        
+
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (currentMenu != null && currentMenu.Count > 0)
@@ -83,9 +83,41 @@ public class UIManager : MonoBehaviour
             //click the selected button right right arrow to go to next menu
             EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
         }
+
+        //MOVEMENT KEYS
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            GameManager.instance.PoseCharacter("jump");
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            GameManager.instance.PoseCharacter("block");
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            GameManager.instance.PoseCharacter("crouch");
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            GameManager.instance.PoseCharacter("dash");
+        }
+
+        //ACTION KEYS
+        else if (Input.GetKeyDown(KeyCode.J))
+        {
+            GameManager.instance.PoseCharacter("wait");
+        }
+        else if (Input.GetKeyDown(KeyCode.K)) //light
+        {
+            GameManager.instance.PoseCharacter("light");
+        }
+        else if (Input.GetKeyDown(KeyCode.L)) //heavy
+        {
+            GameManager.instance.PoseCharacter("heavy");
+        }
     }
 
-    public void HideAllMenus()
+        public void HideAllMenus()
     {
         menuMain.gameObject.SetActive(false);
         menuAttack.gameObject.SetActive(false);

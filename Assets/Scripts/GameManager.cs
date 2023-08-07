@@ -65,6 +65,26 @@ public class GameManager : MonoBehaviour
         menuSelection = "";
     }
 
+    public void PoseCharacter(string pose)
+    {
+        string currentPose = activeChar.GetComponent<CharController>().charPose;
+        //cancelling out poses if same direction given
+        if (currentPose == pose)
+        {
+            activeChar.GetComponent<CharController>().charPose = "neutral";
+        }
+        else if (pose == "light" || pose == "heavy")
+        {
+            string attackPose = currentPose.Split("_")[0] + "_" + pose;
+            activeChar.GetComponent<CharController>().charPose = attackPose;
+        }
+        else if (pose != "wait")
+        {
+            activeChar.GetComponent<CharController>().charPose = pose;
+        }
+        activeChar.GetComponent<CharController>().UpdatePose();
+    }
+
     public void SelectTarget(Button button)
     {
         string actionString = gameObject.GetComponent<UIManager>().actionString;
