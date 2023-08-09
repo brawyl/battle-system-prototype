@@ -13,10 +13,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private ArrayList turnOrder;
     private int comboCount = 0;
+    private List<GameObject> enemies;
+    private List<GameObject> heroes;
 
     public static GameManager instance;
 
     public GameObject activeChar;
+
+    public int enemyTarget;
 
     public string menuSelection;
 
@@ -41,10 +45,8 @@ public class GameManager : MonoBehaviour
     {
         gameOver = false;
 
-        GameObject[] heroes = GameObject.FindGameObjectsWithTag("Hero");
-        heroes = heroes.OrderBy(p => p.name).ToArray();
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        enemies = enemies.OrderBy(p => p.name).ToArray();
+        heroes = GameObject.FindGameObjectsWithTag("Hero").OrderBy(p => p.name).ToArray().ToList();
+        enemies = GameObject.FindGameObjectsWithTag("Enemy").OrderBy(p => p.name).ToArray().ToList();
         GameObject[] targetButtons = gameObject.GetComponent<UIManager>().targetButtons;
         turnOrder = new ArrayList();
 
@@ -53,7 +55,7 @@ public class GameManager : MonoBehaviour
         {
             turnOrder.Add(hero);
         }
-        for (int i=0; i<enemies.Length; i++)
+        for (int i=0; i<enemies.Count; i++)
         {
             GameObject enemy = enemies[i];
             turnOrder.Add(enemy);
@@ -83,6 +85,38 @@ public class GameManager : MonoBehaviour
             activeChar.GetComponent<CharController>().charPose = pose;
         }
         activeChar.GetComponent<CharController>().UpdatePose();
+    }
+
+    public void ShowTargetSelection()
+    {
+        enemies[enemyTarget].GetComponent<CharController>().targetSelect.SetActive(true);
+    }
+
+    public void ChangeTargetSelection(string direction)
+    {
+        enemies[enemyTarget].GetComponent<CharController>().targetSelect.SetActive(false);
+
+        enemyTarget = (direction == "left") ? enemyTarget - 1 : enemyTarget + 1;
+
+        //wrap around target selection
+        if (enemyTarget >= enemies.Count)
+        {
+            enemyTarget = 0;
+        }
+        else if (enemyTarget < 0)
+        {
+            enemyTarget = enemies.Count - 1;
+        }
+
+        enemies[enemyTarget].GetComponent<CharController>().targetSelect.SetActive(true);
+    }
+
+    public void HideAllTargetSelections()
+    {
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<CharController>().targetSelect.SetActive(false);
+        }
     }
 
     public void SelectTarget(Button button)
@@ -181,8 +215,10 @@ public class GameManager : MonoBehaviour
 
         if (!target.charAlive)
         {
-            target.gameObject.SetActive(false);
+            target.charPose = "ko";
+            target.UpdatePose();
             turnOrder.Remove(targetObject);
+            enemies.Remove(targetObject);
 
             //deactivate enemy target button if KO'd
             button.gameObject.SetActive(false);
@@ -243,8 +279,10 @@ public class GameManager : MonoBehaviour
 
             if (!target.charAlive)
             {
-                target.gameObject.SetActive(false);
+                target.charPose = "ko";
+                target.UpdatePose();
                 turnOrder.Remove(targetObject);
+                enemies.Remove(targetObject);
 
                 //deactivate enemy target button if KO'd
                 button.gameObject.SetActive(false);
@@ -312,6 +350,7 @@ public class GameManager : MonoBehaviour
     public void EnemyTurn()
     {
         gameObject.GetComponent<UIManager>().currentMenu.Clear();
+        HideAllTargetSelections();
         StartCoroutine(EnemyActions());
     }
 
@@ -333,8 +372,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         //random player target
-        GameObject[] heroes = GameObject.FindGameObjectsWithTag("Hero");
-        int heroIndex = Random.Range(0, heroes.Length);
+        int heroIndex = Random.Range(0, heroes.Count);
         GameObject targetObject = heroes[heroIndex];
         CharController target = targetObject.GetComponent<CharController>();
 
@@ -360,8 +398,10 @@ public class GameManager : MonoBehaviour
 
         if (!target.charAlive)
         {
-            target.gameObject.SetActive(false);
+            target.charPose = "ko";
+            target.UpdatePose();
             turnOrder.Remove(targetObject);
+            heroes.Remove(targetObject);
 
             //check remaining characters for win/lose state
             CheckGameOver();
@@ -437,15 +477,12 @@ public class GameManager : MonoBehaviour
 
     private void CheckGameOver()
     {
-        GameObject[] heroes = GameObject.FindGameObjectsWithTag("Hero");
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-        if (heroes.Length == 0)
+        if (heroes.Count == 0)
         {
             gameOver = true;
             gameObject.GetComponent<UIManager>().gameOverText.text = "YOU LOSE";
         }
-        else if (enemies.Length == 0)
+        else if (enemies.Count == 0)
         {
             gameOver = true;
             gameObject.GetComponent<UIManager>().gameOverText.text = "YOU WIN";

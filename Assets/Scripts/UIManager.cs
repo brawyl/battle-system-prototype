@@ -56,34 +56,6 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        //menu navigation with arrow keys
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (currentMenu != null && currentMenu.Count > 0)
-            {
-                if (currentMenu.Count > 1) currentMenu.RemoveAt(0);
-
-                if (currentMenu[0] == "main")
-                {
-                    ShowMenuMain();
-                }
-                else if (currentMenu[0] == "attack")
-                {
-                    ShowMenuAttack();
-                }
-                else if (currentMenu[0] == "skill")
-                {
-                    ShowMenuSkill();
-                }
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            //click the selected button right right arrow to go to next menu
-            EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
-        }
-
         //MOVEMENT KEYS
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -114,6 +86,16 @@ public class UIManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.L))
         {
             GameManager.instance.PoseCharacter("heavy");
+        }
+
+        //TARGET SELECT KEYS
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            GameManager.instance.ChangeTargetSelection("left");
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            GameManager.instance.ChangeTargetSelection("right");
         }
     }
 

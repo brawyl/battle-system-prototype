@@ -36,6 +36,8 @@ public class CharController : MonoBehaviour
     public Sprite poseDash, poseDashLight, poseDashHeavy;
     public Sprite poseBlock, poseSpecial, poseKO;
 
+    public GameObject targetSelect;
+
     public string charStatus;
 
     // Start is called before the first frame update
@@ -57,6 +59,8 @@ public class CharController : MonoBehaviour
             gameObject.transform.position = Vector3.zero;
             if (gameObject.tag.Equals("Hero"))
             {
+                GameManager.instance.enemyTarget = 0;
+                GameManager.instance.ShowTargetSelection();
                 GameManager.instance.GetComponent<UIManager>().ShowMenuMain();
 
                 //reset to idle pose on turn start
