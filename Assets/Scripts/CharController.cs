@@ -128,9 +128,11 @@ public class CharController : MonoBehaviour
             case "neutral":
                 gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[0];
                 break;
+            case "block_light": //attacks from block pose just fall thru to neutral attacks
             case "neutral_light":
                 gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[5];
                 break;
+            case "block_heavy":
             case "neutral_heavy":
                 gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[10];
                 break;
@@ -163,12 +165,6 @@ public class CharController : MonoBehaviour
                 break;
             case "block":
                 gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[4];
-                break;
-            case "block_light":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[5]; //same as neutral light
-                break;
-            case "block_heavy":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[10]; //same as neutral heavy
                 break;
             case "special":
                 gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[9];

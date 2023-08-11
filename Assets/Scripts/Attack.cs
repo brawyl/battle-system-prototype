@@ -14,47 +14,27 @@ public class Attack : MonoBehaviour
     [SerializeField]
     private float attackHeavyMax = 1.0f;
 
-    [SerializeField]
-    private int attackLightCost = 2;
-    [SerializeField]
-    private int attackHeavyCost = 3;
+    public int attackLightCost = 2;
+    public int attackHeavyCost = 3;
 
     public int selectedAttackCost;
 
-    public int damageCalc(int strength, string menuDesc)
+    public int damageCalc(int strength, string attackType)
     {
         float damage = 0f;
         selectedAttackCost = 0;
 
-        //check menu desc for damage calc and set attack cost
-        string type = menuDesc.Contains("HEAVY") ? "HEAVY" : "LIGHT";
-
-        if (type == "LIGHT")
+        if (attackType.Contains("light"))
         {
             damage = strength * Random.Range(attackLightMin, attackLightMax);
             selectedAttackCost = attackLightCost;
         }
-        else if (type == "HEAVY")
+        else if (attackType.Contains("heavy"))
         {
             damage = strength * Random.Range(attackHeavyMin, attackHeavyMax);
             selectedAttackCost = attackHeavyCost;
         }
 
         return (int)damage;
-    }
-
-    public int getAttackCost(string type)
-    {
-        if (type == "LIGHT")
-        {
-            return attackLightCost;
-        }
-        else if (type == "HEAVY")
-        {
-            return attackHeavyCost;
-        }
-
-        //default to 0 cost
-        return 0;
     }
 }
