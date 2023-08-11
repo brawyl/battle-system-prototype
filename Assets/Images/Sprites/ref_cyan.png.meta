@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2aefc2b3b528543b887220cc35fedfa8
+guid: f46c89ceeca564856848a1289eb6ab94
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -141,7 +141,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sheet_magenta_0
+      name: ref_cyan_0
       rect:
         serializedVersion: 2
         x: 0
@@ -155,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd599e1f46d25483db96e1d28fa1a0e5
-      internalID: 498962793
+      spriteID: 32b82f4c972794eb3b3153204663c9a2
+      internalID: 1500023157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_magenta_1
+      name: ref_cyan_1
       rect:
         serializedVersion: 2
         x: 100
@@ -176,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8daeb8d277d0b44bc9951f1f40a6774b
-      internalID: 1771576407
+      spriteID: 77740789e6f4b4db58d7d876d4bb0e1b
+      internalID: 1415787289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_magenta_2
+      name: ref_cyan_2
       rect:
         serializedVersion: 2
         x: 200
@@ -197,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63400a4cc2e6f4fb6a285c8e83dd4d00
-      internalID: 455028836
+      spriteID: ed107940ee82e440daa3c8814567aa30
+      internalID: -718745035
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_magenta_3
+      name: ref_cyan_3
       rect:
         serializedVersion: 2
         x: 300
@@ -218,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9303e6ae30ab94f04ae752ea09ff1437
-      internalID: -194507886
+      spriteID: edd1c116924764b90a938e212bb8e223
+      internalID: -1062607723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_magenta_4
+      name: ref_cyan_4
       rect:
         serializedVersion: 2
         x: 400
@@ -239,14 +239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82aafb51871414acd8515be3049aaa8c
-      internalID: 2025605337
+      spriteID: a22ce8e437fb5466ba534c811192d712
+      internalID: -2112565585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_magenta_5
+      name: ref_cyan_5
       rect:
         serializedVersion: 2
         x: 0
@@ -260,14 +260,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3494a233142b847b3af2ad78f24b57bd
-      internalID: 1193402822
+      spriteID: 1c80b22b174034f9d8643f0ed6816858
+      internalID: -745527712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_magenta_6
+      name: ref_cyan_6
       rect:
         serializedVersion: 2
         x: 100
@@ -281,14 +281,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 977b19704b58246498ea6010d8eac256
-      internalID: 1011008841
+      spriteID: 1b611f6edf22743c5b685aabd1a5331f
+      internalID: 1751992876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_magenta_7
+      name: ref_cyan_7
       rect:
         serializedVersion: 2
         x: 200
@@ -302,14 +302,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5dea5c3ba5934d55b280d819f254ac7
-      internalID: 1140669988
+      spriteID: 1bb0766ccc9aa4c8aaaeb0a26a3c6a90
+      internalID: -2082611507
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_magenta_8
+      name: ref_cyan_8
       rect:
         serializedVersion: 2
         x: 300
@@ -323,14 +323,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d59f8969005df4cc6b3fc9d8fdcdb08f
-      internalID: 1678101224
+      spriteID: 78dd40e21c1ca46d88516717a3f2145c
+      internalID: 589544616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_magenta_9
+      name: ref_cyan_9
       rect:
         serializedVersion: 2
         x: 400
@@ -344,14 +344,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81e320acd7ff3423497a7cfc47b9c0af
-      internalID: 724661349
+      spriteID: 57f29ec78cedc447ba48873f4400ea25
+      internalID: -556826446
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_magenta_10
+      name: ref_cyan_10
       rect:
         serializedVersion: 2
         x: 0
@@ -365,14 +365,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d03aaf4979faa4a77b02cba1bb3dd9d9
-      internalID: -1481642010
+      spriteID: d57d0f797565d45a8a1c6241566ef27f
+      internalID: 888147011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_magenta_11
+      name: ref_cyan_11
       rect:
         serializedVersion: 2
         x: 100
@@ -386,14 +386,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4ff4ef5267a942aaa76c688a470dd6b
-      internalID: 745870541
+      spriteID: 7f2992f28e4ce43a3b7e8b4c51ceb3a0
+      internalID: -60661455
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_magenta_12
+      name: ref_cyan_12
       rect:
         serializedVersion: 2
         x: 200
@@ -407,14 +407,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87919ecf787e54b119eb361a82831235
-      internalID: 1350822706
+      spriteID: 18400ddce468c41a5a84e4cce72420f1
+      internalID: -1638678236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_magenta_13
+      name: ref_cyan_13
       rect:
         serializedVersion: 2
         x: 300
@@ -428,14 +428,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3047013c20010454099b852d687417f4
-      internalID: 1145651899
+      spriteID: 45aee8361d47e40a687774ce59aa0cce
+      internalID: 1688797374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_magenta_14
+      name: ref_cyan_14
       rect:
         serializedVersion: 2
         x: 400
@@ -449,8 +449,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba4b9b3ffe99e4490b074f190dc16b5f
-      internalID: 1875401312
+      spriteID: ff4ece5f65d80435a9c342fc761ad49c
+      internalID: -463947432
       vertices: []
       indices: 
       edges: []
@@ -458,7 +458,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2e802d1dd118d46a9a12745515a5196c
+    spriteID: 03c9e6fd68aac42c4b6814855702bb04
     internalID: 0
     vertices: []
     indices: 
@@ -466,21 +466,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sheet_magenta_0: 498962793
-      sheet_magenta_1: 1771576407
-      sheet_magenta_10: -1481642010
-      sheet_magenta_11: 745870541
-      sheet_magenta_12: 1350822706
-      sheet_magenta_13: 1145651899
-      sheet_magenta_14: 1875401312
-      sheet_magenta_2: 455028836
-      sheet_magenta_3: -194507886
-      sheet_magenta_4: 2025605337
-      sheet_magenta_5: 1193402822
-      sheet_magenta_6: 1011008841
-      sheet_magenta_7: 1140669988
-      sheet_magenta_8: 1678101224
-      sheet_magenta_9: 724661349
+      ref_cyan_0: 1500023157
+      ref_cyan_1: 1415787289
+      ref_cyan_10: 888147011
+      ref_cyan_11: -60661455
+      ref_cyan_12: -1638678236
+      ref_cyan_13: 1688797374
+      ref_cyan_14: -463947432
+      ref_cyan_2: -718745035
+      ref_cyan_3: -1062607723
+      ref_cyan_4: -2112565585
+      ref_cyan_5: -745527712
+      ref_cyan_6: 1751992876
+      ref_cyan_7: -2082611507
+      ref_cyan_8: 589544616
+      ref_cyan_9: -556826446
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

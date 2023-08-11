@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a269f36b103794a9facab5916f849a3f
+guid: 5ea4dade1f7a54f9dba8b56ee0b6b7ae
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -141,7 +141,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sheet_blue_0
+      name: ref_red_0
       rect:
         serializedVersion: 2
         x: 0
@@ -155,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 471bb9ac9e4a84b79ba009caa86ca200
-      internalID: 1154781146
+      spriteID: f24b0e6de807147d0aa62c5513bb319a
+      internalID: 450773540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_blue_1
+      name: ref_red_1
       rect:
         serializedVersion: 2
         x: 100
@@ -176,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14db83d6e965443059213bad9d54b934
-      internalID: 2133231715
+      spriteID: 8f7bb5485e9fc48739e1e4e68b32646e
+      internalID: -1425350534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_blue_2
+      name: ref_red_2
       rect:
         serializedVersion: 2
         x: 200
@@ -197,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e883454bc069a4bf8b2460c5069fdb8c
-      internalID: 1736439458
+      spriteID: fa9ac9ddc8d7940cf91ae36925346e4d
+      internalID: -1605011362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_blue_3
+      name: ref_red_3
       rect:
         serializedVersion: 2
         x: 300
@@ -218,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d2298cbb2984435e928fcb571a25ae9
-      internalID: -1520087942
+      spriteID: 289ca1d9b59e5440790f14c00753be83
+      internalID: -275843742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_blue_4
+      name: ref_red_4
       rect:
         serializedVersion: 2
         x: 400
@@ -239,14 +239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a121efe21e819477a8d59cb87a6c1e6a
-      internalID: 1261873246
+      spriteID: 64563f26d4730486c9b821bebf1a6f29
+      internalID: -161147452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_blue_5
+      name: ref_red_5
       rect:
         serializedVersion: 2
         x: 0
@@ -260,14 +260,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27a4594c6be024831b3388a11b8e0167
-      internalID: 2020529128
+      spriteID: 06ac0513b22d940b784e009ea909ef32
+      internalID: 424665394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_blue_6
+      name: ref_red_6
       rect:
         serializedVersion: 2
         x: 100
@@ -281,14 +281,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 386b202deead24a39bc5c89eccda571e
-      internalID: -1227542192
+      spriteID: cfa1e4e89eb4a49c2a4d7bcae678850a
+      internalID: 707020041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_blue_7
+      name: ref_red_7
       rect:
         serializedVersion: 2
         x: 200
@@ -302,14 +302,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a112f865b39fc4abc9c5a9e2e109b635
-      internalID: 894769963
+      spriteID: 5b969ab31220b4d66bfaeecd753beb57
+      internalID: 1898290937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_blue_8
+      name: ref_red_8
       rect:
         serializedVersion: 2
         x: 300
@@ -323,14 +323,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ca6ae2f7128d47139f2a33655ad6e46
-      internalID: 148329490
+      spriteID: 21d29402b3420400bb2092a7f903a618
+      internalID: -1413185551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_blue_9
+      name: ref_red_9
       rect:
         serializedVersion: 2
         x: 400
@@ -344,14 +344,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f182a2d4082741eebf8002f3cccb846
-      internalID: 845833477
+      spriteID: 9e1ad285e5ccd4e9c892b2a13ef52dff
+      internalID: 1860047556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_blue_10
+      name: ref_red_10
       rect:
         serializedVersion: 2
         x: 0
@@ -365,14 +365,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a32b7e6a1a0648339fbb022e9088396
-      internalID: 1864197564
+      spriteID: e243cda863f3f427f96d4f4b098fc609
+      internalID: 923533923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_blue_11
+      name: ref_red_11
       rect:
         serializedVersion: 2
         x: 100
@@ -386,14 +386,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de3544d74140a41ffa9a6a58763d4772
-      internalID: 1974906041
+      spriteID: 7bc42c568bda940e19268563fb4295d1
+      internalID: 1080559025
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_blue_12
+      name: ref_red_12
       rect:
         serializedVersion: 2
         x: 200
@@ -407,14 +407,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9b32575da9ae442297e82e110abf449
-      internalID: 124384082
+      spriteID: e9499b8d0ab214787964d416ca8d59ed
+      internalID: -2110237815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_blue_13
+      name: ref_red_13
       rect:
         serializedVersion: 2
         x: 300
@@ -428,14 +428,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad48d27315eca4863800e0a5635dfccd
-      internalID: -1761309918
+      spriteID: 4a3ec540972834d4d98ae0e8c9cc0047
+      internalID: 1673602776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet_blue_14
+      name: ref_red_14
       rect:
         serializedVersion: 2
         x: 400
@@ -449,8 +449,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a86875e4ff63b461ab75ef1f71bad767
-      internalID: -134747632
+      spriteID: 42c9331af84d74696a7a9c38322ced98
+      internalID: -1943006266
       vertices: []
       indices: 
       edges: []
@@ -458,7 +458,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 00865da599ce74da1a327b8685723c5c
+    spriteID: 4945e3e0082a24955931dd2c000e5c99
     internalID: 0
     vertices: []
     indices: 
@@ -466,21 +466,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sheet_blue_0: 1154781146
-      sheet_blue_1: 2133231715
-      sheet_blue_10: 1864197564
-      sheet_blue_11: 1974906041
-      sheet_blue_12: 124384082
-      sheet_blue_13: -1761309918
-      sheet_blue_14: -134747632
-      sheet_blue_2: 1736439458
-      sheet_blue_3: -1520087942
-      sheet_blue_4: 1261873246
-      sheet_blue_5: 2020529128
-      sheet_blue_6: -1227542192
-      sheet_blue_7: 894769963
-      sheet_blue_8: 148329490
-      sheet_blue_9: 845833477
+      ref_red_0: 450773540
+      ref_red_1: -1425350534
+      ref_red_10: 923533923
+      ref_red_11: 1080559025
+      ref_red_12: -2110237815
+      ref_red_13: 1673602776
+      ref_red_14: -1943006266
+      ref_red_2: -1605011362
+      ref_red_3: -275843742
+      ref_red_4: -161147452
+      ref_red_5: 424665394
+      ref_red_6: 707020041
+      ref_red_7: 1898290937
+      ref_red_8: -1413185551
+      ref_red_9: 1860047556
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -120,9 +120,9 @@ public class UIManager : MonoBehaviour
         //set a new selected object
         EventSystem.current.SetSelectedGameObject(mainFirstButton);
 
-        //change to atk pose
-        GameObject activeChar = GameManager.instance.activeChar;
-        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().poseNeutral;
+        //change to neutral pose
+        GameManager.instance.PoseCharacter("neutral");
+
 
         if (currentMenu != null)
         {
@@ -144,8 +144,7 @@ public class UIManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(attackFirstButton);
 
         //change to atk pose
-        GameObject activeChar = GameManager.instance.activeChar;
-        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().poseNeutralLight;
+        GameManager.instance.PoseCharacter("neutral_light");
 
         if (currentMenu.Count > 0 && currentMenu[0] != "attack")
         {
@@ -168,8 +167,7 @@ public class UIManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(skillFirstButton);
 
         //change to skill pose
-        GameObject activeChar = GameManager.instance.activeChar;
-        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().poseNeutralHeavy;
+        GameManager.instance.PoseCharacter("special");
 
         if (currentMenu.Count > 0 && currentMenu[0] != "skill")
         {
@@ -192,8 +190,7 @@ public class UIManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(defendFirstButton);
 
         //change to def pose
-        GameObject activeChar = GameManager.instance.activeChar;
-        activeChar.GetComponentInChildren<SpriteRenderer>().sprite = activeChar.GetComponent<CharController>().poseBlock;
+        GameManager.instance.PoseCharacter("block");
 
         if (currentMenu.Count > 0 && currentMenu[0] != "defend")
         {

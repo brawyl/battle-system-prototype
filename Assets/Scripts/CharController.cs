@@ -14,6 +14,13 @@ public class CharController : MonoBehaviour
     private Slider hpSlider;
     [SerializeField]
     private Vector3 startPosition;
+    [SerializeField]
+    private Sprite[] poses;
+    /*** POSES INDEX REFERENCE
+     * 0 - Neutral, 1 - Jump, 2 - Crouch, 3 - Dash, 4 - Block,
+     * 5 - Neutral Attack Light, 6 - Jump Attack Light, 7 - Crouch Attack Light, 8 - Dash Attack Light, 9 - Special,
+     * 10 - Neutral Attack Heavy, 11 - Jump Attack Heavy, 12 - Crouch Attack Heavy, 13 - Dash Attack Heavy, 14 - KO
+    ***/
 
     public string charName;
     public int charHPMax;
@@ -29,12 +36,6 @@ public class CharController : MonoBehaviour
     public bool isEvading;
 
     public string charPose;
-
-    public Sprite poseNeutral, poseNeutralLight, poseNeutralHeavy;
-    public Sprite poseJump, poseJumpLight, poseJumpHeavy;
-    public Sprite poseCrouch, poseCrouchLight, poseCrouchHeavy;
-    public Sprite poseDash, poseDashLight, poseDashHeavy;
-    public Sprite poseBlock, poseSpecial, poseKO;
 
     public GameObject targetSelect;
 
@@ -64,12 +65,12 @@ public class CharController : MonoBehaviour
                 GameManager.instance.GetComponent<UIManager>().ShowMenuMain();
 
                 //reset to idle pose on turn start
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseNeutral;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[0];
             }
             else
             {
                 //set to atk pose on turn start for enemy
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseNeutralLight;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[5];;
 
                 //enemy targets random player with random action
                 GameManager.instance.EnemyTurn();
@@ -134,61 +135,63 @@ public class CharController : MonoBehaviour
 
     public void UpdatePose()
     {
+        if (poses.Length < 15) return;
+
         switch (charPose)
         {
             case "neutral":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseNeutral;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[0];
                 break;
             case "neutral_light":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseNeutralLight;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[5];
                 break;
             case "neutral_heavy":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseNeutralHeavy;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[10];
                 break;
             case "jump":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseJump;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[1];
                 break;
             case "jump_light":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseJumpLight;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[6];
                 break;
             case "jump_heavy":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseJumpHeavy;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[11];
                 break;
             case "crouch":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseCrouch;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[2];
                 break;
             case "crouch_light":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseCrouchLight;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[7];
                 break;
             case "crouch_heavy":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseCrouchHeavy;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[12];
                 break;
             case "dash":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseDash;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[3];
                 break;
             case "dash_light":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseDashLight;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[8];
                 break;
             case "dash_heavy":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseDashHeavy;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[13];
                 break;
             case "block":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseBlock;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[4];
                 break;
             case "block_light":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseNeutralLight;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[0];
                 break;
             case "block_heavy":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseNeutralHeavy;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[0];
                 break;
             case "special":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseSpecial;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[9];
                 break;
             case "ko":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseKO;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[14];
                 break;
             default:
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poseNeutral;
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[0];
                 break;
         }
     }
