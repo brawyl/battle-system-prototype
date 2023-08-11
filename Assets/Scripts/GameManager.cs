@@ -47,7 +47,6 @@ public class GameManager : MonoBehaviour
 
         heroes = GameObject.FindGameObjectsWithTag("Hero").OrderBy(p => p.name).ToArray().ToList();
         enemies = GameObject.FindGameObjectsWithTag("Enemy").OrderBy(p => p.name).ToArray().ToList();
-        GameObject[] targetButtons = gameObject.GetComponent<UIManager>().targetButtons;
         turnOrder = new ArrayList();
 
         //build turn order list
@@ -55,13 +54,9 @@ public class GameManager : MonoBehaviour
         {
             turnOrder.Add(hero);
         }
-        for (int i=0; i<enemies.Count; i++)
+        foreach (GameObject enemy in enemies)
         {
-            GameObject enemy = enemies[i];
             turnOrder.Add(enemy);
-            //assign target button names
-            GameObject targetButton = targetButtons[i];
-            targetButton.GetComponentInChildren<TMP_Text>().text = enemy.GetComponent<CharController>().charName;
         }
 
         menuSelection = "";
@@ -70,15 +65,25 @@ public class GameManager : MonoBehaviour
     public void PoseCharacter(string pose)
     {
         string currentPose = activeChar.GetComponent<CharController>().charPose;
-        //cancelling out poses if same direction given
+        Debug.Log("current: " + currentPose + " new: " + pose);
+        //reset pose to neutral when same direction is pressed
         if (currentPose == pose)
         {
             activeChar.GetComponent<CharController>().charPose = "neutral";
         }
         else if (pose == "light" || pose == "heavy")
         {
-            string attackPose = currentPose.Split("_")[0] + "_" + pose;
-            activeChar.GetComponent<CharController>().charPose = attackPose;
+            string[] poseParts = currentPose.Split("_");
+            string attackPose = poseParts[0] + "_" + pose;
+            //make it so spamming attacks actually resets to the pose before attacking again
+            if (currentPose == attackPose)
+            {
+                activeChar.GetComponent<CharController>().charPose = poseParts[0];
+            }
+            else
+            {
+                activeChar.GetComponent<CharController>().charPose = attackPose;
+            }
         }
         else if (pose != "wait")
         {
@@ -87,9 +92,13 @@ public class GameManager : MonoBehaviour
         activeChar.GetComponent<CharController>().UpdatePose();
     }
 
-    public void ShowTargetSelection()
+    public void StartPlayerTurn()
     {
+        enemyTarget = 0;
+        gameObject.GetComponent<UIManager>().playerTurn = true;
         enemies[enemyTarget].GetComponent<CharController>().targetSelect.SetActive(true);
+        activeChar.GetComponent<CharController>().charPose = "neutral";
+        activeChar.GetComponent<CharController>().UpdatePose();
     }
 
     public void ChangeTargetSelection(string direction)
@@ -116,41 +125,6 @@ public class GameManager : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             enemy.GetComponent<CharController>().targetSelect.SetActive(false);
-        }
-    }
-
-    public void SelectTarget(Button button)
-    {
-        string actionString = gameObject.GetComponent<UIManager>().actionString;
-
-        if (actionString.Contains("ATTACK"))
-        {
-            AttackTarget(button);
-        }
-        else if (actionString.Contains("SKILL"))
-        {
-            List<Button> buttons = new();
-
-            //skill button is passed in as the multi target skill instead of a target button
-            if (button.name.Contains("skill"))
-            {
-                //built the array of targets for multi target skill
-                GameObject[] buttonObjects = gameObject.GetComponent<UIManager>().targetButtons;
-                for (int i=0; i< buttonObjects.Length; i++)
-                {
-                    if(buttonObjects[i].activeSelf) //inactive targets throw a NullReferenceException
-                    {
-                        buttons.Add(buttonObjects[i].GetComponent<Button>());
-                    }
-                }
-            }
-            else
-            {
-                //single target skill is a single element array
-                buttons.Add(button);
-            }
-
-            SkillTarget(buttons);
         }
     }
 
@@ -220,9 +194,6 @@ public class GameManager : MonoBehaviour
             turnOrder.Remove(targetObject);
             enemies.Remove(targetObject);
 
-            //deactivate enemy target button if KO'd
-            button.gameObject.SetActive(false);
-
             //check remaining characters for win/lose state
             CheckGameOver();
         }
@@ -258,21 +229,16 @@ public class GameManager : MonoBehaviour
         }
 
         //loop to deal with multi target skills if needed
-        foreach (Button button in buttons)
+        foreach (GameObject enemy in enemies)
         {
-            string buttonName = button.name;
-            string enemyObjectName = buttonName.Replace("target_", "ENEMY ");
-            string enemyObjectIndex = buttonName.Replace("target_", "");
-
             //deal damage
-            GameObject targetObject = GameObject.Find(enemyObjectName);
-            CharController target = targetObject.GetComponent<CharController>();
+            CharController target = enemy.GetComponent<CharController>();
             int damageToTake = skillStrength - target.charDefenseCurrent;
             if (damageToTake < 1) { damageToTake = 1; }
             target.TakeDamage(damageToTake);
 
             //subract 1 from enemy index since the named index starts at 1
-            int enemyIndex = int.Parse(enemyObjectIndex) - 1;
+            int enemyIndex = int.Parse(enemy.name) - 1;
             GameObject damageText = gameObject.GetComponent<UIManager>().enemyDamageText[enemyIndex];
             damageText.GetComponent<TMP_Text>().text = damageToTake.ToString();
             damageText.GetComponent<Animation>().Play();
@@ -281,11 +247,8 @@ public class GameManager : MonoBehaviour
             {
                 target.charPose = "ko";
                 target.UpdatePose();
-                turnOrder.Remove(targetObject);
-                enemies.Remove(targetObject);
-
-                //deactivate enemy target button if KO'd
-                button.gameObject.SetActive(false);
+                turnOrder.Remove(enemy);
+                enemies.Remove(enemy);
 
                 //check remaining characters for win/lose state
                 CheckGameOver();
@@ -309,26 +272,14 @@ public class GameManager : MonoBehaviour
         EndTurn();
     }
 
-    public void Evade()
-    {
-        //modify def stat
-        int baseDefense = activeChar.GetComponent<CharController>().charDefenseBase;
-        activeChar.GetComponent<CharController>().charDefenseCurrent = baseDefense / 2;
-
-        //reset speed stat
-        activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
-
-        //set evade flag
-        activeChar.GetComponent<CharController>().isEvading = true;
-
-        EndTurn();
-    }
-
     private void PrepNextTurn()
     {
-        //change sprite to idle pose
-        activeChar.GetComponent<CharController>().charPose = "neutral";
-        activeChar.GetComponent<CharController>().UpdatePose();
+        //change sprite to idle pose if they were attacking, denoted by an underscore in the pose name
+        if (activeChar.GetComponent<CharController>().charPose.Contains("_"))
+        {
+            activeChar.GetComponent<CharController>().charPose = "neutral";
+            activeChar.GetComponent<CharController>().UpdatePose();
+        }
 
         //update char status display
         activeChar.GetComponent<CharController>().UpdateStatus();
@@ -344,29 +295,31 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            gameObject.GetComponent<UIManager>().ShowMenuMain();
+            //TODO: still active turn
         }
     }
 
-    public void EnemyTurn()
+    public void StartEnemyTurn()
     {
-        gameObject.GetComponent<UIManager>().currentMenu.Clear();
+        gameObject.GetComponent<UIManager>().playerTurn = false;
         HideAllTargetSelections();
+        activeChar.GetComponent<CharController>().charPose = "neutral";
+        activeChar.GetComponent<CharController>().UpdatePose();
         StartCoroutine(EnemyActions());
     }
 
     private IEnumerator EnemyActions()
     {
         int randomNumber = Random.Range(1, 11);
-        //even random number (1-10) for light attack, odd for heavy
+        //even random number (1-10) for movement, odd for action
         if (randomNumber % 2 == 0)
         {
-            menuSelection = gameObject.GetComponent<UIManager>().menuText.text = gameObject.GetComponent<UIManager>().menuAttackItems[0];
+            //TODO: movement
              
         }
         else
         {
-            menuSelection = gameObject.GetComponent<UIManager>().menuText.text = gameObject.GetComponent<UIManager>().menuAttackItems[1];
+            //TODO: action
         }
 
         //delay so player can see what happened
@@ -381,12 +334,6 @@ public class GameManager : MonoBehaviour
         int attackStrength = gameObject.GetComponent<Attack>().damageCalc(enemyStrength, menuSelection);
         int damageToTake = attackStrength - target.charDefenseCurrent;
         if (damageToTake < 1) { damageToTake = 1; }
-
-        //check if evading target can negate attack with a 50% chance of the random number (1-10) being 5 or less
-        if (target.isEvading && randomNumber < 6)
-        {
-            damageToTake = 0;
-        }
 
         target.TakeDamage(damageToTake);
 

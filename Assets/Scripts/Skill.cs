@@ -6,18 +6,18 @@ public class Skill : MonoBehaviour
 {
     //skill damage multiplier ranges
     [SerializeField]
-    private float skillSingleMin = 1.8f;
+    private float skillSingleMin = 1.6f;
     [SerializeField]
     private float skillSingleMax = 2.0f;
     [SerializeField]
-    private float skillMultiMin = 0.8f;
+    private float skillMultiMin = 0.6f;
     [SerializeField]
     private float skillMultiMax = 1.0f;
 
     [SerializeField]
     private int skillSingleCost = 10;
     [SerializeField]
-    private int skillMultiCost = 15;
+    private int skillMultiCost = 10;
 
     public int selectedSkillCost;
 

@@ -10,14 +10,14 @@ public class Attack : MonoBehaviour
     [SerializeField]
     private float attackLightMax = 0.6f;
     [SerializeField]
-    private float attackHeavyMin = 0.9f;
+    private float attackHeavyMin = 0.8f;
     [SerializeField]
     private float attackHeavyMax = 1.0f;
 
     [SerializeField]
-    private int attackLightCost = 6;
+    private int attackLightCost = 2;
     [SerializeField]
-    private int attackHeavyCost = 12;
+    private int attackHeavyCost = 3;
 
     public int selectedAttackCost;
 

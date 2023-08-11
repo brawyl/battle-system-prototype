@@ -33,7 +33,9 @@ public class CharController : MonoBehaviour
     public int charSpeedCurrent;
     public bool charAlive;
     public bool activeTurn;
-    public bool isEvading;
+
+    [SerializeField]
+    public string specialty = "";
 
     public string charPose;
 
@@ -56,31 +58,20 @@ public class CharController : MonoBehaviour
     {
         if (activeTurn)
         {
-            isEvading = false;
             gameObject.transform.position = Vector3.zero;
             if (gameObject.tag.Equals("Hero"))
             {
-                GameManager.instance.enemyTarget = 0;
-                GameManager.instance.ShowTargetSelection();
-                GameManager.instance.GetComponent<UIManager>().ShowMenuMain();
-
-                //reset to idle pose on turn start
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[0];
+                GameManager.instance.StartPlayerTurn();
             }
             else
             {
-                //set to atk pose on turn start for enemy
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[5];;
-
-                //enemy targets random player with random action
-                GameManager.instance.EnemyTurn();
+                GameManager.instance.StartEnemyTurn();
             }
             GameManager.instance.GetComponent<UIManager>().UpdateTimerText(charSpeedCurrent.ToString());
         }
         else
         {
             gameObject.transform.position = startPosition;
-            GameManager.instance.GetComponent<UIManager>().HideAllMenus();
         }
 
         UpdateStatus();
@@ -118,11 +109,6 @@ public class CharController : MonoBehaviour
                 charStatus += " DEF ";
                 charStatus += charDefenseCurrent > charDefenseBase ? "+" : "-";
                 charStatus += Mathf.Abs(charDefenseCurrent - charDefenseBase).ToString();
-            }
-
-            if (isEvading)
-            {
-                charStatus += " EVADE";
             }
         }
         else
@@ -179,10 +165,10 @@ public class CharController : MonoBehaviour
                 gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[4];
                 break;
             case "block_light":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[0];
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[5]; //same as neutral light
                 break;
             case "block_heavy":
-                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[0];
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[10]; //same as neutral heavy
                 break;
             case "special":
                 gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[9];
