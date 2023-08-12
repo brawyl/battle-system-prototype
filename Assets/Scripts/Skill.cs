@@ -19,9 +19,6 @@ public class Skill : MonoBehaviour
 
     public int selectedSkillCost;
 
-    public string skillName;
-    public int skillCost;
-
     public int damageCalc(int strength, string skillType)
     {
         float damage = 0f;

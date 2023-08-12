@@ -79,6 +79,10 @@ public class GameManager : MonoBehaviour
             else
             {
                 activeChar.GetComponent<CharController>().charPose = attackPose;
+                if (gameObject.GetComponent<UIManager>().playerTurn)
+                {
+                    AttackTarget(enemies[enemyTarget]);
+                }
             }
         }
         else if (pose != "wait")
@@ -132,11 +136,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AttackTarget(Button button)
+    public void AttackTarget(GameObject targetObject)
     {
-        string buttonName = button.name;
-        string enemyObjectName = buttonName.Replace("target_", "ENEMY ");
-        string enemyObjectIndex = buttonName.Replace("target_", "");
+        string targetName = targetObject.name;
+        string enemyObjectIndex = targetName.Replace("ENEMY ", "");
 
         //reset current defense to base defense before attacking
         int baseDefense = activeChar.GetComponent<CharController>().charDefenseBase;
@@ -178,7 +181,6 @@ public class GameManager : MonoBehaviour
         }
 
         //deal damage
-        GameObject targetObject = GameObject.Find(enemyObjectName);
         CharController target = targetObject.GetComponent<CharController>();
         int damageToTake = attackStrength - target.charDefenseCurrent;
         if (damageToTake < 1) { damageToTake = 1; }
@@ -196,6 +198,7 @@ public class GameManager : MonoBehaviour
         {
             target.charPose = "ko";
             target.UpdatePose();
+            target.targetSelect.SetActive(false);
             turnOrder.Remove(targetObject);
             enemies.Remove(targetObject);
 
@@ -206,7 +209,7 @@ public class GameManager : MonoBehaviour
         CheckRemainingSpeed(newCurrentSpeed);
     }
 
-    public void SkillTarget(List<Button> buttons)
+    public void SkillTarget(GameObject targetObject)
     {
         //reset current defense to base defense before attacking
         int baseDefense = activeChar.GetComponent<CharController>().charDefenseBase;
@@ -253,6 +256,7 @@ public class GameManager : MonoBehaviour
             {
                 target.charPose = "ko";
                 target.UpdatePose();
+                target.targetSelect.SetActive(false);
                 turnOrder.Remove(enemy);
                 enemies.Remove(enemy);
 
@@ -280,13 +284,6 @@ public class GameManager : MonoBehaviour
 
     private void PrepNextTurn()
     {
-        //change sprite to idle pose if they were attacking, denoted by an underscore in the pose name
-        if (activeChar.GetComponent<CharController>().charPose.Contains("_"))
-        {
-            activeChar.GetComponent<CharController>().charPose = "neutral";
-            activeChar.GetComponent<CharController>().UpdatePose();
-        }
-
         //update char status display
         activeChar.GetComponent<CharController>().UpdateStatus();
     }
@@ -295,13 +292,16 @@ public class GameManager : MonoBehaviour
     {
         if (newCurrentSpeed <= 0)
         {
+            //change sprite to idle pose if they were attacking, denoted by an underscore in the pose name
+            if (activeChar.GetComponent<CharController>().charPose.Contains("_"))
+            {
+                activeChar.GetComponent<CharController>().charPose = "neutral";
+                activeChar.GetComponent<CharController>().UpdatePose();
+            }
+
             //reset speed stat
             activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
             EndTurn();
-        }
-        else
-        {
-            //TODO: still active turn
         }
     }
 
@@ -442,6 +442,10 @@ public class GameManager : MonoBehaviour
         {
             gameOver = true;
             gameObject.GetComponent<UIManager>().gameOverText.text = "YOU WIN";
+        }
+        if (enemies.Count > 0)
+        {
+            enemies[0].GetComponent<CharController>().targetSelect.SetActive(true);
         }
         gameObject.GetComponent<UIManager>().ShowGameOverScreen(gameOver);
     }

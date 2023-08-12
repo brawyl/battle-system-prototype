@@ -3023,7 +3023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charSpeedBase
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: poseDashHeavy
@@ -3067,7 +3067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charSpeedCurrent
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charStrengthBase
@@ -6072,7 +6072,6 @@ MonoBehaviour:
   gameOver: 0
   activeChar: {fileID: 0}
   enemyTarget: 0
-  menuSelection: 
 --- !u!4 &1530755389
 Transform:
   m_ObjectHideFlags: 0
@@ -6138,10 +6137,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackLightMin: 0.5
   attackLightMax: 0.6
-  attackHeavyMin: 0.9
+  attackHeavyMin: 0.8
   attackHeavyMax: 1
-  attackLightCost: 4
-  attackHeavyCost: 11
+  attackLightCost: 2
+  attackHeavyCost: 3
   selectedAttackCost: 0
 --- !u!114 &1530755392
 MonoBehaviour:
@@ -6155,15 +6154,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd2d65b8a43b4c68b9461c47cfc22ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillSingleMin: 1.8
+  skillSingleMin: 1.6
   skillSingleMax: 2
-  skillMultiMin: 0.8
+  skillMultiMin: 0.6
   skillMultiMax: 1
-  skillSingleCost: 15
-  skillMultiCost: 15
+  skillSingleCost: 10
+  skillMultiCost: 10
   selectedSkillCost: 0
-  skillName: 
-  skillCost: 0
 --- !u!1001 &1531001466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9647,7 +9644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charSpeedBase
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: poseDashHeavy
@@ -9687,7 +9684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charSpeedCurrent
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charStrengthBase
@@ -12386,7 +12383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charSpeedBase
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: poseDashHeavy
@@ -12430,7 +12427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charSpeedCurrent
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charStrengthBase
