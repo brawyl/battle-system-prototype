@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     public int enemyTarget;
 
+    private List<string> prevCommands;
+
     void Awake()
     {
         //check if instance exists
@@ -46,6 +48,8 @@ public class GameManager : MonoBehaviour
         heroes = GameObject.FindGameObjectsWithTag("Hero").OrderBy(p => p.name).ToArray().ToList();
         enemies = GameObject.FindGameObjectsWithTag("Enemy").OrderBy(p => p.name).ToArray().ToList();
         turnOrder = new ArrayList();
+        prevCommands = new List<string>();
+        enemyTarget = 0;
 
         //build turn order list
         foreach(GameObject hero in heroes)
@@ -60,6 +64,23 @@ public class GameManager : MonoBehaviour
 
     public void PoseCharacter(string pose)
     {
+        prevCommands.Add(pose);
+        if (prevCommands.Count == 3)
+        {
+            string specialCheck = "";
+            foreach(string command in prevCommands)
+            {
+                specialCheck += command;
+            }
+            prevCommands.Clear();
+            Debug.Log(specialCheck);
+
+            if (specialCheck == "crouchdashlight" || specialCheck == "crouchdashheavy") //fireball command
+            {
+                pose = "special" + specialCheck.Replace("crouchdash", "_");
+            }
+        }
+
         string currentPose = activeChar.GetComponent<CharController>().charPose;
         //reset pose to neutral when same direction is pressed
         if (currentPose == pose)
@@ -84,6 +105,14 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+        else if (pose.Contains("special"))
+        {
+            activeChar.GetComponent<CharController>().charPose = pose;
+            if (gameObject.GetComponent<UIManager>().playerTurn)
+            {
+                SkillTarget(enemies[enemyTarget]);
+            }
+        }
         else if (pose != "wait")
         {
             activeChar.GetComponent<CharController>().charPose = pose;
@@ -99,7 +128,6 @@ public class GameManager : MonoBehaviour
 
     public void StartPlayerTurn()
     {
-        enemyTarget = 0;
         gameObject.GetComponent<UIManager>().playerTurn = true;
         gameObject.GetComponent<UIManager>().ToggleContolButtonDisplay();
         enemies[enemyTarget].GetComponent<CharController>().targetSelect.SetActive(true);
@@ -179,31 +207,9 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        //deal damage
-        CharController target = targetObject.GetComponent<CharController>();
-        int damageToTake = attackStrength - target.charDefenseCurrent;
-        if (damageToTake < 1) { damageToTake = 1; }
-        target.TakeDamage(damageToTake);
-
-        //subract 1 from enemy index since the named index starts at 1
-        int enemyIndex = int.Parse(enemyObjectIndex) - 1;
-        GameObject damageText = gameObject.GetComponent<UIManager>().enemyDamageText[enemyIndex];
-        damageText.GetComponent<TMP_Text>().text = damageToTake.ToString();
-        damageText.GetComponent<Animation>().Play();
+        DealDamage(targetObject, attackStrength);
 
         PrepNextTurn();
-
-        if (!target.charAlive)
-        {
-            target.charPose = "ko";
-            target.UpdatePose();
-            target.targetSelect.SetActive(false);
-            turnOrder.Remove(targetObject);
-            enemies.Remove(targetObject);
-
-            //check remaining characters for win/lose state
-            CheckGameOver();
-        }
 
         CheckRemainingSpeed(newCurrentSpeed);
     }
@@ -225,6 +231,19 @@ public class GameManager : MonoBehaviour
         int newCurrentSpeed = activeChar.GetComponent<CharController>().charSpeedCurrent;
         gameObject.GetComponent<UIManager>().timerText.text = newCurrentSpeed.ToString();
 
+        //update combo text
+        comboCount++;
+        gameObject.GetComponent<UIManager>().heroComboText.text = comboCount + " HITS";
+        if (comboCount > 1)
+        {
+            gameObject.GetComponent<UIManager>().heroComboText.GetComponent<Animation>().Stop();
+            gameObject.GetComponent<UIManager>().heroComboText.GetComponent<Animation>().Play();
+        }
+        else
+        {
+            gameObject.GetComponent<UIManager>().heroComboText.text = "";
+        }
+
         //reduce defense if more time was used than available
         if (newCurrentSpeed < 0)
         {
@@ -236,37 +255,51 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        //loop to deal with multi target skills if needed
-        foreach (GameObject enemy in enemies)
+        if (pose.Contains("heavy")) //heavy skill is multi target
         {
-            //deal damage
-            CharController target = enemy.GetComponent<CharController>();
-            int damageToTake = skillStrength - target.charDefenseCurrent;
-            if (damageToTake < 1) { damageToTake = 1; }
-            target.TakeDamage(damageToTake);
-
-            //subract 1 from enemy index since the named index starts at 1
-            int enemyIndex = int.Parse(enemy.name) - 1;
-            GameObject damageText = gameObject.GetComponent<UIManager>().enemyDamageText[enemyIndex];
-            damageText.GetComponent<TMP_Text>().text = damageToTake.ToString();
-            damageText.GetComponent<Animation>().Play();
-
-            if (!target.charAlive)
+            foreach (GameObject enemy in enemies)
             {
-                target.charPose = "ko";
-                target.UpdatePose();
-                target.targetSelect.SetActive(false);
-                turnOrder.Remove(enemy);
-                enemies.Remove(enemy);
-
-                //check remaining characters for win/lose state
-                CheckGameOver();
+                DealDamage(enemy, skillStrength);
             }
+        }
+        else
+        {
+            DealDamage(targetObject, skillStrength);
         }
 
         PrepNextTurn();
 
         CheckRemainingSpeed(newCurrentSpeed);
+    }
+
+    private void DealDamage(GameObject targetObject, int strength)
+    {
+        string targetName = targetObject.name;
+        string enemyObjectIndex = targetName.Replace("ENEMY ", "");
+
+        //deal damage
+        CharController target = targetObject.GetComponent<CharController>();
+        int damageToTake = strength - target.charDefenseCurrent;
+        if (damageToTake < 1) { damageToTake = 1; }
+        target.TakeDamage(damageToTake);
+
+        //subract 1 from enemy index since the named index starts at 1
+        int enemyIndex = int.Parse(enemyObjectIndex) - 1;
+        GameObject damageText = gameObject.GetComponent<UIManager>().enemyDamageText[enemyIndex];
+        damageText.GetComponent<TMP_Text>().text = damageToTake.ToString();
+        damageText.GetComponent<Animation>().Play();
+
+        if (!target.charAlive)
+        {
+            target.charPose = "ko";
+            target.UpdatePose();
+            target.targetSelect.SetActive(false);
+            turnOrder.Remove(targetObject);
+            enemies.Remove(targetObject);
+
+            //check remaining characters for win/lose state
+            CheckGameOver();
+        }
     }
 
     private void PrepNextTurn()
@@ -306,7 +339,7 @@ public class GameManager : MonoBehaviour
     {
         //enemies do one movement and one action
         int randomNumberMovement = Random.Range(1, 11); //60% chance neutral pose, 10% chance on each other pose
-        int randomNumberAction = Random.Range(1, 4); //equal chance for each action
+        int randomNumberAction = Random.Range(1, 6); //60% chance for light attack, 20% chance for heavy or wait
 
         string movementString;
         switch (randomNumberMovement)
@@ -331,17 +364,17 @@ public class GameManager : MonoBehaviour
         //delay so player can see what happened
         yield return new WaitForSeconds(1);
 
-        string actionString = "";
+        string actionString;
         switch (randomNumberAction)
         {
             case 1:
-                actionString = "light";
+                actionString = "wait";
                 break;
             case 2:
                 actionString = "heavy";
                 break;
             default:
-                actionString = "wait";
+                actionString = "light";
                 break;
         }
         PoseCharacter(actionString);

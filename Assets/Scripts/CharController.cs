@@ -171,7 +171,8 @@ public class CharController : MonoBehaviour
             case "block":
                 gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[4];
                 break;
-            case "special":
+            case "special_light":
+            case "special_heavy":
                 gameObject.GetComponentInChildren<SpriteRenderer>().sprite = poses[9];
                 break;
             case "ko":
