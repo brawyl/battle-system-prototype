@@ -61,7 +61,6 @@ public class GameManager : MonoBehaviour
     public void PoseCharacter(string pose)
     {
         string currentPose = activeChar.GetComponent<CharController>().charPose;
-        Debug.Log("current: " + currentPose + " new: " + pose);
         //reset pose to neutral when same direction is pressed
         if (currentPose == pose)
         {
@@ -270,18 +269,6 @@ public class GameManager : MonoBehaviour
         CheckRemainingSpeed(newCurrentSpeed);
     }
 
-    public void Defend()
-    {
-        //modify def stat
-        int baseDefense = activeChar.GetComponent<CharController>().charDefenseBase;
-        activeChar.GetComponent<CharController>().charDefenseCurrent = baseDefense * 2;
-
-        //reset speed stat
-        activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
-
-        EndTurn();
-    }
-
     private void PrepNextTurn()
     {
         //update char status display
@@ -317,66 +304,97 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator EnemyActions()
     {
-        int randomNumber = Random.Range(1, 11);
-        //even random number (1-10) for movement, odd for action
-        if (randomNumber % 2 == 0)
-        {
-            //TODO: movement
-             
-        }
-        else
-        {
-            //TODO: action
-        }
+        //enemies do one movement and one action
+        int randomNumberMovement = Random.Range(1, 11); //60% chance neutral pose, 10% chance on each other pose
+        int randomNumberAction = Random.Range(1, 4); //equal chance for each action
 
+        string movementString;
+        switch (randomNumberMovement)
+        {
+            case 1:
+                movementString = "block";
+                break;
+            case 2:
+                movementString = "jump";
+                break;
+            case 3:
+                movementString = "dash";
+                break;
+            case 4:
+                movementString = "crouch";
+                break;
+            default:
+                movementString = "neutral";
+                break;
+        }
+        PoseCharacter(movementString);
+        //delay so player can see what happened
+        yield return new WaitForSeconds(1);
+
+        string actionString = "";
+        switch (randomNumberAction)
+        {
+            case 1:
+                actionString = "light";
+                break;
+            case 2:
+                actionString = "heavy";
+                break;
+            default:
+                actionString = "wait";
+                break;
+        }
+        PoseCharacter(actionString);
         //delay so player can see what happened
         yield return new WaitForSeconds(2);
 
-        //random player target
-        int heroIndex = Random.Range(0, heroes.Count);
-        GameObject targetObject = heroes[heroIndex];
-        CharController target = targetObject.GetComponent<CharController>();
-
-        int enemyStrength = activeChar.GetComponent<CharController>().charStrengthCurrent;
-        string pose = activeChar.GetComponent<CharController>().charPose;
-        int attackStrength = gameObject.GetComponent<Attack>().damageCalc(enemyStrength, pose);
-        int damageToTake = attackStrength - target.charDefenseCurrent;
-        if (damageToTake < 1) { damageToTake = 1; }
-
-        target.TakeDamage(damageToTake);
-
-        GameObject damageText = gameObject.GetComponent<UIManager>().heroDamageText[heroIndex];
-        damageText.GetComponent<TMP_Text>().text = damageToTake.ToString();
-        damageText.GetComponent<Animation>().Play();
-
-        //change sprite to idle pose
-        activeChar.GetComponent<CharController>().charPose = "neutral";
-        activeChar.GetComponent<CharController>().UpdatePose();
-
-        if (!target.charAlive)
+        if (actionString != "wait")
         {
-            target.charPose = "ko";
-            target.UpdatePose();
-            turnOrder.Remove(targetObject);
-            heroes.Remove(targetObject);
+            //random player target
+            int heroIndex = Random.Range(0, heroes.Count);
+            GameObject targetObject = heroes[heroIndex];
+            CharController target = targetObject.GetComponent<CharController>();
 
-            //check remaining characters for win/lose state
-            CheckGameOver();
+            int enemyStrength = activeChar.GetComponent<CharController>().charStrengthCurrent;
+            string pose = activeChar.GetComponent<CharController>().charPose;
+            int attackStrength = gameObject.GetComponent<Attack>().damageCalc(enemyStrength, pose);
+            int damageToTake = attackStrength - target.charDefenseCurrent;
+            if (damageToTake < 1) { damageToTake = 1; }
+
+            target.TakeDamage(damageToTake);
+
+            GameObject damageText = gameObject.GetComponent<UIManager>().heroDamageText[heroIndex];
+            damageText.GetComponent<TMP_Text>().text = damageToTake.ToString();
+            damageText.GetComponent<Animation>().Play();
+
+            //change sprite to idle pose
+            activeChar.GetComponent<CharController>().charPose = "neutral";
+            activeChar.GetComponent<CharController>().UpdatePose();
+
+            if (!target.charAlive)
+            {
+                target.charPose = "ko";
+                target.UpdatePose();
+                turnOrder.Remove(targetObject);
+                heroes.Remove(targetObject);
+
+                //check remaining characters for win/lose state
+                CheckGameOver();
+            }
+
+            EndTurn();
         }
-
-        EndTurn();
     }
 
     public void EndTurn()
     {
         comboCount = 0;
 
-        //update char status display
+        //account for any stat modifiers
         activeChar.GetComponent<CharController>().UpdateStatus();
 
         if (gameOver) { return; }
 
-        //clear menu description text
         gameObject.GetComponent<UIManager>().menuText.text = "";
         gameObject.GetComponent<UIManager>().timerText.text = "";
 
@@ -388,7 +406,7 @@ public class GameManager : MonoBehaviour
             activeChar.GetComponent<CharController>().CheckTurn();
         }
 
-        //move active char to back of turn order list
+        //move active char to back of turn order
         turnOrder.RemoveAt(0);
         turnOrder.Add(activeChar);
         NextTurn();
