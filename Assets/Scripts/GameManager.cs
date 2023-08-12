@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using UnityEditor.Experimental.GraphView;
 
 public class GameManager : MonoBehaviour
 {
@@ -165,9 +166,6 @@ public class GameManager : MonoBehaviour
 
     public void AttackTarget(GameObject targetObject)
     {
-        string targetName = targetObject.name;
-        string enemyObjectIndex = targetName.Replace("ENEMY ", "");
-
         //reset current defense to base defense before attacking
         int baseDefense = activeChar.GetComponent<CharController>().charDefenseBase;
         activeChar.GetComponent<CharController>().charDefenseCurrent = baseDefense;
@@ -277,16 +275,28 @@ public class GameManager : MonoBehaviour
         string targetName = targetObject.name;
         string enemyObjectIndex = targetName.Replace("ENEMY ", "");
 
-        //deal damage
+        CharController attacker = activeChar.GetComponent<CharController>();
         CharController target = targetObject.GetComponent<CharController>();
-        int damageToTake = strength - target.charDefenseCurrent;
-        if (damageToTake < 1) { damageToTake = 1; }
+
+        int damageToTake;
+        //check if attack can hit target while jumping or crouching
+        if ( (target.charPose.Contains("jump") && !attacker.charPose.Contains("jump")) ||
+            (target.charPose.Contains("crouch") && !attacker.charPose.Contains("crouch")) )
+        {
+            damageToTake = 0;
+        }
+        else
+        {
+            damageToTake = strength - target.charDefenseCurrent;
+            if (damageToTake < 1) { damageToTake = 1; }
+        }
+        
         target.TakeDamage(damageToTake);
 
         //subract 1 from enemy index since the named index starts at 1
         int enemyIndex = int.Parse(enemyObjectIndex) - 1;
         GameObject damageText = gameObject.GetComponent<UIManager>().enemyDamageText[enemyIndex];
-        damageText.GetComponent<TMP_Text>().text = damageToTake.ToString();
+        damageText.GetComponent<TMP_Text>().text = damageToTake > 0 ? damageToTake.ToString() : "MISS";
         damageText.GetComponent<Animation>().Play();
 
         if (!target.charAlive)
@@ -361,8 +371,6 @@ public class GameManager : MonoBehaviour
                 break;
         }
         PoseCharacter(movementString);
-        //delay so player can see what happened
-        yield return new WaitForSeconds(1);
 
         string actionString;
         switch (randomNumberAction)
@@ -387,17 +395,30 @@ public class GameManager : MonoBehaviour
             int heroIndex = Random.Range(0, heroes.Count);
             GameObject targetObject = heroes[heroIndex];
             CharController target = targetObject.GetComponent<CharController>();
+            CharController attacker = activeChar.GetComponent<CharController>();
 
-            int enemyStrength = activeChar.GetComponent<CharController>().charStrengthCurrent;
-            string pose = activeChar.GetComponent<CharController>().charPose;
-            int attackStrength = gameObject.GetComponent<Attack>().damageCalc(enemyStrength, pose);
-            int damageToTake = attackStrength - target.charDefenseCurrent;
-            if (damageToTake < 1) { damageToTake = 1; }
+            int strength = attacker.charStrengthCurrent;
+            string pose = attacker.charPose;
+
+            int attackStrength = gameObject.GetComponent<Attack>().damageCalc(strength, pose);
+            int damageToTake;
+
+            //check if attack can hit target while jumping or crouching
+            if ((target.charPose.Contains("jump") && !attacker.charPose.Contains("jump")) ||
+                (target.charPose.Contains("crouch") && !attacker.charPose.Contains("crouch")))
+            {
+                damageToTake = 0;
+            }
+            else
+            {
+                damageToTake = attackStrength - target.charDefenseCurrent;
+                if (damageToTake < 1) { damageToTake = 1; }
+            }
 
             target.TakeDamage(damageToTake);
 
             GameObject damageText = gameObject.GetComponent<UIManager>().heroDamageText[heroIndex];
-            damageText.GetComponent<TMP_Text>().text = damageToTake.ToString();
+            damageText.GetComponent<TMP_Text>().text = damageToTake > 0 ? damageToTake.ToString() : "MISS";
             damageText.GetComponent<Animation>().Play();
 
             //change sprite to idle pose

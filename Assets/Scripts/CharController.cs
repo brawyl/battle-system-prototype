@@ -79,6 +79,8 @@ public class CharController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (damage == 0) return;
+
         charHPCurrent -= damage;
         charHPCurrent = charHPCurrent < 0 ? 0 : charHPCurrent;
         hpSlider.value = (float)charHPCurrent / (float)charHPMax;
