@@ -6108,6 +6108,9 @@ MonoBehaviour:
   gameOverObject: {fileID: 1993399748}
   gameOverScreen: {fileID: 1638486782}
   gameOverText: {fileID: 164634667}
+  movementButtons: {fileID: 231513081}
+  actionButtons: {fileID: 455660247}
+  targetButtons: {fileID: 1862473340}
   restartButton: {fileID: 390380581}
   heroDamageText:
   - {fileID: 205195990}
@@ -6117,7 +6120,7 @@ MonoBehaviour:
   - {fileID: 1691359659}
   - {fileID: 1508850352}
   - {fileID: 242882478}
-  currentMenu: []
+  playerTurn: 0
   nextTurnText: {fileID: 166661477}
   actionString: 
   debugText: {fileID: 1290271405}

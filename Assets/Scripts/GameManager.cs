@@ -22,8 +22,6 @@ public class GameManager : MonoBehaviour
 
     public int enemyTarget;
 
-    public string menuSelection;
-
     void Awake()
     {
         //check if instance exists
@@ -58,8 +56,6 @@ public class GameManager : MonoBehaviour
         {
             turnOrder.Add(enemy);
         }
-
-        menuSelection = "";
     }
 
     public void PoseCharacter(string pose)
@@ -89,16 +85,24 @@ public class GameManager : MonoBehaviour
         {
             activeChar.GetComponent<CharController>().charPose = pose;
         }
+
         activeChar.GetComponent<CharController>().UpdatePose();
+
+        if (pose == "wait")
+        {
+            EndTurn();
+        }
     }
 
     public void StartPlayerTurn()
     {
         enemyTarget = 0;
         gameObject.GetComponent<UIManager>().playerTurn = true;
+        gameObject.GetComponent<UIManager>().ToggleContolButtonDisplay();
         enemies[enemyTarget].GetComponent<CharController>().targetSelect.SetActive(true);
         activeChar.GetComponent<CharController>().charPose = "neutral";
         activeChar.GetComponent<CharController>().UpdatePose();
+
     }
 
     public void ChangeTargetSelection(string direction)
@@ -140,7 +144,8 @@ public class GameManager : MonoBehaviour
 
         //check attack strength and speed values
         int strength = activeChar.GetComponent<CharController>().charStrengthCurrent;
-        int attackStrength = gameObject.GetComponent<Attack>().damageCalc(strength, menuSelection);
+        string pose = activeChar.GetComponent<CharController>().charPose;
+        int attackStrength = gameObject.GetComponent<Attack>().damageCalc(strength, pose);
         int attackCost = gameObject.GetComponent<Attack>().selectedAttackCost;
 
         //reduce timer value
@@ -209,7 +214,8 @@ public class GameManager : MonoBehaviour
 
         //check attack strength and speed values
         int strength = activeChar.GetComponent<CharController>().charStrengthCurrent;
-        int skillStrength = gameObject.GetComponent<Skill>().damageCalc(strength, menuSelection);
+        string pose = activeChar.GetComponent<CharController>().charPose;
+        int skillStrength = gameObject.GetComponent<Skill>().damageCalc(strength, pose);
         int skillCost = gameObject.GetComponent<Skill>().selectedSkillCost;
 
         //reduce timer value
@@ -302,6 +308,7 @@ public class GameManager : MonoBehaviour
     public void StartEnemyTurn()
     {
         gameObject.GetComponent<UIManager>().playerTurn = false;
+        gameObject.GetComponent<UIManager>().ToggleContolButtonDisplay();
         HideAllTargetSelections();
         activeChar.GetComponent<CharController>().charPose = "neutral";
         activeChar.GetComponent<CharController>().UpdatePose();
@@ -330,8 +337,9 @@ public class GameManager : MonoBehaviour
         GameObject targetObject = heroes[heroIndex];
         CharController target = targetObject.GetComponent<CharController>();
 
-        int enemyStrength = ((GameObject)turnOrder[0]).GetComponent<CharController>().charStrengthCurrent;
-        int attackStrength = gameObject.GetComponent<Attack>().damageCalc(enemyStrength, menuSelection);
+        int enemyStrength = activeChar.GetComponent<CharController>().charStrengthCurrent;
+        string pose = activeChar.GetComponent<CharController>().charPose;
+        int attackStrength = gameObject.GetComponent<Attack>().damageCalc(enemyStrength, pose);
         int damageToTake = attackStrength - target.charDefenseCurrent;
         if (damageToTake < 1) { damageToTake = 1; }
 
@@ -361,7 +369,6 @@ public class GameManager : MonoBehaviour
 
     public void EndTurn()
     {
-        menuSelection = "";
         comboCount = 0;
 
         //update char status display

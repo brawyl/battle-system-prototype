@@ -18,6 +18,10 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverScreen;
     public TMP_Text gameOverText;
 
+    public GameObject movementButtons;
+    public GameObject actionButtons;
+    public GameObject targetButtons;
+
     public GameObject restartButton;
 
     public List<GameObject> heroDamageText, enemyDamageText;
@@ -86,11 +90,15 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SetMenuDesc(string newDesc)
+    public void ToggleContolButtonDisplay()
     {
-        if (newDesc.Length > 0)
+        movementButtons.SetActive(playerTurn);
+        actionButtons.SetActive(playerTurn);
+        targetButtons.SetActive(playerTurn);
+
+        if(playerTurn)
         {
-            menuText.text = newDesc.ToUpper();
+            menuText.text = "FIGHT";
         }
         else
         {
