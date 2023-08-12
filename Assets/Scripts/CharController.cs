@@ -87,7 +87,7 @@ public class CharController : MonoBehaviour
         {
             charAlive = false;
         }
-        else if (damage > 0)
+        else if (damage > 0 && charPose != "block")
         {
             charPose = "neutral";
             UpdatePose();
