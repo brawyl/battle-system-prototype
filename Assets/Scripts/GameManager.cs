@@ -74,7 +74,6 @@ public class GameManager : MonoBehaviour
                 specialCheck += command;
             }
             prevCommands.Clear();
-            Debug.Log(specialCheck);
 
             if (specialCheck == "crouchdashlight" || specialCheck == "crouchdashheavy") //fireball command
             {
@@ -290,7 +289,13 @@ public class GameManager : MonoBehaviour
             damageToTake = strength - target.charDefenseCurrent;
             if (damageToTake < 1) { damageToTake = 1; }
         }
-        
+
+        if ((target.charPose.Contains("jump") && attacker.charPose.Contains("jump")) ||
+                (target.charPose.Contains("crouch") && attacker.charPose.Contains("crouch")))
+        {
+            damageToTake = damageToTake * 2;
+        }
+
         target.TakeDamage(damageToTake);
 
         //subract 1 from enemy index since the named index starts at 1
@@ -348,8 +353,8 @@ public class GameManager : MonoBehaviour
     private IEnumerator EnemyActions()
     {
         //enemies do one movement and one action
-        int randomNumberMovement = Random.Range(1, 11); //60% chance neutral pose, 10% chance on each other pose
-        int randomNumberAction = Random.Range(1, 6); //60% chance for light attack, 20% chance for heavy or wait
+        int randomNumberMovement = Random.Range(1, 9); //50% chance neutral, 50% chance other pose
+        int randomNumberAction = Random.Range(1, 4); //33% chance for light, heavy or wait
 
         string movementString;
         switch (randomNumberMovement)
@@ -371,6 +376,8 @@ public class GameManager : MonoBehaviour
                 break;
         }
         PoseCharacter(movementString);
+        //delay so player can see what happened
+        yield return new WaitForSeconds(1);
 
         string actionString;
         switch (randomNumberAction)
@@ -385,9 +392,10 @@ public class GameManager : MonoBehaviour
                 actionString = "light";
                 break;
         }
+        if (movementString == "neutral" && actionString == "wait") actionString = "light"; //prevent enemy wasting turn
         PoseCharacter(actionString);
         //delay so player can see what happened
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         if (actionString != "wait")
         {
@@ -413,6 +421,12 @@ public class GameManager : MonoBehaviour
             {
                 damageToTake = attackStrength - target.charDefenseCurrent;
                 if (damageToTake < 1) { damageToTake = 1; }
+            }
+
+            if ((target.charPose.Contains("jump") && attacker.charPose.Contains("jump")) ||
+                (target.charPose.Contains("crouch") && attacker.charPose.Contains("crouch")))
+            {
+                damageToTake = damageToTake * 2;
             }
 
             target.TakeDamage(damageToTake);
