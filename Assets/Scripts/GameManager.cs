@@ -330,14 +330,28 @@ public class GameManager : MonoBehaviour
             //change sprite to idle pose if they were attacking, denoted by an underscore in the pose name
             if (activeChar.GetComponent<CharController>().charPose.Contains("_"))
             {
-                activeChar.GetComponent<CharController>().charPose = "neutral";
-                activeChar.GetComponent<CharController>().UpdatePose();
+                StartCoroutine(PlayerLastAttack());
             }
-
-            //reset speed stat
-            activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
-            EndTurn();
+            else
+            {
+                //reset speed stat
+                activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
+                EndTurn();
+            }
         }
+    }
+
+    private IEnumerator PlayerLastAttack()
+    {
+        //delay so player can see their last attack
+        yield return new WaitForSeconds(1);
+
+        activeChar.GetComponent<CharController>().charPose = "neutral";
+        activeChar.GetComponent<CharController>().UpdatePose();
+
+        //reset speed stat
+        activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
+        EndTurn();
     }
 
     public void StartEnemyTurn()
