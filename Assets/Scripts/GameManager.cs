@@ -204,7 +204,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        DealDamage(targetObject, attackStrength);
+        DealDamageToEnemy(targetObject, attackStrength);
 
         PrepNextTurn();
 
@@ -256,12 +256,12 @@ public class GameManager : MonoBehaviour
         {
             foreach (GameObject enemy in enemies)
             {
-                DealDamage(enemy, skillStrength);
+                DealDamageToEnemy(enemy, skillStrength);
             }
         }
         else
         {
-            DealDamage(targetObject, skillStrength);
+            DealDamageToEnemy(targetObject, skillStrength);
         }
 
         PrepNextTurn();
@@ -269,7 +269,7 @@ public class GameManager : MonoBehaviour
         CheckRemainingSpeed(newCurrentSpeed);
     }
 
-    private void DealDamage(GameObject targetObject, int strength)
+    private void DealDamageToEnemy(GameObject targetObject, int strength)
     {
         string targetName = targetObject.name;
         string enemyObjectIndex = targetName.Replace("ENEMY ", "");
@@ -277,26 +277,7 @@ public class GameManager : MonoBehaviour
         CharController attacker = activeChar.GetComponent<CharController>();
         CharController target = targetObject.GetComponent<CharController>();
 
-        int damageToTake;
-        //check if attack can hit target while jumping or crouching
-        if ( (target.charPose.Contains("jump") && !attacker.charPose.Contains("jump")) ||
-            (target.charPose.Contains("crouch") && !attacker.charPose.Contains("crouch")) )
-        {
-            damageToTake = 0;
-        }
-        else
-        {
-            damageToTake = strength - target.charDefenseCurrent;
-            if (damageToTake < 1) { damageToTake = 1; }
-        }
-
-        if ((target.charPose.Contains("jump") && attacker.charPose.Contains("jump")) ||
-                (target.charPose.Contains("crouch") && attacker.charPose.Contains("crouch")))
-        {
-            damageToTake = damageToTake * 2;
-        }
-
-        target.TakeDamage(damageToTake);
+        int damageToTake = CalculateDamageAndPose(target, attacker, strength);
 
         //subract 1 from enemy index since the named index starts at 1
         int enemyIndex = int.Parse(enemyObjectIndex) - 1;
@@ -315,6 +296,48 @@ public class GameManager : MonoBehaviour
             //check remaining characters for win/lose state
             CheckGameOver();
         }
+    }
+
+    private int CalculateDamageAndPose(CharController target, CharController attacker, int strength)
+    {
+        int damageToTake;
+
+        //check if attack will miss the target that's jumping or crouching
+        if ((target.charPose.Contains("jump") && !attacker.charPose.Contains("jump")) ||
+            (target.charPose.Contains("crouch") && !attacker.charPose.Contains("crouch")))
+        {
+            damageToTake = 0;
+        }
+        else
+        {
+            damageToTake = strength - target.charDefenseCurrent;
+
+            //take double damage if hit mid-jump or mid-crouch
+            if ((target.charPose.Contains("jump") && attacker.charPose.Contains("jump")) ||
+                    (target.charPose.Contains("crouch") && attacker.charPose.Contains("crouch")))
+            {
+                damageToTake = damageToTake * 2;
+            }
+            //take half damage when blocking
+            else if (target.charPose.Contains("block"))
+            {
+                damageToTake = damageToTake / 2;
+            }
+
+            //do not allow zero damage attacks
+            if (damageToTake < 1) { damageToTake = 1; }
+        }
+
+        target.TakeDamage(damageToTake);
+
+        //reset a blocking pose to neutral when hit with a dash attack
+        if (target.charPose.Contains("block") && attacker.charPose.Contains("dash"))
+        {
+            target.charPose = "neutral";
+            target.UpdatePose();
+        }
+
+        return damageToTake;
     }
 
     private void PrepNextTurn()
@@ -343,6 +366,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator PlayerLastAttack()
     {
+        gameObject.GetComponent<UIManager>().playerTurn = false;
+
         //delay so player can see their last attack
         yield return new WaitForSeconds(1);
 
@@ -423,27 +448,8 @@ public class GameManager : MonoBehaviour
             string pose = attacker.charPose;
 
             int attackStrength = gameObject.GetComponent<Attack>().damageCalc(strength, pose);
-            int damageToTake;
 
-            //check if attack can hit target while jumping or crouching
-            if ((target.charPose.Contains("jump") && !attacker.charPose.Contains("jump")) ||
-                (target.charPose.Contains("crouch") && !attacker.charPose.Contains("crouch")))
-            {
-                damageToTake = 0;
-            }
-            else
-            {
-                damageToTake = attackStrength - target.charDefenseCurrent;
-                if (damageToTake < 1) { damageToTake = 1; }
-            }
-
-            if ((target.charPose.Contains("jump") && attacker.charPose.Contains("jump")) ||
-                (target.charPose.Contains("crouch") && attacker.charPose.Contains("crouch")))
-            {
-                damageToTake = damageToTake * 2;
-            }
-
-            target.TakeDamage(damageToTake);
+            int damageToTake = CalculateDamageAndPose(target, attacker, attackStrength);
 
             GameObject damageText = gameObject.GetComponent<UIManager>().heroDamageText[heroIndex];
             damageText.GetComponent<TMP_Text>().text = damageToTake > 0 ? damageToTake.ToString() : "MISS";
