@@ -273,15 +273,13 @@ public class GameManager : MonoBehaviour
 
     private void DealDamageToEnemy(GameObject targetObject, int strength)
     {
-        string targetName = targetObject.name;
-        string enemyObjectIndex = targetName.Replace("ENEMY ", "");
-
         CharController attacker = activeChar.GetComponent<CharController>();
         CharController target = targetObject.GetComponent<CharController>();
 
         int damageToTake = CalculateDamageAndPose(target, attacker, strength);
 
         //subract 1 from enemy index since the named index starts at 1
+        string enemyObjectIndex = targetObject.name.Replace("ENEMY ", "");
         int enemyIndex = int.Parse(enemyObjectIndex) - 1;
         GameObject damageText = gameObject.GetComponent<UIManager>().enemyDamageText[enemyIndex];
         damageText.GetComponent<TMP_Text>().text = damageToTake > 0 ? damageToTake.ToString() : "MISS";
@@ -453,7 +451,11 @@ public class GameManager : MonoBehaviour
 
             int damageToTake = CalculateDamageAndPose(target, attacker, attackStrength);
 
-            GameObject damageText = gameObject.GetComponent<UIManager>().heroDamageText[heroIndex];
+            //subract 1 from enemy index since the named index starts at 1
+            string heroObjectNameIndex = targetObject.name.Replace("HERO ", "");
+            int heroDamageTextIndex = int.Parse(heroObjectNameIndex) - 1;
+
+            GameObject damageText = gameObject.GetComponent<UIManager>().heroDamageText[heroDamageTextIndex];
             damageText.GetComponent<TMP_Text>().text = damageToTake > 0 ? damageToTake.ToString() : "MISS";
             damageText.GetComponent<Animation>().Play();
 
