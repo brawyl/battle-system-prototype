@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         enemyTarget = 0;
 
         //build turn order list
-        foreach(GameObject hero in heroes)
+        foreach (GameObject hero in heroes)
         {
             turnOrder.Add(hero);
         }
@@ -128,6 +128,8 @@ public class GameManager : MonoBehaviour
 
     public void StartPlayerTurn()
     {
+        HideAllTargetSelections();
+        if (enemyTarget >= enemies.Count) enemyTarget = 0;
         gameObject.GetComponent<UIManager>().playerTurn = true;
         gameObject.GetComponent<UIManager>().ToggleContolButtonDisplay();
         enemies[enemyTarget].GetComponent<CharController>().targetSelect.SetActive(true);
@@ -316,12 +318,12 @@ public class GameManager : MonoBehaviour
             if ((target.charPose.Contains("jump") && attacker.charPose.Contains("jump")) ||
                     (target.charPose.Contains("crouch") && attacker.charPose.Contains("crouch")))
             {
-                damageToTake = damageToTake * 2;
+                damageToTake *= 2;
             }
             //take half damage when blocking
             else if (target.charPose.Contains("block"))
             {
-                damageToTake = damageToTake / 2;
+                damageToTake /= 2;
             }
 
             //do not allow zero damage attacks
@@ -551,7 +553,8 @@ public class GameManager : MonoBehaviour
         }
         if (enemies.Count > 0)
         {
-            enemies[0].GetComponent<CharController>().targetSelect.SetActive(true);
+            enemyTarget = 0;
+            enemies[enemyTarget].GetComponent<CharController>().targetSelect.SetActive(true);
         }
         gameObject.GetComponent<UIManager>().ShowGameOverScreen(gameOver);
     }

@@ -3071,7 +3071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charStrengthBase
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: poseNeutralHeavy
@@ -3095,7 +3095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charStrengthCurrent
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: poses.Array.data[0]
@@ -4326,7 +4326,7 @@ PrefabInstance:
       objectReference: {fileID: 120880860}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charDefenseBase
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: poseCrouchHeavy
@@ -4346,7 +4346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charStrengthBase
-      value: 50
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: poseNeutralHeavy
@@ -4362,11 +4362,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charDefenseCurrent
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charStrengthCurrent
-      value: 50
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: poses.Array.data[0]
@@ -8127,7 +8127,7 @@ PrefabInstance:
       objectReference: {fileID: 2053223885}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charDefenseBase
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: poseCrouchHeavy
@@ -8151,7 +8151,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charStrengthBase
-      value: 50
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: poseNeutralHeavy
@@ -8167,11 +8167,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charDefenseCurrent
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charStrengthCurrent
-      value: 50
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: poses.Array.data[0]
@@ -9688,7 +9688,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charStrengthBase
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: poseNeutralHeavy
@@ -9712,7 +9712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charStrengthCurrent
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: poses.Array.data[0]
@@ -12431,7 +12431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charStrengthBase
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: poseNeutralHeavy
@@ -12455,7 +12455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: charStrengthCurrent
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4405881189849119246, guid: 3c9e40152185b48f4b038443143dc698, type: 3}
       propertyPath: poses.Array.data[0]
@@ -12652,7 +12652,7 @@ PrefabInstance:
       objectReference: {fileID: 1172382578}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charDefenseBase
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: poseCrouchHeavy
@@ -12676,7 +12676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charStrengthBase
-      value: 50
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: poseNeutralHeavy
@@ -12692,11 +12692,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charDefenseCurrent
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: charStrengthCurrent
-      value: 50
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6020750408275163869, guid: 397fa99f841a7494ca6bd07cccb3676e, type: 3}
       propertyPath: poses.Array.data[0]
