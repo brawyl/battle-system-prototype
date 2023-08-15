@@ -431,7 +431,8 @@ public class GameManager : MonoBehaviour
                 actionString = "light";
                 break;
         }
-        if (movementString == "neutral" && actionString == "wait") actionString = "light"; //prevent enemy wasting turn
+        if (movementString == "block") actionString = "wait"; //make blocking dependent on movement chance only
+        else if (movementString == "neutral" && actionString == "wait") actionString = "light"; //prevent enemy wasting turn
         PoseCharacter(actionString);
         //delay so player can see what happened
         yield return new WaitForSeconds(1);
