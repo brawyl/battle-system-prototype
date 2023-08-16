@@ -108,14 +108,20 @@ public class CharController : MonoBehaviour
             {
                 charStatus += "ATK ";
                 charStatus += charStrengthCurrent > charStrengthBase ? "+" : "-";
-                charStatus += Mathf.Abs(charStrengthCurrent - charStrengthBase).ToString();
+                double atkStat = Mathf.Abs(charStrengthBase - charStrengthCurrent);
+                atkStat = atkStat / charStrengthBase * 100;
+                charStatus += atkStat.ToString();
+                charStatus += "% ";
             }
 
             if (charDefenseCurrent != charDefenseBase)
             {
-                charStatus += " DEF ";
+                charStatus += "DEF ";
                 charStatus += charDefenseCurrent > charDefenseBase ? "+" : "-";
-                charStatus += Mathf.Abs(charDefenseCurrent - charDefenseBase).ToString();
+                double defStat = Mathf.Abs(charDefenseBase - charDefenseCurrent);
+                defStat = defStat / charDefenseBase * 100;
+                charStatus += defStat.ToString();
+                charStatus += "%";
             }
         }
         else

@@ -207,7 +207,7 @@ public class GameManager : MonoBehaviour
         //reduce defense if more time was used than available
         if (newCurrentSpeed < 0)
         {
-            activeChar.GetComponent<CharController>().charDefenseCurrent = activeChar.GetComponent<CharController>().charDefenseCurrent  + newCurrentSpeed;
+            activeChar.GetComponent<CharController>().charDefenseCurrent /= 2;
 
             if (activeChar.GetComponent<CharController>().charDefenseCurrent < 0)
             {
@@ -255,7 +255,7 @@ public class GameManager : MonoBehaviour
         //reduce defense if more time was used than available
         if (newCurrentSpeed < 0)
         {
-            activeChar.GetComponent<CharController>().charDefenseCurrent = activeChar.GetComponent<CharController>().charDefenseCurrent + newCurrentSpeed;
+            activeChar.GetComponent<CharController>().charDefenseCurrent /= 2;
 
             if (activeChar.GetComponent<CharController>().charDefenseCurrent < 0)
             {
@@ -376,6 +376,10 @@ public class GameManager : MonoBehaviour
     private IEnumerator PlayerLastAttack()
     {
         gameObject.GetComponent<UIManager>().playerTurn = false;
+        if (activeChar.GetComponent<CharController>().charSpeedCurrent < 0)
+        {
+            gameObject.GetComponent<UIManager>().menuText.text = "VULNERABLE!";
+        }
 
         //delay so player can see their last attack
         yield return new WaitForSeconds(1);
