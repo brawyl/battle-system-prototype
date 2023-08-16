@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
         if (currentPose == pose)
         {
             activeChar.GetComponent<CharController>().charPose = "neutral";
+            prevCommands.Clear();
         }
         else if (pose == "light" || pose == "heavy")
         {
@@ -122,6 +123,14 @@ public class GameManager : MonoBehaviour
 
         if (pose == "wait")
         {
+            //ensure waiting on an attack pose resets to the movement pose instead
+            if (currentPose.Contains("_"))
+            {
+                string[] poseParts = currentPose.Split("_");
+                string movementPose = poseParts[0];
+                activeChar.GetComponent<CharController>().charPose = movementPose;
+                activeChar.GetComponent<CharController>().UpdatePose();
+            }
             EndTurn();
         }
     }
