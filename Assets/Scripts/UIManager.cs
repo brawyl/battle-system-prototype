@@ -96,7 +96,7 @@ public class UIManager : MonoBehaviour
         actionButtons.SetActive(playerTurn);
         targetButtons.SetActive(playerTurn);
 
-        menuText.text = playerTurn ? "FIGHT" : "";
+        menuText.text = playerTurn ? "FIGHT" : "ENEMY TURN";
     }
 
     public void UpdateTimerText(string speed)

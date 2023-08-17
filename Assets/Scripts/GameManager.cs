@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
                 activeChar.GetComponent<CharController>().charPose = movementPose;
                 activeChar.GetComponent<CharController>().UpdatePose();
             }
+
             EndTurn();
         }
     }
@@ -142,6 +143,14 @@ public class GameManager : MonoBehaviour
         gameObject.GetComponent<UIManager>().playerTurn = true;
         gameObject.GetComponent<UIManager>().ToggleContolButtonDisplay();
         enemies[enemyTarget].GetComponent<CharController>().targetSelect.SetActive(true);
+
+        if (activeChar.GetComponent<CharController>().charPose == "dash")
+        {
+            gameObject.GetComponent<UIManager>().menuText.text = "ATTACK BONUS!";
+            activeChar.GetComponent<CharController>().charStrengthCurrent *= 2;
+            activeChar.GetComponent<CharController>().UpdateStatus();
+        }
+
         activeChar.GetComponent<CharController>().charPose = "neutral";
         activeChar.GetComponent<CharController>().UpdatePose();
 
@@ -351,8 +360,14 @@ public class GameManager : MonoBehaviour
 
     private void PrepNextTurn()
     {
+        //reset current strength to base after attacking
+        int baseStrength = activeChar.GetComponent<CharController>().charStrengthBase;
+        activeChar.GetComponent<CharController>().charStrengthCurrent = baseStrength;
+
         //update char status display
         activeChar.GetComponent<CharController>().UpdateStatus();
+
+        gameObject.GetComponent<UIManager>().ToggleContolButtonDisplay();
     }
 
     private void CheckRemainingSpeed(int newCurrentSpeed)
