@@ -496,16 +496,12 @@ public class GameManager : MonoBehaviour
     {
         comboCount = 0;
 
-        //account for any stat modifiers
-        activeChar.GetComponent<CharController>().UpdateStatus();
-
         if (gameOver) { return; }
 
         gameObject.GetComponent<UIManager>().menuText.text = "";
         gameObject.GetComponent<UIManager>().timerText.text = "";
 
         //end active char turn
-        activeChar = (GameObject)turnOrder[0];
         if (activeChar != null && activeChar.GetComponent<CharController>().charAlive)
         {
             activeChar.GetComponent<CharController>().activeTurn = false;
