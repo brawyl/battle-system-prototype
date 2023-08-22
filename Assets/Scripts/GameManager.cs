@@ -274,9 +274,13 @@ public class GameManager : MonoBehaviour
 
         if (pose.Contains("heavy")) //heavy skill is multi target
         {
-            foreach (GameObject enemy in enemies)
+            //iterate thru a new find of the enemy game objects since removing enemies while iterating thru the enemy list causes issues
+            foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
             {
-                DealDamageToEnemy(enemy, skillStrength);
+                if (enemies.Contains(enemy))
+                {
+                    DealDamageToEnemy(enemy, skillStrength);
+                }
             }
         }
         else
