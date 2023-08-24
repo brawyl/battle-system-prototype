@@ -99,9 +99,18 @@ public class UIManager : MonoBehaviour
         menuText.text = playerTurn ? "FIGHT" : "ENEMY TURN";
     }
 
-    public void UpdateTimerText(string speed)
+    public void UpdateTimerText(int speed)
     {
-        timerText.text = speed.ToString();
+        if(speed < 0)
+        {
+            timerText.color = Color.red;
+            timerText.text = "X";
+        }
+        else
+        {
+            timerText.color = Color.black;
+            timerText.text = speed.ToString();
+        }
     }
 
     public void ShowGameOverScreen(bool gameOver)

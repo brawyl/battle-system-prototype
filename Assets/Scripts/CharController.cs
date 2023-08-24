@@ -67,7 +67,7 @@ public class CharController : MonoBehaviour
             {
                 GameManager.instance.StartEnemyTurn();
             }
-            GameManager.instance.GetComponent<UIManager>().UpdateTimerText(charSpeedCurrent.ToString());
+            GameManager.instance.GetComponent<UIManager>().UpdateTimerText(charSpeedCurrent);
         }
         else
         {

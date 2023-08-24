@@ -198,7 +198,7 @@ public class GameManager : MonoBehaviour
         //reduce timer value
         activeChar.GetComponent<CharController>().charSpeedCurrent -= attackCost;
         int newCurrentSpeed = activeChar.GetComponent<CharController>().charSpeedCurrent;
-        gameObject.GetComponent<UIManager>().timerText.text = newCurrentSpeed.ToString();
+        gameObject.GetComponent<UIManager>().UpdateTimerText(newCurrentSpeed);
 
         //update combo text
         comboCount++;
@@ -246,7 +246,7 @@ public class GameManager : MonoBehaviour
         //reduce timer value
         activeChar.GetComponent<CharController>().charSpeedCurrent -= skillCost;
         int newCurrentSpeed = activeChar.GetComponent<CharController>().charSpeedCurrent;
-        gameObject.GetComponent<UIManager>().timerText.text = newCurrentSpeed.ToString();
+        gameObject.GetComponent<UIManager>().UpdateTimerText(newCurrentSpeed);
 
         //update combo text
         comboCount++;

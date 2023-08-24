@@ -1488,9 +1488,9 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 75, y: 75}
+  m_CellSize: {x: 80, y: 80}
   m_Spacing: {x: 0, y: 0}
-  m_Constraint: 0
+  m_Constraint: 2
   m_ConstraintCount: 2
 --- !u!114 &231513084
 MonoBehaviour:
@@ -2297,9 +2297,9 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 75, y: 75}
+  m_CellSize: {x: 80, y: 80}
   m_Spacing: {x: 0, y: 0}
-  m_Constraint: 0
+  m_Constraint: 2
   m_ConstraintCount: 2
 --- !u!114 &455660250
 MonoBehaviour:
@@ -3395,9 +3395,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3248132683986865288, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
       propertyPath: m_text
-      value: '(J)
+      value: 'WAIT
 
-        WAIT'
+        [J]'
       objectReference: {fileID: 0}
     - target: {fileID: 3248132683986865288, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
       propertyPath: m_fontSize
@@ -3868,9 +3868,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3248132683986865288, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
       propertyPath: m_text
-      value: '(S)
+      value: 'CROUCH
 
-        CROUCH'
+        [S]'
       objectReference: {fileID: 0}
     - target: {fileID: 3248132683986865288, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
       propertyPath: m_fontSize
@@ -5486,9 +5486,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3248132683986865288, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
       propertyPath: m_text
-      value: '(W)
+      value: 'JUMP
 
-        JUMP'
+        [W]'
       objectReference: {fileID: 0}
     - target: {fileID: 3248132683986865288, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
       propertyPath: m_fontSize
@@ -6560,9 +6560,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3248132683986865288, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
       propertyPath: m_text
-      value: '(D)
+      value: 'DASH
 
-        DASH'
+        [D]'
       objectReference: {fileID: 0}
     - target: {fileID: 3248132683986865288, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
       propertyPath: m_fontSize
@@ -7713,9 +7713,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3248132683986865288, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
       propertyPath: m_text
-      value: '(A)
+      value: 'BLOCK
 
-        BLOCK'
+        [A]'
       objectReference: {fileID: 0}
     - target: {fileID: 3248132683986865288, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
       propertyPath: m_fontSize
@@ -8750,9 +8750,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3248132683986865288, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
       propertyPath: m_text
-      value: '(L)
+      value: 'HEAVY
 
-        HEAVY'
+        [L]'
       objectReference: {fileID: 0}
     - target: {fileID: 3248132683986865288, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
       propertyPath: m_fontSize
@@ -10798,9 +10798,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3248132683986865288, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
       propertyPath: m_text
-      value: '(K)
+      value: 'LIGHT
 
-        LIGHT'
+        [K]'
       objectReference: {fileID: 0}
     - target: {fileID: 3248132683986865288, guid: cb27de340b53d4711bedf0f794ab5017, type: 3}
       propertyPath: m_fontSize
@@ -10890,9 +10890,9 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 75, y: 75}
+  m_CellSize: {x: 80, y: 80}
   m_Spacing: {x: 0, y: 0}
-  m_Constraint: 0
+  m_Constraint: 2
   m_ConstraintCount: 2
 --- !u!114 &1862473343
 MonoBehaviour:
