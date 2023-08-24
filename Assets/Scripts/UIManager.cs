@@ -104,7 +104,7 @@ public class UIManager : MonoBehaviour
         if(speed < 0)
         {
             timerText.color = Color.red;
-            timerText.text = "X";
+            timerText.text = "!!!";
         }
         else
         {
