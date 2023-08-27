@@ -351,6 +351,18 @@ public class GameManager : MonoBehaviour
         {
             gameObject.GetComponent<UIManager>().menuText.text = "VULNERABLE!";
         }
+        else if (comboCount > 3)
+        {
+            gameObject.GetComponent<UIManager>().menuText.text = "GREAT!";
+        }
+        else if (comboCount > 1)
+        {
+            gameObject.GetComponent<UIManager>().menuText.text = "NICE!";
+        }
+        else
+        {
+            gameObject.GetComponent<UIManager>().menuText.text = "";
+        }
 
         //delay so player can see their last attack
         yield return new WaitForSeconds(1);
@@ -358,8 +370,6 @@ public class GameManager : MonoBehaviour
         activeChar.GetComponent<CharController>().charPose = "neutral";
         activeChar.GetComponent<CharController>().UpdatePose();
 
-        //reset speed stat
-        activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
         EndTurn();
     }
 
@@ -524,6 +534,7 @@ public class GameManager : MonoBehaviour
         //end active char turn
         if (activeChar != null && activeChar.GetComponent<CharController>().charAlive)
         {
+            activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
             activeChar.GetComponent<CharController>().activeTurn = false;
             activeChar.GetComponent<CharController>().CheckTurn();
         }
