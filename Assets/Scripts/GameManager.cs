@@ -346,6 +346,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator PlayerLastAttack()
     {
         gameObject.GetComponent<UIManager>().playerTurn = false;
+        gameObject.GetComponent<UIManager>().ToggleContolButtonDisplay();
         if (activeChar.GetComponent<CharController>().charSpeedCurrent < 0)
         {
             gameObject.GetComponent<UIManager>().menuText.text = "VULNERABLE!";
