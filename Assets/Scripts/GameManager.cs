@@ -144,16 +144,9 @@ public class GameManager : MonoBehaviour
         gameObject.GetComponent<UIManager>().ToggleContolButtonDisplay();
         enemies[enemyTarget].GetComponent<CharController>().targetSelect.SetActive(true);
 
-        if (activeChar.GetComponent<CharController>().charPose == "dash")
-        {
-            gameObject.GetComponent<UIManager>().menuText.text = "ATTACK BONUS!";
-            activeChar.GetComponent<CharController>().charStrengthCurrent *= 2;
-            activeChar.GetComponent<CharController>().UpdateStatus();
-        }
-
+        CheckStatBonus();
         activeChar.GetComponent<CharController>().charPose = "neutral";
         activeChar.GetComponent<CharController>().UpdatePose();
-
     }
 
     public void ChangeTargetSelection(string direction)
@@ -200,19 +193,6 @@ public class GameManager : MonoBehaviour
         int newCurrentSpeed = activeChar.GetComponent<CharController>().charSpeedCurrent;
         gameObject.GetComponent<UIManager>().UpdateTimerText(newCurrentSpeed);
 
-        //update combo text
-        comboCount++;
-        gameObject.GetComponent<UIManager>().heroComboText.text = comboCount + " HITS";
-        if (comboCount > 1)
-        {
-            gameObject.GetComponent<UIManager>().heroComboText.GetComponent<Animation>().Stop();
-            gameObject.GetComponent<UIManager>().heroComboText.GetComponent<Animation>().Play();
-        }
-        else
-        {
-            gameObject.GetComponent<UIManager>().heroComboText.text = "";
-        }
-
         //reduce defense if more time was used than available
         if (newCurrentSpeed < 0)
         {
@@ -247,19 +227,6 @@ public class GameManager : MonoBehaviour
         activeChar.GetComponent<CharController>().charSpeedCurrent -= skillCost;
         int newCurrentSpeed = activeChar.GetComponent<CharController>().charSpeedCurrent;
         gameObject.GetComponent<UIManager>().UpdateTimerText(newCurrentSpeed);
-
-        //update combo text
-        comboCount++;
-        gameObject.GetComponent<UIManager>().heroComboText.text = comboCount + " HITS";
-        if (comboCount > 1)
-        {
-            gameObject.GetComponent<UIManager>().heroComboText.GetComponent<Animation>().Stop();
-            gameObject.GetComponent<UIManager>().heroComboText.GetComponent<Animation>().Play();
-        }
-        else
-        {
-            gameObject.GetComponent<UIManager>().heroComboText.text = "";
-        }
 
         //reduce defense if more time was used than available
         if (newCurrentSpeed < 0)
@@ -299,6 +266,22 @@ public class GameManager : MonoBehaviour
         CharController target = targetObject.GetComponent<CharController>();
 
         int damageToTake = CalculateDamageAndPose(target, attacker, strength);
+
+        if (damageToTake > 0)
+        {
+            //update combo text
+            comboCount++;
+            gameObject.GetComponent<UIManager>().heroComboText.text = comboCount + " HITS";
+            if (comboCount > 1)
+            {
+                gameObject.GetComponent<UIManager>().heroComboText.GetComponent<Animation>().Stop();
+                gameObject.GetComponent<UIManager>().heroComboText.GetComponent<Animation>().Play();
+            }
+            else
+            {
+                gameObject.GetComponent<UIManager>().heroComboText.text = "";
+            }
+        }
 
         //subract 1 from enemy index since the named index starts at 1
         string enemyObjectIndex = targetObject.name.Replace("ENEMY ", "");
@@ -362,36 +345,6 @@ public class GameManager : MonoBehaviour
         return damageToTake;
     }
 
-    private void PrepNextTurn()
-    {
-        //reset current strength to base after attacking
-        int baseStrength = activeChar.GetComponent<CharController>().charStrengthBase;
-        activeChar.GetComponent<CharController>().charStrengthCurrent = baseStrength;
-
-        //update char status display
-        activeChar.GetComponent<CharController>().UpdateStatus();
-
-        gameObject.GetComponent<UIManager>().ToggleContolButtonDisplay();
-    }
-
-    private void CheckRemainingSpeed(int newCurrentSpeed)
-    {
-        if (newCurrentSpeed <= 0)
-        {
-            //change sprite to idle pose if they were attacking, denoted by an underscore in the pose name
-            if (activeChar.GetComponent<CharController>().charPose.Contains("_"))
-            {
-                StartCoroutine(PlayerLastAttack());
-            }
-            else
-            {
-                //reset speed stat
-                activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
-                EndTurn();
-            }
-        }
-    }
-
     private IEnumerator PlayerLastAttack()
     {
         gameObject.GetComponent<UIManager>().playerTurn = false;
@@ -416,6 +369,8 @@ public class GameManager : MonoBehaviour
         gameObject.GetComponent<UIManager>().playerTurn = false;
         gameObject.GetComponent<UIManager>().ToggleContolButtonDisplay();
         HideAllTargetSelections();
+
+        CheckStatBonus();
         activeChar.GetComponent<CharController>().charPose = "neutral";
         activeChar.GetComponent<CharController>().UpdatePose();
         StartCoroutine(EnemyActions());
@@ -507,8 +462,55 @@ public class GameManager : MonoBehaviour
                 CheckGameOver();
             }
 
+            PrepNextTurn();
             EndTurn();
         }
+    }
+
+    private void CheckStatBonus()
+    {
+        if (activeChar.GetComponent<CharController>().charPose == "dash")
+        {
+            gameObject.GetComponent<UIManager>().menuText.text = "ATTACK BONUS!";
+            activeChar.GetComponent<CharController>().charStrengthCurrent *= 2;
+        }
+
+        if (activeChar.GetComponent<CharController>().charDefenseCurrent != activeChar.GetComponent<CharController>().charDefenseBase)
+        {
+            activeChar.GetComponent<CharController>().charDefenseCurrent = activeChar.GetComponent<CharController>().charDefenseBase;
+        }
+
+        activeChar.GetComponent<CharController>().UpdateStatus();
+    }
+
+    private void CheckRemainingSpeed(int newCurrentSpeed)
+    {
+        if (newCurrentSpeed <= 0)
+        {
+            //change sprite to idle pose if they were attacking, denoted by an underscore in the pose name
+            if (activeChar.GetComponent<CharController>().charPose.Contains("_"))
+            {
+                StartCoroutine(PlayerLastAttack());
+            }
+            else
+            {
+                //reset speed stat
+                activeChar.GetComponent<CharController>().charSpeedCurrent = activeChar.GetComponent<CharController>().charSpeedBase;
+                EndTurn();
+            }
+        }
+    }
+
+    private void PrepNextTurn()
+    {
+        //reset current strength to base after attacking
+        int baseStrength = activeChar.GetComponent<CharController>().charStrengthBase;
+        activeChar.GetComponent<CharController>().charStrengthCurrent = baseStrength;
+
+        //update char status display
+        activeChar.GetComponent<CharController>().UpdateStatus();
+
+        gameObject.GetComponent<UIManager>().ToggleContolButtonDisplay();
     }
 
     public void EndTurn()

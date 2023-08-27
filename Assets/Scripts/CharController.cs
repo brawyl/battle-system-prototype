@@ -95,6 +95,9 @@ public class CharController : MonoBehaviour
             UpdatePose();
         }
 
+        //vulnerable defense drop will only apply to the first attack received
+        if (charDefenseCurrent != charDefenseBase) charDefenseCurrent = charDefenseBase;
+
         UpdateStatus();
     }
 
