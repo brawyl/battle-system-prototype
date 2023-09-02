@@ -237,7 +237,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (pose.Contains("heavy")) //heavy skill is multi target
+        if (pose.Contains("light")) //light skill is multi target
         {
             //iterate thru a new find of the enemy game objects since removing enemies while iterating thru the enemy list causes issues
             foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
@@ -265,6 +265,8 @@ public class GameManager : MonoBehaviour
 
         int damageToTake = CalculateDamageAndPose(target, attacker, strength);
 
+        target.TakeDamage(damageToTake);
+
         if (damageToTake > 0)
         {
             //update combo text
@@ -286,6 +288,7 @@ public class GameManager : MonoBehaviour
         int enemyIndex = int.Parse(enemyObjectIndex) - 1;
         GameObject damageText = gameObject.GetComponent<UIManager>().enemyDamageText[enemyIndex];
         damageText.GetComponent<TMP_Text>().text = damageToTake > 0 ? damageToTake.ToString() : "MISS";
+        damageText.GetComponent<Animation>().Stop();
         damageText.GetComponent<Animation>().Play();
 
         if (!target.charAlive)
@@ -317,7 +320,8 @@ public class GameManager : MonoBehaviour
 
             //take double damage if hit mid-jump or mid-crouch
             if ((target.charPose.Contains("jump") && attacker.charPose.Contains("jump")) ||
-                    (target.charPose.Contains("crouch") && attacker.charPose.Contains("crouch")))
+                (target.charPose.Contains("crouch") && attacker.charPose.Contains("crouch")) ||
+                target.charPose.Contains("dash"))
             {
                 damageToTake *= 2;
             }
@@ -330,8 +334,6 @@ public class GameManager : MonoBehaviour
             //do not allow zero damage attacks
             if (damageToTake < 1) { damageToTake = 1; }
         }
-
-        target.TakeDamage(damageToTake);
 
         //reset a blocking pose to neutral when hit with a dash attack
         if (target.charPose.Contains("block") && attacker.charPose.Contains("dash"))
@@ -428,7 +430,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         if (movementString == "block") actionString = "wait"; //make blocking dependent on movement chance only
-        else if (movementString == "neutral" && actionString == "wait") actionString = "light"; //prevent enemy wasting turn
+        else if (movementString == "neutral" && actionString == "wait") actionString = "heavy"; //prevent enemy wasting turn
         PoseCharacter(actionString);
         //delay so player can see what happened
         yield return new WaitForSeconds(1);
@@ -448,12 +450,15 @@ public class GameManager : MonoBehaviour
 
             int damageToTake = CalculateDamageAndPose(target, attacker, attackStrength);
 
+            target.TakeDamage(damageToTake);
+
             //subract 1 from enemy index since the named index starts at 1
             string heroObjectNameIndex = targetObject.name.Replace("HERO ", "");
             int heroDamageTextIndex = int.Parse(heroObjectNameIndex) - 1;
 
             GameObject damageText = gameObject.GetComponent<UIManager>().heroDamageText[heroDamageTextIndex];
             damageText.GetComponent<TMP_Text>().text = damageToTake > 0 ? damageToTake.ToString() : "MISS";
+            damageText.GetComponent<Animation>().Stop();
             damageText.GetComponent<Animation>().Play();
 
             //change sprite to idle pose

@@ -22,12 +22,12 @@ public class Skill : MonoBehaviour
         float damage = 0f;
         selectedSkillCost = 0;
 
-        if (skillType.Contains("light"))
+        if (skillType.Contains("heavy"))
         {
             damage = strength * Random.Range(skillSingleMin, skillSingleMax);
             selectedSkillCost = skillSingleCost;
         }
-        else if (skillType.Contains("heavy"))
+        else if (skillType.Contains("light"))
         {
             damage = strength * Random.Range(skillMultiMin, skillMultiMax);
             selectedSkillCost = skillMultiCost;
