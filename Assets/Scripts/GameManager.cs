@@ -28,18 +28,15 @@ public class GameManager : MonoBehaviour
         //check if instance exists
         if (instance == null)
         {
-            //set instance to this
             instance = this;
         }
         //exists but is another instance
         else if (instance != this)
         {
-            //destroy it
             Destroy(gameObject);
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         gameOver = false;
